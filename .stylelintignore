@@ -8,3 +8,4 @@ build/
 *.ts
 *.tsx
 *.js
+*.cjs
