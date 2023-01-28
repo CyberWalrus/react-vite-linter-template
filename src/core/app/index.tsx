@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import cn from 'classnames/bind';
+import { clsx } from 'clsx';
 
 import reactLogo from '$assets/react.svg';
 
@@ -17,7 +17,7 @@ const App = () => {
                 <a href="https://reactjs.org" rel="noreferrer" target="_blank">
                     <img
                         alt="React logo"
-                        className={cn(classes.logo, classes.react)}
+                        className={clsx(classes.logo, classes.react)}
                         src={reactLogo}
                     />
                 </a>
