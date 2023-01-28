@@ -1,0 +1,10 @@
+build/
+node_modules/
+configs/
+lib/
+storybook-static/
+__mocks__/
+.idea/
+.vscode/
+lib/
+dist/

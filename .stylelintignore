@@ -1,0 +1,11 @@
+.idea/
+.vscode/
+node_modules/
+build/
+*.svg
+*.html
+*.md
+*.ts
+*.tsx
+*.js
+*.cjs
