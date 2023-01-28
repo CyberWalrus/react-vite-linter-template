@@ -1,0 +1,16 @@
+.icon {
+    --ll_color: #646cff;
+    height: 6em;
+    padding: 1.5em;
+
+    color: #646cff;
+    font-weight: 500;
+    text-decoration: inherit;
+
+    will-change: filter;
+
+    &:hover {
+        --ll_color: #535bf2;
+        filter: drop-shadow(0 0 2em #646cffaa);
+    }
+}

@@ -1,0 +1,11 @@
+:root {
+    color-scheme: light dark;
+
+    --color_text: rgba(255, 255, 255, 0.87);
+    --color_background: #242424;
+
+    @media (prefers-color-scheme: light) {
+        --color_text: #213547;
+        --color_background: #ffffff;
+    }
+}

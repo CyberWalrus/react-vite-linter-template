@@ -20,7 +20,6 @@ module.exports = {
             {
                 except: [
                     'after-same-name',
-                    'inside-block',
                     'blockless-after-same-name-blockless',
                     'blockless-after-blockless',
                     'first-nested',
