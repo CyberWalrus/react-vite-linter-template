@@ -1,0 +1,22 @@
+:root {
+    font-weight: 400;
+    font-size: 16px;
+    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 24px;
+    font-synthesis: none;
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-size-adjust: 100%;
+
+    background-color: var(--color_background);
+}
+
+body {
+    margin: 0;
+}
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
