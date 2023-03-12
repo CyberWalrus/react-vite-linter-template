@@ -20,11 +20,6 @@
         "noEmit": true,
         "jsx": "react-jsx",
         "outDir": "lib/src",
-        "types": [
-            "@types/mocha",
-            "vitest/globals",
-            "@testing-library/jest-dom"
-        ],
         "typeRoots": [
             "./types"
         ],
