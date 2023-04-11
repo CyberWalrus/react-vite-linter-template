@@ -202,24 +202,14 @@ module.exports = {
                 groups: [
                     ['^react', '^@?\\w'],
                     ['^\\$+'],
-                    [
-                        '^\\.\\.(?!/?$)',
-                        '^\\.\\./?$',
-                        '^\\./(?=.*/)(?!/?$)',
-                        '^\\.(?!/?$)',
-                        '^\\./?$',
-                    ],
+                    ['^\\.\\.(?!/?$)', '^\\.\\./?$', '^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
                     ['^\\$styles.+\\.(c|le|sa|sc|pc)ss$', '^.+\\.(c|le|sa|sc|pc)ss$'],
                 ],
             },
         ],
         'sort-imports': 0,
         'sort-keys-fix/sort-keys-fix': [1, 'asc', { caseSensitive: true, natural: true }],
-        'typescript-sort-keys/interface': [
-            1,
-            'asc',
-            { caseSensitive: true, natural: true, requiredFirst: true },
-        ],
+        'typescript-sort-keys/interface': [1, 'asc', { caseSensitive: true, natural: true, requiredFirst: true }],
         'typescript-sort-keys/string-enum': [1, 'asc', { caseSensitive: true, natural: true }],
     },
     settings: {

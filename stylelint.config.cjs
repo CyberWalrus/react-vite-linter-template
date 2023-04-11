@@ -1,10 +1,6 @@
 module.exports = {
     customSyntax: require('postcss-scss'),
-    extends: [
-        'stylelint-config-standard',
-        'stylelint-config-css-modules',
-        '@greenly/stylelint-config-rational-order',
-    ],
+    extends: ['stylelint-config-standard', 'stylelint-config-css-modules', '@greenly/stylelint-config-rational-order'],
     plugins: [
         'stylelint-csstree-validator',
         'stylelint-declaration-block-no-ignored-properties',
@@ -48,17 +44,11 @@ module.exports = {
             },
         ],
         'custom-property-pattern': '^([a-z][a-z]*)((-|__|_)[a-z0-9]+)*$',
-        'declaration-block-no-duplicate-properties': [
-            true,
-            { ignoreProperties: ['/background\\-/'] },
-        ],
+        'declaration-block-no-duplicate-properties': [true, { ignoreProperties: ['/background\\-/'] }],
         'declaration-block-no-redundant-longhand-properties': true,
         'declaration-block-no-shorthand-property-overrides': true,
         'declaration-block-single-line-max-declarations': 1,
-        'declaration-empty-line-before': [
-            'never',
-            { ignore: ['after-comment', 'after-declaration'] },
-        ],
+        'declaration-empty-line-before': ['never', { ignore: ['after-comment', 'after-declaration'] }],
         'declaration-no-important': true,
         'font-family-name-quotes': 'always-where-recommended',
         'font-family-no-duplicate-names': true,
@@ -95,10 +85,7 @@ module.exports = {
             'scripting',
             'update',
         ],
-        'media-feature-name-no-unknown': [
-            true,
-            { ignoreMediaFeatureNames: ['min-device-pixel-ratio'] },
-        ],
+        'media-feature-name-no-unknown': [true, { ignoreMediaFeatureNames: ['min-device-pixel-ratio'] }],
         'media-feature-name-no-vendor-prefix': true,
         'no-descending-specificity': null,
         'no-duplicate-at-import-rules': true,
@@ -117,10 +104,7 @@ module.exports = {
                 severity: 'warning',
             },
         ],
-        'plugin/z-index-value-constraint': [
-            { max: 10, min: 0 },
-            { ignoreValues: [20, 30, 100, 101, 110, 1000] },
-        ],
+        'plugin/z-index-value-constraint': [{ max: 10, min: 0 }, { ignoreValues: [20, 30, 100, 101, 110, 1000] }],
         'property-disallowed-list': [
             'property-blacklist',
             'box-decoration-break',
@@ -139,19 +123,10 @@ module.exports = {
             'text-combine-upright',
         ],
         'property-no-unknown': true,
-        'property-no-vendor-prefix': [
-            true,
-            { ignoreProperties: ['line-clamp', 'box-orient', 'tap-highlight-color'] },
-        ],
-        'rule-empty-line-before': [
-            'always',
-            { except: ['first-nested'], ignore: ['after-comment'] },
-        ],
+        'property-no-vendor-prefix': [true, { ignoreProperties: ['line-clamp', 'box-orient', 'tap-highlight-color'] }],
+        'rule-empty-line-before': ['always', { except: ['first-nested'], ignore: ['after-comment'] }],
         'selector-attribute-quotes': 'always',
-        'selector-class-pattern': [
-            '^.[a-z\\d-]+(?:__[a-z\\d-]+)?(?:_[a-z\\d-]+)?$',
-            { resolveNestedSelectors: true },
-        ],
+        'selector-class-pattern': ['^.[a-z\\d-]+(?:__[a-z\\d-]+)?(?:_[a-z\\d-]+)?$', { resolveNestedSelectors: true }],
         'selector-id-pattern': '^[a-z]+(?:[a-z\\d-]+)?$',
         'selector-max-attribute': 5,
         'selector-max-class': 5,
