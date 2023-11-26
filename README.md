@@ -1,4 +1,5 @@
 # react-vite-linter-template
+
 Template for react app
 
 Run the following command, which will generate a new directory called .yarn/sdks:

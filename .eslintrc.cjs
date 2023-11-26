@@ -31,7 +31,6 @@ module.exports = {
                 '@typescript-eslint/default-param-last': 0,
                 '@typescript-eslint/no-explicit-any': 0,
                 '@typescript-eslint/no-floating-promises': 0,
-                '@typescript-eslint/no-implicit-any-catch': 0,
                 '@typescript-eslint/no-misused-promises': 0,
                 '@typescript-eslint/no-non-null-assertion': 0,
                 '@typescript-eslint/no-shadow': 0,
@@ -47,7 +46,6 @@ module.exports = {
                 '@typescript-eslint/restrict-plus-operands': 0,
                 '@typescript-eslint/restrict-template-expressions': 0,
                 '@typescript-eslint/return-await': 0,
-                '@typescript-eslint/sort-type-union-intersection-members': 0,
                 '@typescript-eslint/unbound-method': 0,
 
                 'default-param-last': 0,
@@ -94,7 +92,6 @@ module.exports = {
         '@typescript-eslint/consistent-type-definitions': [1, 'interface'],
         '@typescript-eslint/consistent-type-imports': 1,
         '@typescript-eslint/naming-convention': 0,
-        '@typescript-eslint/no-implicit-any-catch': 1,
         '@typescript-eslint/no-unused-expressions': 0,
         '@typescript-eslint/no-unused-vars': [
             1,
@@ -106,7 +103,6 @@ module.exports = {
             },
         ],
         '@typescript-eslint/no-var-requires': 2,
-        '@typescript-eslint/sort-type-union-intersection-members': 1,
 
         'arrow-body-style': [2, 'as-needed'],
         'class-methods-use-this': 1,

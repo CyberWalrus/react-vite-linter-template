@@ -4,7 +4,6 @@ module.exports = {
     plugins: [
         'stylelint-csstree-validator',
         'stylelint-declaration-block-no-ignored-properties',
-        'stylelint-no-unsupported-browser-features',
         'stylelint-z-index-value-constraint',
         'stylelint-order',
         '@greenly/stylelint-config-rational-order/plugin',
@@ -38,10 +37,7 @@ module.exports = {
         'csstree/validator': { syntaxExtensions: ['sass', 'less'] },
         'custom-property-empty-line-before': [
             'always',
-            {
-                except: ['after-comment', 'after-custom-property', 'first-nested'],
-                ignore: ['first-nested'],
-            },
+            { except: ['after-comment', 'after-custom-property', 'first-nested'], ignore: ['first-nested'] },
         ],
         'custom-property-pattern': '^([a-z][a-z]*)((-|__|_)[a-z0-9]+)*$',
         'declaration-block-no-duplicate-properties': [true, { ignoreProperties: ['/background\\-/'] }],
@@ -104,7 +100,7 @@ module.exports = {
                 severity: 'warning',
             },
         ],
-        'plugin/z-index-value-constraint': [{ max: 10, min: 0 }, { ignoreValues: [20, 30, 100, 101, 110, 1000] }],
+        'plugin/z-index-value-constraint': [{ max: 10, min: 0 }, { ignoreValues: [20, 30, 100, 101, 110, 1000, 1001] }],
         'property-disallowed-list': [
             'property-blacklist',
             'box-decoration-break',
