@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import { createLazyRoute } from '@tanstack/react-router';
 
 import reactLogo from '$assets/react.svg';
 import { BaseIcon } from '$shared/ui';
@@ -25,3 +26,7 @@ export const AboutPage: FC = () => (
         <p className='read-the-docs'>template</p>
     </>
 );
+
+export const aboutLazyRoute = createLazyRoute('/about')({
+    component: AboutPage,
+});

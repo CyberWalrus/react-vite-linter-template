@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import { useState } from 'react';
+import { createLazyRoute } from '@tanstack/react-router';
 
 import reactLogo from '$assets/react.svg';
 import { BaseIcon } from '$shared/ui';
@@ -43,3 +44,7 @@ export const HomePage: FC = () => {
         </>
     );
 };
+
+export const homeLazyRoute = createLazyRoute('/')({
+    component: HomePage,
+});

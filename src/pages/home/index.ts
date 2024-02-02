@@ -5,4 +5,4 @@ import { rootRoute } from '$widgets/root-route';
 export const homeRoute = createRoute({
     getParentRoute: () => rootRoute,
     path: '/',
-}).lazy(() => import('./route').then((d) => d.homeLazyRoute));
+}).lazy(() => import('./ui/home-page').then((d) => d.homeLazyRoute));
