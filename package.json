@@ -20,6 +20,8 @@
         "test": "TZ=Europe/Moscow vitest run --isolate=false"
     },
     "dependencies": {
+        "@tanstack/react-router": "1.15.10",
+        "@tanstack/router-devtools": "1.15.10",
         "clsx": "2.1.0",
         "react": "18.2.0",
         "react-dom": "18.2.0"
