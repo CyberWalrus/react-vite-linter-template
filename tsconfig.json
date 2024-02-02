@@ -1,25 +1,6 @@
 {
+    "extends": "@cyber-walrus/typescript-config/tsconfig.json",
     "compilerOptions": {
-        "target": "ESNext",
-        "useDefineForClassFields": true,
-        "lib": [
-            "DOM",
-            "DOM.Iterable",
-            "ESNext"
-        ],
-        "allowJs": false,
-        "skipLibCheck": true,
-        "esModuleInterop": false,
-        "allowSyntheticDefaultImports": true,
-        "strict": true,
-        "forceConsistentCasingInFileNames": true,
-        "module": "ESNext",
-        "moduleResolution": "Node",
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "noEmit": true,
-        "jsx": "react-jsx",
-        "outDir": "lib/src",
         "typeRoots": [
             "./types"
         ],
@@ -28,30 +9,20 @@
             "$*": [
                 "src/*"
             ]
-        },
-        "plugins": [
-            {
-                "name": "typescript-plugin-css-modules",
-                "options": {
-                    "classnameTransform": "camelCaseOnly",
-                    "customMatcher": "(\\.module)?\\.(c|le|sa|sc|pc)ss$",
-                }
-            }
-        ],
+        }
     },
     "include": [
         "src",
         "types",
         "storybook",
         "scripts",
-        "webpack",
         "vitest.setup.ts",
         ".eslintrc.cjs",
         "*.config.js",
         "*.config.cjs",
-        "*.config.ts",
+        "*.config.ts"
     ],
     "exclude": [
         "node_modules"
-    ]
+    ],
 }
