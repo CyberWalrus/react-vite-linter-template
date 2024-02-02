@@ -9,7 +9,11 @@
             "$*": [
                 "src/*"
             ]
-        }
+        },
+        "rootDirs": [
+            ".",
+            "__generated__"
+        ],
     },
     "include": [
         "src",
