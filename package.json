@@ -16,8 +16,7 @@
         "stylelint:check": "stylelint \"src/**/*.scss\"",
         "stylelint:fix": "stylelint \"src/**/*.scss\" --fix",
         "lint:check": "yarn eslint:check && yarn stylelint:check && yarn ts:check",
-        "lint:fix": "yarn eslint:fix && yarn stylelint:fix",
-        "test": "TZ=Europe/Moscow vitest run --isolate=false"
+        "lint:fix": "yarn eslint:fix && yarn stylelint:fix"
     },
     "dependencies": {
         "@tanstack/react-router": "1.15.10",
