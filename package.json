@@ -19,20 +19,20 @@
         "lint:fix": "yarn eslint:fix && yarn stylelint:fix"
     },
     "dependencies": {
-        "@tanstack/react-router": "1.15.10",
-        "@tanstack/router-devtools": "1.15.10",
+        "@tanstack/react-router": "1.16.0",
+        "@tanstack/router-devtools": "1.16.0",
         "clsx": "2.1.0",
         "react": "18.2.0",
         "react-dom": "18.2.0"
     },
     "devDependencies": {
         "@cyber-walrus/configs": "1.0.1",
-        "@types/react": "18.2.38",
-        "@types/react-dom": "18.2.17",
-        "@vitejs/plugin-react-swc": "3.5.0",
+        "@types/react": "18.2.55",
+        "@types/react-dom": "18.2.19",
+        "@vitejs/plugin-react-swc": "3.6.0",
         "concurrently": "8.2.2",
         "tsc-alias": "1.8.8",
         "typed-scss-modules": "8.0.0",
-        "vite": "5.0.12"
+        "vite": "5.1.1"
     }
 }
