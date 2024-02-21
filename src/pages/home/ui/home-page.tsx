@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { createLazyRoute } from '@tanstack/react-router';
 
 import reactLogo from '$assets/react.svg';
+import viteLogo from '$public/vite.svg';
 import { BaseIcon } from '$shared/ui';
 
 import styles from './home-page.module.scss';
@@ -17,7 +18,7 @@ export const HomePage: FC = () => {
                 alt='Vite logo'
                 href='https://vitejs.dev'
                 rel='noreferrer'
-                src='/vite.svg'
+                src={viteLogo}
                 target='_blank'
             />
             <BaseIcon

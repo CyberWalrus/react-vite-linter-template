@@ -6,6 +6,9 @@
         ],
         "baseUrl": "./",
         "paths": {
+            "$public/*": [
+                "public/*"
+            ],
             "$*": [
                 "src/*"
             ]

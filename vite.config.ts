@@ -40,6 +40,7 @@ export default defineConfig({
             $app: resolve(__dirname, './src/app'),
             $assets: resolve(__dirname, './src/assets'),
             $pages: resolve(__dirname, './src/pages'),
+            $public: resolve(__dirname, './public'),
             $shared: resolve(__dirname, './src/shared'),
             $widgets: resolve(__dirname, './src/widgets'),
         },
