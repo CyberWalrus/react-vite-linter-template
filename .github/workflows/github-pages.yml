@@ -20,17 +20,15 @@ jobs:
       matrix:
         node-version: [20.x]
 
-    env:
-        BASE_PATH: ${{ github.repository }}
-
     steps:
     - uses: actions/checkout@v3
 
+
     - name: Replace Characters in Repository Name
-    run: |
-      ORIGINAL_VALUE="${{ github.repository }}"
-      MODIFIED_VALUE="${ORIGINAL_VALUE//-/_}"
-      echo "MODIFIED_REPOSITORY_NAME=$MODIFIED_VALUE" >> $GITHUB_ENV
+      run: |
+        ORIGINAL_VALUE="${{ github.repository }}"
+        MODIFIED_VALUE="${ORIGINAL_VALUE/.*?\//\/}"
+        echo "BASE_PATH=$MODIFIED_VALUE" >> $GITHUB_ENV
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
