@@ -27,7 +27,25 @@ export default defineConfig({
         react(),
         VitePWA({
             base: `${process.env.BASE_URL ?? '/'}`,
-            pwaAssets: { image: './public/vite.svg', integration: { baseUrl: `${process.env.BASE_URL ?? '/'}` } },
+            includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
+            manifest: {
+                description: 'React Vite Linter Template',
+                icons: [
+                    {
+                        sizes: '192x192',
+                        src: 'pwa-192x192.png',
+                        type: 'image/png',
+                    },
+                    {
+                        sizes: '512x512',
+                        src: 'pwa-512x512.png',
+                        type: 'image/png',
+                    },
+                ],
+                name: 'React Vite Linter Template',
+                short_name: 'ReactTemplate',
+                theme_color: '#ffffff',
+            },
             registerType: 'autoUpdate',
         }),
         viteStaticCopy({
