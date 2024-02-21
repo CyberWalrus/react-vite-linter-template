@@ -26,6 +26,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Replace Characters in Repository Name
+    run: |
+      ORIGINAL_VALUE="${{ github.repository }}"
+      MODIFIED_VALUE="${ORIGINAL_VALUE//-/_}"
+      echo "MODIFIED_REPOSITORY_NAME=$MODIFIED_VALUE" >> $GITHUB_ENV
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
