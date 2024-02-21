@@ -25,7 +25,11 @@ export default defineConfig({
     },
     plugins: [
         react(),
-        VitePWA({ base: `${process.env.BASE_URL ?? '/'}`, registerType: 'autoUpdate' }),
+        VitePWA({
+            base: `${process.env.BASE_URL ?? '/'}`,
+            pwaAssets: { image: './public/vite.svg', integration: { baseUrl: `${process.env.BASE_URL ?? '/'}` } },
+            registerType: 'autoUpdate',
+        }),
         viteStaticCopy({
             targets: [{ dest: './', rename: '404.html', src: './dist/index.html' }],
         }),
