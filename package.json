@@ -6,7 +6,7 @@
     "scripts": {
         "start": "concurrently \"yarn dev\" \"yarn run ts:scss:watch\"",
         "dev": "vite",
-        "build": "tsc && vite build --base=BASE_PATH",
+        "build": "tsc && vite build",
         "build:visualizer": "yarn vite-bundle-visualizer",
         "preview": "vite preview",
         "ts:scss:build": "yarn typed-scss-modules src",

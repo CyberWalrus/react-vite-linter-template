@@ -21,6 +21,11 @@ export default defineConfig({
     define: {
         'process.env.BASE_PATH': JSON.stringify(process.env.BASE_PATH),
     },
+    experimental: {
+        renderBuiltUrl(filename: string) {
+            return `${process.env.BASE_URL ?? '/'}${filename}`;
+        },
+    },
     plugins: [
         react(),
         VitePWA({ registerType: 'autoUpdate' }),
