@@ -1,7 +1,7 @@
 {
     "name": "react-vite-linter-template",
     "private": true,
-    "version": "0.0.0",
+    "version": "0.0.1",
     "type": "module",
     "scripts": {
         "start": "concurrently \"yarn dev\" \"yarn run ts:scss:watch\"",
