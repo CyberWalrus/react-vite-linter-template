@@ -21,7 +21,7 @@ jobs:
         node-version: [20.x]
 
     env:
-        BASE_PATH: ${ GITHUB_REPOSITORY }
+        BASE_PATH: ${{ github.repository }}
 
     steps:
     - uses: actions/checkout@v3
