@@ -50,7 +50,7 @@ export default defineConfig({
                 ],
                 name: 'React Vite Linter Template',
                 short_name: 'ReactTemplate',
-                theme_color: '#ffffff',
+                theme_color: '#242424',
             },
             registerType: 'autoUpdate',
         }),
