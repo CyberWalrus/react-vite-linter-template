@@ -1145,13 +1145,13 @@
   resolved "https://registry.yarnpkg.com/@csstools/selector-specificity/-/selector-specificity-3.0.1.tgz#d84597fbc0f897240c12fc0a31e492b036c70e40"
   integrity sha512-NPljRHkq4a14YzZ3YD406uaxh7s0g6eAq3L9aLOWywoqe8PkYamAvtsh7KNX6c++ihDrJ0RiU+/z7rGnhlZ5ww==
 
-"@cyber-walrus/configs@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@cyber-walrus/configs/-/configs-1.0.1.tgz#cf980fb1e1df8a0bfc3da0153efabb5aa136176c"
-  integrity sha512-gM5hhbSqQ2QPxg1hc1TCLFR9R0gSOI3sEZexAqzCz+jz84/Y5xwH9fT+4HKc9T2NPLrhwtfWbvsa1SmAudP/EQ==
+"@cyber-walrus/configs@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@cyber-walrus/configs/-/configs-1.1.0.tgz#afec91cb405f2f2cd692e890cc6f8dc1259028da"
+  integrity sha512-PZcsVnehrRJB79+IIeKpGlTRMLxq39Y/HtQqn+BsgAZ3Yef7iNSxGyYJC0jx2DR7+C8gOjD9wJt7LpsP0GRAKQ==
   dependencies:
     "@cyber-walrus/eslint-config" "1.0.1"
-    "@cyber-walrus/stylelint-config" "1.0.1"
+    "@cyber-walrus/stylelint-config" "1.1.0"
     "@cyber-walrus/typescript-config" "1.0.0"
 
 "@cyber-walrus/eslint-config@1.0.1":
@@ -1180,19 +1180,16 @@
     eslint-plugin-typescript-sort-keys "3.1.0"
     prettier "3.2.4"
 
-"@cyber-walrus/stylelint-config@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@cyber-walrus/stylelint-config/-/stylelint-config-1.0.1.tgz#801cee0f4a4bd13e3a55600dc17a2d2131266966"
-  integrity sha512-kVphnxddCsHu6N6TRglb6pfP75HYGY4QHMA23nZBBEOOBYF6KrxSkF6L2y8vmF/EgYsUkJqnkkR3u0LXz4hQmA==
+"@cyber-walrus/stylelint-config@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@cyber-walrus/stylelint-config/-/stylelint-config-1.1.0.tgz#c756e5e7e3c9028f9c6077f69b60ff0daaf9c94f"
+  integrity sha512-wFugxgjeJJbIfEdbcIv13NOfa7IU/kMsZqAIlhZ12RutUMWBX4w0CXtvpFT/huWoU6xKemvgEN4H4wnzgFrr/w==
   dependencies:
     "@greenly/stylelint-config-rational-order" "0.2.1"
     postcss "8.4.33"
     postcss-scss "4.0.9"
     sass "1.70.0"
     stylelint "15.11.0"
-    stylelint-config-css-modules "4.4.0"
-    stylelint-config-recommended "14.0.0"
-    stylelint-config-standard "35.0.0"
     stylelint-csstree-validator "3.0.0"
     stylelint-declaration-block-no-ignored-properties "2.8.0"
     stylelint-no-browser-hacks "1.2.1"
@@ -1616,10 +1613,10 @@
   resolved "https://registry.yarnpkg.com/@tanstack/history/-/history-1.15.13.tgz#544878665989e6ce07872378961fc6717d342682"
   integrity sha512-ToaeMtK5S4YaxCywAlYexc7KPFN0esjyTZ4vXzJhXEWAkro9iHgh7m/4ozPJb7oTo65WkHWX0W9GjcZbInSD8w==
 
-"@tanstack/react-router@1.16.2":
-  version "1.16.2"
-  resolved "https://registry.yarnpkg.com/@tanstack/react-router/-/react-router-1.16.2.tgz#e722fca3c1e61ca8b7bc9e6b5ed63d8d0993c162"
-  integrity sha512-GgAxcs3JQjpC/nQd81S9MQ2wC9aPEw+fBt0n1VwYl/vW571OpU4HfRawu/OT4piHcV9/VS5oAUoZlwtApI0hLw==
+"@tanstack/react-router@1.16.6":
+  version "1.16.6"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-router/-/react-router-1.16.6.tgz#5395b73467c099338b7f31d92ac20a69e7dbe2b8"
+  integrity sha512-d1Kjs38IF3bH7jKwihMBrdnh7BMVOHSNhJ9sltCiP4gLHcZkG7V9BwwJn5yL4V7YHIPNxdrJ3v4yrkvdrPJ0Ww==
   dependencies:
     "@tanstack/history" "1.15.13"
     "@tanstack/react-store" "^0.2.1"
@@ -1634,12 +1631,12 @@
     "@tanstack/store" "0.1.3"
     use-sync-external-store "^1.2.0"
 
-"@tanstack/router-devtools@1.16.4":
-  version "1.16.4"
-  resolved "https://registry.yarnpkg.com/@tanstack/router-devtools/-/router-devtools-1.16.4.tgz#68670e4026bb2a508ad279fefdfc037d33a70136"
-  integrity sha512-yJkN8f/InKGyXFFiIQdm41ZyDSfrN9IA2bVK1puqYAPuzJC4ubJgux0prSP0YsOprbzZflMEremd06/tD+Vd/g==
+"@tanstack/router-devtools@1.16.6":
+  version "1.16.6"
+  resolved "https://registry.yarnpkg.com/@tanstack/router-devtools/-/router-devtools-1.16.6.tgz#b0358d1ce66dff337fe954f0e78765e4e09318be"
+  integrity sha512-zjyLuStYA1TM4L1IfgQJ1ZCq36o3UVaLLCVmBBHukxbc6n2cKR2U11BXJW5RpkNZDyAPyGcPLEgJ2qcZCYSDcQ==
   dependencies:
-    "@tanstack/react-router" "1.16.2"
+    "@tanstack/react-router" "1.16.6"
     date-fns "^2.29.1"
 
 "@tanstack/store@0.1.3":
@@ -1732,10 +1729,10 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/react@18.2.55":
-  version "18.2.55"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.55.tgz#38141821b7084404b5013742bc4ae08e44da7a67"
-  integrity sha512-Y2Tz5P4yz23brwm2d7jNon39qoAtMMmalOQv6+fEFt1mT+FcM3D841wDpoUvFXhaYenuROCy3FZYqdTjM7qVyA==
+"@types/react@18.2.57":
+  version "18.2.57"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.57.tgz#147b516d8bdb2900219acbfc6f939bdeecca7691"
+  integrity sha512-ZvQsktJgSYrQiMirAN60y4O/LRevIV8hUzSOSNB6gfR3/o3wCBFQx3sPwIYtuDMeiVgsSS3UzCV26tEzgnfvQw==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -6811,25 +6808,6 @@ stylehacks@^2.3:
     text-table "^0.2.0"
     write-file-stdout "0.0.2"
 
-stylelint-config-css-modules@4.4.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-css-modules/-/stylelint-config-css-modules-4.4.0.tgz#63dd08dfa9440d6c71cf2adbe668bc667958f4c4"
-  integrity sha512-J93MtxPjRzs/TjwbJ5y9SQy4iIqULXwL1CF1yx2tQCJfS/VZUcDAmoGOwqlLbhHXSQtZO5XQiA75NVWUR3KDCQ==
-  optionalDependencies:
-    stylelint-scss "^6.0.0"
-
-stylelint-config-recommended@14.0.0, stylelint-config-recommended@^14.0.0:
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-14.0.0.tgz#b395c7014838d2aaca1755eebd914d0bb5274994"
-  integrity sha512-jSkx290CglS8StmrLp2TxAppIajzIBZKYm3IxT89Kg6fGlxbPiTiyH9PS5YUuVAFwaJLl1ikiXX0QWjI0jmgZQ==
-
-stylelint-config-standard@35.0.0:
-  version "35.0.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-standard/-/stylelint-config-standard-35.0.0.tgz#f4574670affb72b6c99d2b5ca5ad010a11ee8d19"
-  integrity sha512-JyQrNZk2BZwVKFauGGxW2U6RuhIfQ4XoHHo+rBzMHcAkLnwI/knpszwXjzxiMgSfcxbZBckM7Vq4LHoANTR85g==
-  dependencies:
-    stylelint-config-recommended "^14.0.0"
-
 stylelint-csstree-validator@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/stylelint-csstree-validator/-/stylelint-csstree-validator-3.0.0.tgz#817fb686c9580b8bb3a92b1848556196cfead889"
@@ -6858,7 +6836,7 @@ stylelint-order@6.0.4:
     postcss "^8.4.32"
     postcss-sorting "^8.0.2"
 
-stylelint-scss@6.1.0, stylelint-scss@^6.0.0:
+stylelint-scss@6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-6.1.0.tgz#b7ef162c417132e8df2b69d1759ae07395d54fb5"
   integrity sha512-kCfK8TQzthGwb4vaZniZgxRsVbCM4ZckmT1b/H5m4FU3I8Dz0id9llKsy1NMp3XXqC8+OPD4rVKtUbSxXlJb5g==
@@ -7544,10 +7522,10 @@ vite-bundle-visualizer@1.0.1:
     rollup-plugin-visualizer "^5.11.0"
     tmp "^0.2.1"
 
-vite@5.1.3:
-  version "5.1.3"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-5.1.3.tgz#dd072653a80225702265550a4700561740dfde55"
-  integrity sha512-UfmUD36DKkqhi/F75RrxvPpry+9+tTkrXfMNZD+SboZqBCMsxKtO52XeGzzuh7ioz+Eo/SYDBbdb0Z7vgcDJew==
+vite@5.1.4:
+  version "5.1.4"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-5.1.4.tgz#14e9d3e7a6e488f36284ef13cebe149f060bcfb6"
+  integrity sha512-n+MPqzq+d9nMVTKyewqw6kSt+R3CkvF9QAKY8obiQn8g1fwTscKxyfaYnC632HtBXAQGc1Yjomphwn1dtwGAHg==
   dependencies:
     esbuild "^0.19.3"
     postcss "^8.4.35"
