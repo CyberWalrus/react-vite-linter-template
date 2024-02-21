@@ -9,4 +9,9 @@ const routeTree = rootRoute.addChildren([homeRoute, aboutRoute]);
 
 export const router = createRouter({ defaultPreload: 'intent', routeTree });
 
-export const AppRouter: FC = () => <RouterProvider router={router} />;
+export const AppRouter: FC = () => (
+    <RouterProvider
+        basepath='/react-vite-linter-template/'
+        router={router}
+    />
+);
