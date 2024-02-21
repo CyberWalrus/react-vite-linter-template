@@ -8,9 +8,6 @@ import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 dotenv.config();
 
-// eslint-disable-next-line no-console
-console.log('process.env.BASE_PATH', process.env.BASE_PATH);
-
 export default defineConfig({
     css: {
         modules: {
@@ -19,7 +16,7 @@ export default defineConfig({
         },
     },
     define: {
-        'process.env.BASE_PATH': JSON.stringify(process.env.BASE_PATH),
+        'process.env.BASE_PATH': JSON.stringify(process.env.BASE_PATH ?? '/'),
     },
     experimental: {
         renderBuiltUrl(filename: string) {
