@@ -36,6 +36,15 @@ jobs:
     - name: Build the project
       run: yarn build
 
+    - name: Build with Jekyll
+      uses: actions/jekyll-build-pages@v1
+      with:
+        source: ./dist
+        destination: ./_site
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v1
+
   deploy:
     environment:
       name: github-pages
