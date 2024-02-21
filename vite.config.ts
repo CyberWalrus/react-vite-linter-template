@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react-swc';
 import dotenv from 'dotenv';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 dotenv.config();
 
@@ -19,7 +20,12 @@ export default defineConfig({
     define: {
         'process.env.BASE_PATH': JSON.stringify(process.env.BASE_PATH),
     },
-    plugins: [react()],
+    plugins: [
+        react(),
+        viteStaticCopy({
+            targets: [{ dest: './', rename: '404.html', src: './dist/index.html' }],
+        }),
+    ],
     resolve: {
         alias: {
             $__mocks__: resolve(__dirname, './src/__mocks__'),

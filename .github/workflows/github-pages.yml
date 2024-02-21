@@ -26,7 +26,7 @@ jobs:
 
     - name: Replace Characters in Repository Name
       run: |
-        ORIGINAL_VALUE="${{ github.repository }}"
+        ORIGINAL_VALUE="${{ github.repository }}/"
         MODIFIED_VALUE="${ORIGINAL_VALUE/${{ github.repository_owner }}/}"
         echo "BASE_PATH=$MODIFIED_VALUE" >> $GITHUB_ENV
 
