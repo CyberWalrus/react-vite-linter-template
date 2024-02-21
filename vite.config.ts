@@ -1,7 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import react from '@vitejs/plugin-react-swc';
+import dotenv from 'dotenv';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
+
+dotenv.config();
+
+console.log('process.env.BASE_PATH', process.env.BASE_PATH);
 
 export default defineConfig({
     css: {
@@ -9,6 +14,9 @@ export default defineConfig({
             generateScopedName: '[local]_[hash:base64:4]',
             localsConvention: 'camelCaseOnly',
         },
+    },
+    define: {
+        'process.env.BASE_PATH': JSON.stringify(process.env.BASE_PATH),
     },
     plugins: [react()],
     resolve: {
