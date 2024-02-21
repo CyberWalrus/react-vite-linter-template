@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react-swc';
 import dotenv from 'dotenv';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
+import { VitePWA } from 'vite-plugin-pwa';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 dotenv.config();
@@ -22,6 +23,7 @@ export default defineConfig({
     },
     plugins: [
         react(),
+        VitePWA({ registerType: 'autoUpdate' }),
         viteStaticCopy({
             targets: [{ dest: './', rename: '404.html', src: './dist/index.html' }],
         }),
