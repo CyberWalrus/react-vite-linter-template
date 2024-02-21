@@ -6,6 +6,7 @@ import { defineConfig } from 'vite';
 
 dotenv.config();
 
+// eslint-disable-next-line no-console
 console.log('process.env.BASE_PATH', process.env.BASE_PATH);
 
 export default defineConfig({

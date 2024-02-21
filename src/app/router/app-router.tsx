@@ -7,6 +7,7 @@ import { rootRoute } from '$widgets/root-route';
 
 const basepath = String(process.env.BASE_PATH) ?? '/';
 
+// eslint-disable-next-line no-console
 console.log(basepath);
 
 const routeTree = rootRoute.addChildren([homeRoute, aboutRoute]);
