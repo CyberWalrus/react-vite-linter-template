@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { createLazyRoute } from '@tanstack/react-router';
 
 import reactLogo from '$assets/react.svg';
-import { getPublicURL } from '$shared/lib/helpers';
+import { getPublicURL } from '$shared/lib';
 import { BaseIcon } from '$shared/ui';
 
 import styles from './about-page.module.scss';

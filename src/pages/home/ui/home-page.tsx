@@ -3,7 +3,7 @@ import { createLazyRoute } from '@tanstack/react-router';
 
 import reactLogo from '$assets/react.svg';
 import { Counter } from '$features/counter';
-import { getPublicURL } from '$shared/lib/helpers';
+import { getPublicURL } from '$shared/lib';
 import { BaseIcon } from '$shared/ui';
 
 import styles from './home-page.module.scss';
