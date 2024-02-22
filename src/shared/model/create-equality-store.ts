@@ -3,7 +3,7 @@ import { useStore } from 'zustand';
 
 import { checkEquality } from '$shared/helpers';
 
-import type { ExtractState, WithReact } from './create-equality-store.types';
+import type { ExtractState, WithReact } from './create-equality-store.type';
 
 export const createEqualityStore =
     <GState extends WithReact<StoreApi<unknown>>>(store: GState) =>
