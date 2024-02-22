@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import { Suspense } from 'react';
 import { Link, Outlet } from '@tanstack/react-router';
 
 import { PageLayout } from '$shared/ui';
@@ -18,6 +19,8 @@ export const RootRouteLayout: FC = () => (
         }
     >
         <Outlet />
-        <TanStackRouterDevtools />
+        <Suspense>
+            <TanStackRouterDevtools />
+        </Suspense>
     </PageLayout>
 );
