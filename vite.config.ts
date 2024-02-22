@@ -17,6 +17,7 @@ export default defineConfig({
     },
     define: {
         'process.env.BASE_PATH': JSON.stringify(process.env.BASE_PATH ?? '/'),
+        'process.env.BASE_URL': JSON.stringify(process.env.BASE_URL ?? '/'),
     },
     experimental: {
         renderBuiltUrl(filename: string) {
