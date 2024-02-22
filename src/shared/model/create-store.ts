@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import { create, type StateCreator } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
