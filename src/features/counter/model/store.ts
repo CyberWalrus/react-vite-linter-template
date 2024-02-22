@@ -1,4 +1,4 @@
-import { createStore } from '$shared/model';
+import { createStore } from '$shared/lib/create-store';
 
 type CounterState = {
     clear: () => void;

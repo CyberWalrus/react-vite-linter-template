@@ -1,7 +1,7 @@
 import type { StoreApi } from 'zustand';
 import { useStore } from 'zustand';
 
-import { checkEquality } from '$shared/helpers';
+import { checkEquality } from './check-equality';
 
 import type { ExtractState, WithReact } from './create-equality-store.type';
 
