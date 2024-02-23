@@ -23,6 +23,7 @@
         "test:update": "UPDATE_SCREENSHOTS=true TZ=Europe/Moscow vitest run --isolate=false"
     },
     "dependencies": {
+        "@radix-ui/colors": "3.0.0",
         "@radix-ui/themes": "2.0.3",
         "@tanstack/react-router": "1.16.6",
         "@tanstack/router-devtools": "1.16.6",

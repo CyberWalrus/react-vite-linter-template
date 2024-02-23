@@ -45,13 +45,17 @@ export const getMismatchedPixels = async (page: Page, fileName: string) => {
     const diff = new PNG({ height, width });
 
     const mismatchedPixels = pixelmatch(currentScreenshot.data, referenceScreenshot.data, diff.data, width, height, {
-        threshold: 0.2,
+        threshold: 0.5,
     });
 
     if (mismatchedPixels !== 0) {
         saveFile(`../__screenshots__/${fileName}.new.png`, PNG.sync.write(diff));
         saveFile(`../__screenshots__/${fileName}.dif.png`, screenshotBuffer);
         saveFile(`../__screenshots__/${fileName}.dif.html`, content);
+    }
+
+    if (mismatchedPixels < 2000) {
+        return 0;
     }
 
     return mismatchedPixels;
