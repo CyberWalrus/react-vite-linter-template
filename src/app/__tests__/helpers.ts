@@ -49,9 +49,9 @@ export const getMismatchedPixels = async (page: Page, fileName: string) => {
     });
 
     if (mismatchedPixels !== 0) {
-        saveFile(`../__screenshots__/${fileName}.new.png`, PNG.sync.write(diff));
-        saveFile(`../__screenshots__/${fileName}.dif.png`, screenshotBuffer);
-        saveFile(`../__screenshots__/${fileName}.dif.html`, content);
+        saveFile(`../__screenshots__/${fileName}.dif.png`, PNG.sync.write(diff));
+        saveFile(`../__screenshots__/${fileName}.new.png`, screenshotBuffer);
+        saveFile(`../__screenshots__/${fileName}.new.html`, content);
     }
 
     if (mismatchedPixels < 2000) {
