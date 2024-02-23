@@ -31,6 +31,7 @@ jobs:
         MODIFIED_VALUE="${ORIGINAL_VALUE/${{ github.repository_owner }}/}"
         echo "BASE_PATH=$MODIFIED_VALUE" >> $GITHUB_ENV
         echo "BASE_URL="https://${{ github.repository_owner }}.github.io$MODIFIED_VALUE"" >> $GITHUB_ENV
+      shell: bash
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
@@ -49,6 +50,13 @@ jobs:
 
     - name: Run Tests
       run: yarn test
+
+    - name: Upload src/app/__screenshots-error__ as artifact if tests fail
+      if: failure()
+      uses: actions/upload-artifact@v3
+      with:
+        name: failed-test-artifacts
+        path: ./src/app/__screenshots-error__
 
     - name: Build with Jekyll
       uses: actions/jekyll-build-pages@v1
