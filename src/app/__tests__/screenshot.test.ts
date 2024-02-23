@@ -39,7 +39,7 @@ describe('Screenshot Test', () => {
         await page.goto(BASE_URL);
         const screenshotBuffer = await page.screenshot();
 
-        const mismatchedPixels = getMismatchedPixels(screenshotBuffer, 'home-desktop.png');
+        const mismatchedPixels = getMismatchedPixels(screenshotBuffer, 'home-desktop');
         expect(mismatchedPixels).toBe(0);
     });
 
@@ -48,7 +48,7 @@ describe('Screenshot Test', () => {
         await page.goto(`${BASE_URL}/about`);
         const screenshotBuffer = await page.screenshot();
 
-        const mismatchedPixels = getMismatchedPixels(screenshotBuffer, 'about-desktop.png');
+        const mismatchedPixels = getMismatchedPixels(screenshotBuffer, 'about-desktop');
         expect(mismatchedPixels).toBe(0);
     });
 
@@ -57,7 +57,7 @@ describe('Screenshot Test', () => {
         await page.goto(`${BASE_URL}/404`);
         const screenshotBuffer = await page.screenshot();
 
-        const mismatchedPixels = getMismatchedPixels(screenshotBuffer, '404-desktop.png');
+        const mismatchedPixels = getMismatchedPixels(screenshotBuffer, '404-desktop');
         expect(mismatchedPixels).toBe(0);
     });
 });

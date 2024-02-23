@@ -27,4 +27,5 @@ dist-ssr
 !.yarn/releases/
 __generated__
 /.env
-__screenshots-error__
+*.new.png
+*.dif.png

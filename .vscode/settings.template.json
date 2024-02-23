@@ -4,6 +4,7 @@
 		"package.json": ".npmrc, babel.config.js, docker-compose-ci.yml, docker-compose.yml, enzyme.config.js, package-lock.json, yarn.lock, .stylelintrc, .stylelintignore,.eslintrc, .eslintignore, .prettierrc, .babelrc, .browserslistrc, .editorconfig, .eslintrc.js, .gitignore, .prettierignore, .svgrrc.js, .yarnrc, cli.js, jest-setup-after-env.ts,jest.config.js, stylelint.config.js, tsconfig.json, typed-scss-modules.config.js, ui-kit.config.json, vite.config.ts, stylelint.config.cjs, .eslintrc.cjs, LICENSE, vitest.config.ts, vitest.setup.ts",
 		"*.ts": "$(capture).type.ts, $(capture).module.scss",
 		"*.tsx": "$(capture).type.ts, $(capture).module.scss",
+		"*.png": "$(capture).dif.png, $(capture).new.png",
 		".env": "*.env, .env.*, .envrc, env.d.ts"
 	}
 }

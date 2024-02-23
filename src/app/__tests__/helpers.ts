@@ -20,13 +20,13 @@ export const getMismatchedPixels = (screenshotBuffer: Buffer, fileName: string) 
     let isSaveFile = false;
     let screenshotFile: Buffer | null = null;
     try {
-        screenshotFile = readFileSync(resolve(__dirname, `../__screenshots__/${fileName}`));
+        screenshotFile = readFileSync(resolve(__dirname, `../__screenshots__/${fileName}.png`));
     } catch (error) {
         isSaveFile = true;
     }
 
     if (process.env.UPDATE_SCREENSHOTS === 'true' || isSaveFile || !screenshotFile) {
-        saveFile(`../__screenshots__/${fileName}`, screenshotBuffer);
+        saveFile(`../__screenshots__/${fileName}.png`, screenshotBuffer);
 
         return 0;
     }
@@ -43,7 +43,8 @@ export const getMismatchedPixels = (screenshotBuffer: Buffer, fileName: string) 
     });
 
     if (mismatchedPixels !== 0) {
-        saveFile(`../__screenshots-error__/${fileName}`, PNG.sync.write(diff));
+        saveFile(`../__screenshots__/${fileName}.new.png`, PNG.sync.write(diff));
+        saveFile(`../__screenshots__/${fileName}.dif.png`, screenshotBuffer);
     }
 
     return mismatchedPixels;
