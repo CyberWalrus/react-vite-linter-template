@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import { Link, Outlet } from '@tanstack/react-router';
 
 import { PageLayout } from '$shared/ui';
-import { Footer } from '$widgets/footer';
+import { Footer } from '$shared/ui/footer';
 
 import { TanStackRouterDevtools } from './tan-stack-router';
 
