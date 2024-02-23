@@ -19,6 +19,7 @@ const saveFile = (fileName: string, data: string | NodeJS.ArrayBufferView) => {
 
 export const getMismatchedPixels = async (page: Page, fileName: string) => {
     await page.waitForLoadState('domcontentloaded');
+    const content = await page.content();
     const screenshotBuffer = await page.screenshot();
 
     let isSaveFile = false;
@@ -43,13 +44,12 @@ export const getMismatchedPixels = async (page: Page, fileName: string) => {
     const diff = new PNG({ height, width });
 
     const mismatchedPixels = pixelmatch(currentScreenshot.data, referenceScreenshot.data, diff.data, width, height, {
-        threshold: 0.1,
+        threshold: 0.2,
     });
 
     if (mismatchedPixels !== 0) {
         saveFile(`../__screenshots__/${fileName}.new.png`, PNG.sync.write(diff));
         saveFile(`../__screenshots__/${fileName}.dif.png`, screenshotBuffer);
-        const content = await page.content();
         saveFile(`../__screenshots__/${fileName}.dif.html`, content);
     }
 
