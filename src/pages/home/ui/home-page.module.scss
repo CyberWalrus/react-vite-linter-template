@@ -1,4 +1,7 @@
 .react {
+    width: 120px;
+    height: 120px;
+
     animation: logo-spin infinite 20s linear;
 
     &:hover {
@@ -38,4 +41,10 @@
     &:focus-visible {
         outline: 4px auto -webkit-focus-ring-color;
     }
+
+}
+
+.img {
+    width: 120px;
+    height: 120px;
 }

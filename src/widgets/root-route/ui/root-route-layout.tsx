@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import { Suspense } from 'react';
+import { Flex, Link as LinkRadix } from '@radix-ui/themes';
 import { Link, Outlet } from '@tanstack/react-router';
 
 import { PageLayout } from '$shared/ui';
@@ -12,10 +13,18 @@ export const RootRouteLayout: FC = () => (
         footer={<Footer />}
         title={<>Vite + React</>}
         header={
-            <>
-                <Link to='/'>Home</Link>
-                <Link to='/about'>About</Link>
-            </>
+            <Flex
+                gap='3'
+                justify='center'
+                mb='4'
+            >
+                <LinkRadix asChild>
+                    <Link to='/'>Home</Link>
+                </LinkRadix>
+                <LinkRadix asChild>
+                    <Link to='/about'>About</Link>
+                </LinkRadix>
+            </Flex>
         }
     >
         <Outlet />

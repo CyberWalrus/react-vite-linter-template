@@ -12,6 +12,7 @@ export const HomePage: FC = () => (
     <>
         <BaseIcon
             alt='Vite logo'
+            classNameIcon={styles.img}
             href='https://vitejs.dev'
             rel='noreferrer'
             src={getPublicURL('vite.svg')}

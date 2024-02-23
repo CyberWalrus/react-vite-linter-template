@@ -20,6 +20,7 @@
         "lint:fix": "yarn eslint:fix && yarn stylelint:fix"
     },
     "dependencies": {
+        "@radix-ui/themes": "3.0.0-rc.9-patch.1",
         "@tanstack/react-router": "1.16.6",
         "@tanstack/router-devtools": "1.16.6",
         "clsx": "2.1.0",
