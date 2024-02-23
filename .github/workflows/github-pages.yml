@@ -47,7 +47,7 @@ jobs:
       run: yarn build
 
     - name: Install Playwright browsers
-      run: npx playwright install
+      run: npx playwright install-deps chromium
 
     - name: Run Tests
       run: yarn test
