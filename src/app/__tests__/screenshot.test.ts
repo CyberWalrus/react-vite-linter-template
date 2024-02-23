@@ -37,32 +37,25 @@ describe('Screenshot Test', () => {
     it('screenshot of the home', async () => {
         const page = await browser.newPage();
         await page.goto(BASE_URL);
-        await new Promise((res) => {
-            setTimeout(() => {
-                res(undefined);
-            }, 1000);
-        });
-        const screenshotBuffer = await page.screenshot();
 
-        const mismatchedPixels = getMismatchedPixels(screenshotBuffer, 'home-desktop');
+        const mismatchedPixels = await getMismatchedPixels(page, 'home-desktop');
+        await page.close();
         expect(mismatchedPixels).toBe(0);
     });
 
     it('screenshot of the about', async () => {
         const page = await browser.newPage();
         await page.goto(`${BASE_URL}/about`);
-        const screenshotBuffer = await page.screenshot();
 
-        const mismatchedPixels = getMismatchedPixels(screenshotBuffer, 'about-desktop');
+        const mismatchedPixels = await getMismatchedPixels(page, 'about-desktop');
         expect(mismatchedPixels).toBe(0);
     });
 
     it('screenshot of the 404', async () => {
         const page = await browser.newPage();
         await page.goto(`${BASE_URL}/404`);
-        const screenshotBuffer = await page.screenshot();
 
-        const mismatchedPixels = getMismatchedPixels(screenshotBuffer, '404-desktop');
+        const mismatchedPixels = await getMismatchedPixels(page, '404-desktop');
         expect(mismatchedPixels).toBe(0);
     });
 });

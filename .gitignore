@@ -29,3 +29,4 @@ __generated__
 /.env
 *.new.png
 *.dif.png
+*.dif.html

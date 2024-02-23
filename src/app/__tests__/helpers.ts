@@ -2,6 +2,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { dirname, resolve } from 'path';
 import pixelmatch from 'pixelmatch';
+import type { Page } from 'playwright';
 import { PNG } from 'pngjs';
 
 const saveFile = (fileName: string, data: string | NodeJS.ArrayBufferView) => {
@@ -16,7 +17,10 @@ const saveFile = (fileName: string, data: string | NodeJS.ArrayBufferView) => {
     writeFileSync(filePath, data);
 };
 
-export const getMismatchedPixels = (screenshotBuffer: Buffer, fileName: string) => {
+export const getMismatchedPixels = async (page: Page, fileName: string) => {
+    await page.waitForLoadState('domcontentloaded');
+    const screenshotBuffer = await page.screenshot();
+
     let isSaveFile = false;
     let screenshotFile: Buffer | null = null;
     try {
@@ -45,6 +49,8 @@ export const getMismatchedPixels = (screenshotBuffer: Buffer, fileName: string) 
     if (mismatchedPixels !== 0) {
         saveFile(`../__screenshots__/${fileName}.new.png`, PNG.sync.write(diff));
         saveFile(`../__screenshots__/${fileName}.dif.png`, screenshotBuffer);
+        const content = await page.content();
+        saveFile(`../__screenshots__/${fileName}.dif.html`, content);
     }
 
     return mismatchedPixels;
