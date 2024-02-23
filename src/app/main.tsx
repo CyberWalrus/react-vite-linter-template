@@ -10,10 +10,13 @@ import './styles/main.scss';
 createRoot(document.getElementById('root') as HTMLElement).render(
     <StrictMode>
         <Theme
-            accentColor='grass'
+            hasBackground
+            accentColor='mint'
             appearance='dark'
             grayColor='gray'
+            panelBackground='solid'
             radius='large'
+            scaling='100%'
         >
             <AppRouter />
         </Theme>

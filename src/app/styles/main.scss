@@ -8,10 +8,13 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-size-adjust: 100%;
+
 }
 
 body {
     margin: 0;
+
+    --color-page-background: #1a1a1a;
 }
 
 h1 {

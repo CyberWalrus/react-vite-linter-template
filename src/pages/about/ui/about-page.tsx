@@ -1,30 +1,18 @@
 import type { FC } from 'react';
+import { Text } from '@radix-ui/themes';
 import { createLazyRoute } from '@tanstack/react-router';
 
-import reactLogo from '$shared/assets/react.svg';
-import { getPublicURL } from '$shared/lib';
-import { BaseIcon } from '$shared/ui';
-
-import styles from './about-page.module.scss';
+import { TechLink } from '$entities/tech-link';
 
 export const AboutPage: FC = () => (
     <>
-        <BaseIcon
-            alt='Vite logo'
-            href='https://vitejs.dev'
-            rel='noreferrer'
-            src={getPublicURL('vite.svg')}
-            target='_blank'
-        />
-        <BaseIcon
-            alt='React logo'
-            classNameIcon={styles.react}
-            href='https://reactjs.org'
-            rel='noreferrer'
-            src={reactLogo}
-            target='_blank'
-        />
-        <p className='read-the-docs'>template</p>
+        <TechLink />
+        <Text
+            align='center'
+            color='teal'
+        >
+            template
+        </Text>
     </>
 );
 
