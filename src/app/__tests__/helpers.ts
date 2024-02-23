@@ -19,6 +19,8 @@ const saveFile = (fileName: string, data: string | NodeJS.ArrayBufferView) => {
 
 export const getMismatchedPixels = async (page: Page, fileName: string) => {
     await page.waitForLoadState('domcontentloaded');
+    await page.waitForSelector('#app-start');
+    await page.waitForLoadState('networkidle');
     const content = await page.content();
     const screenshotBuffer = await page.screenshot();
 

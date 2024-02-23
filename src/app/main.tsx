@@ -14,6 +14,7 @@ createRoot(document.getElementById('root') as HTMLElement).render(
             accentColor='mint'
             appearance='dark'
             grayColor='gray'
+            id='app-start'
             panelBackground='solid'
             radius='large'
             scaling='100%'
