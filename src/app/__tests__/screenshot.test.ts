@@ -37,6 +37,11 @@ describe('Screenshot Test', () => {
     it('screenshot of the home', async () => {
         const page = await browser.newPage();
         await page.goto(BASE_URL);
+        await new Promise((res) => {
+            setTimeout(() => {
+                res(undefined);
+            }, 1000);
+        });
         const screenshotBuffer = await page.screenshot();
 
         const mismatchedPixels = getMismatchedPixels(screenshotBuffer, 'home-desktop');
