@@ -1,10 +1,10 @@
 import type { FC } from 'react';
 import { createLazyRoute } from '@tanstack/react-router';
 
-import reactLogo from '$assets/react.svg';
-import { Counter } from '$features/counter';
+import reactLogo from '$shared/assets/react.svg';
 import { getPublicURL } from '$shared/lib';
 import { BaseIcon } from '$shared/ui';
+import { Counter } from '$features/counter';
 
 import styles from './home-page.module.scss';
 
