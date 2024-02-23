@@ -6,14 +6,14 @@ import { chromium } from 'playwright';
 
 import { getMismatchedPixels } from './helpers';
 
-const BASE_URL = process.env.TEST_BASE_URL || 'http://localhost:4173';
+const BASE_URL = process.env.TEST_BASE_URL || 'http://localhost:5173/';
 
 describe('Screenshot Test', () => {
     let browser: Browser;
     let serverProcess: ChildProcessWithoutNullStreams;
 
     beforeAll(async () => {
-        serverProcess = spawn('yarn', ['preview'], {
+        serverProcess = spawn('yarn', ['test:server'], {
             env: process.env,
             shell: true,
             stdio: ['inherit', 'pipe', 'pipe'],
