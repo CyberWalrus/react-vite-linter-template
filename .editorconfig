@@ -12,6 +12,10 @@ insert_final_newline = true
 indent_style = space
 indent_size = 4
 
+[{.github}/**]
+indent_style = space
+indent_size = 2
+
 [{build,node_modules}/**]
 indent_style = ignore
 trim_trailing_whitespace = false
