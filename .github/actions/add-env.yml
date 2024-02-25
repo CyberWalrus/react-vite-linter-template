@@ -1,9 +1,5 @@
-name: "Init step"
-description: "Init env"
-inputs:
-  node-version:
-    description: "Node.js version to install"
-    required: true
+name: "Add env"
+description: "Add env"
 runs:
   using: "composite"
   steps:
