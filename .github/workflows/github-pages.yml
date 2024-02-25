@@ -48,16 +48,16 @@ jobs:
     - name: Run Tests
       run: yarn test
 
-    - name: Build the project
-      id: build
-      run: yarn build
-
     - name: Upload src/app/__screenshots__ as artifact if tests fail
       if: failure()
       uses: actions/upload-artifact@v3
       with:
         name: failed-test-artifacts
         path: ./src/app/__screenshots__
+
+    - name: Build the project
+      id: build
+      run: yarn build
 
     - name: Build with Jekyll
       uses: actions/jekyll-build-pages@v1
