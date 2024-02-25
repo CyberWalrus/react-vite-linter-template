@@ -29,6 +29,10 @@ jobs:
         echo "PRODUCTION_SERVER_URL="https://${{ github.repository_owner }}.github.io$MODIFIED_VALUE"" >> $GITHUB_ENV
       shell: bash
 
+    - name: Define artifact name with date
+      run: echo "ARTIFACT_NAME=test-run_$(date +'%Y-%m-%d_%H-%M')" >> $GITHUB_ENV
+      shell: bash
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
@@ -60,4 +64,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: failed-test-artifacts
-        path: ./e2e-errors
+        path: ./__screenshots-e2e__
