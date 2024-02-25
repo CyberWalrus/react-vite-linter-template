@@ -53,7 +53,9 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: failed-test-artifacts
-        path: ./src/app/__screenshots__
+        path: |
+          ./src/app/__screenshots__
+          ./__screenshots-e2e__
 
     - name: Build the project
       id: build

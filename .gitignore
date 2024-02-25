@@ -31,4 +31,4 @@ __generated__
 *.dif.png
 *.new.html
 dist-test-server
-test-result
+__screenshots-e2e__

@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 test.beforeEach('Open start URL', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('');
     await page.waitForSelector('#app-start');
 });
 
