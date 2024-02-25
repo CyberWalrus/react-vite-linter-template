@@ -14,9 +14,24 @@ export const Controls = () => {
             columns='3'
             gap='4'
         >
-            <Button onClick={handleDecrement}>-</Button>
-            <Button onClick={handleClear}>clear</Button>
-            <Button onClick={handleIncrement}>+</Button>
+            <Button
+                data-test-id='counter-decrement'
+                onClick={handleDecrement}
+            >
+                -
+            </Button>
+            <Button
+                data-test-id='counter-clear'
+                onClick={handleClear}
+            >
+                clear
+            </Button>
+            <Button
+                data-test-id='counter-increment'
+                onClick={handleIncrement}
+            >
+                +
+            </Button>
         </Grid>
     );
 };
