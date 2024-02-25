@@ -12,6 +12,7 @@ const config: PlaywrightTestConfig = {
         baseURL: TEST_SERVER_URL,
         browserName: 'chromium',
         headless: true,
+        locale: 'ru-RU',
         screenshot: 'only-on-failure',
         testIdAttribute: 'data-test-id',
     },

@@ -1,15 +1,15 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import type { ChildProcessWithoutNullStreams } from 'child_process';
 import { spawn } from 'child_process';
-import type { Browser } from 'playwright';
+import type { BrowserContext } from 'playwright';
 import { chromium } from 'playwright';
 
 import { getMismatchedPixels } from './helpers';
 
-const BASE_URL = process.env.TEST_BASE_URL || 'http://localhost:5173/';
+const serverUrl = process.env.TEST_SERVER_URL ?? '';
 
 describe('Screenshot Test', () => {
-    let browser: Browser;
+    let browser: BrowserContext;
     let serverProcess: ChildProcessWithoutNullStreams;
 
     beforeAll(async () => {
@@ -26,7 +26,10 @@ describe('Screenshot Test', () => {
             });
         });
 
-        browser = await chromium.launch(); // Для запуска в headless-режиме
+        const preBrowser = await chromium.launch(); // Для запуска в headless-режиме
+        browser = await preBrowser.newContext({
+            baseURL: serverUrl,
+        });
     });
 
     afterAll(async () => {
@@ -36,7 +39,7 @@ describe('Screenshot Test', () => {
 
     it('screenshot of the home', async () => {
         const page = await browser.newPage();
-        await page.goto(BASE_URL);
+        await page.goto('/');
 
         const mismatchedPixels = await getMismatchedPixels(page, 'home-desktop');
         await page.close();
@@ -45,7 +48,7 @@ describe('Screenshot Test', () => {
 
     it('screenshot of the about', async () => {
         const page = await browser.newPage();
-        await page.goto(`${BASE_URL}/about`);
+        await page.goto('/about');
 
         const mismatchedPixels = await getMismatchedPixels(page, 'about-desktop');
         expect(mismatchedPixels).toBe(0);
@@ -53,7 +56,7 @@ describe('Screenshot Test', () => {
 
     it('screenshot of the 404', async () => {
         const page = await browser.newPage();
-        await page.goto(`${BASE_URL}/404`);
+        await page.goto('/404');
 
         const mismatchedPixels = await getMismatchedPixels(page, '404-desktop');
         expect(mismatchedPixels).toBe(0);

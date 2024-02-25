@@ -5,8 +5,11 @@
     "type": "module",
     "scripts": {
         "start": "concurrently \"yarn dev\" \"yarn run ts:scss:watch\"",
-        "dev": "vite",
         "build": "tsc && vite build",
+        "lint": "yarn eslint:check && yarn stylelint:check && yarn ts:check",
+        "lint:fix": "yarn eslint:fix && yarn stylelint:fix",
+        "test": "yarn test:build && test:unit && test: e2e",
+        "dev": "vite",
         "build:visualizer": "yarn vite-bundle-visualizer",
         "preview": "vite preview",
         "ts:scss:build": "yarn typed-scss-modules src",
@@ -16,11 +19,10 @@
         "eslint:fix": "eslint --fix --ext .jsx,.js,.ts,.tsx src/",
         "stylelint:check": "stylelint \"src/**/*.scss\"",
         "stylelint:fix": "stylelint \"src/**/*.scss\" --fix",
-        "lint:check": "yarn eslint:check && yarn stylelint:check && yarn ts:check",
-        "lint:fix": "yarn eslint:fix && yarn stylelint:fix",
-        "test": "TZ=Europe/Moscow vitest run --isolate=false",
-        "test:e2e": "TZ=Europe/Moscow playwright test",
-        "test:server": "VITEST=true vite",
+        "test:unit": "TZ=Europe/Moscow yarn vitest run --isolate=false",
+        "test:build": "VITEST=true tsc && VITEST=true vite build --outDir ./dist-test-server",
+        "test:e2e": "TZ=Europe/Moscow yarn playwright test",
+        "test:server": "VITEST=true vite preview --outDir ./dist-test-server --port 4173",
         "test:update": "UPDATE_SCREENSHOTS=true TZ=Europe/Moscow vitest run --isolate=false"
     },
     "dependencies": {

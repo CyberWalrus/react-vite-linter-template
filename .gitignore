@@ -29,4 +29,5 @@ __generated__
 /.env
 *.new.png
 *.dif.png
-*.dif.html
+*.new.html
+dist-test-server

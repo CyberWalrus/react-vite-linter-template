@@ -7,8 +7,9 @@ import '@testing-library/jest-dom';
 
 window.HTMLElement.prototype.scrollIntoView = vi.fn();
 
-process.env.BASE_URL = '/test/';
-process.env.BASE_PATH = '/test/';
+process.env.BASE_URL = '/';
+process.env.BASE_PATH = '/';
+process.env.VITEST = 'true';
 
 afterEach(() => {
     cleanup();
