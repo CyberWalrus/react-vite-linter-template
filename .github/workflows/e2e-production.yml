@@ -10,7 +10,6 @@ permissions:
 
 jobs:
   e2e:
-
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.41.2-jammy
@@ -51,6 +50,7 @@ jobs:
       if: always()
       env:
         E2E_BROWSER_NAME: firefox
+        HOME: /root
       run: yarn test:e2e:production
 
     - name: Run Tests Webkit
