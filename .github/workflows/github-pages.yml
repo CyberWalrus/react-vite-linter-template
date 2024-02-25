@@ -31,7 +31,7 @@ jobs:
         MODIFIED_VALUE="${ORIGINAL_VALUE/${{ github.repository_owner }}/}"
         echo "BASE_PATH=$MODIFIED_VALUE" >> $GITHUB_ENV
         echo "BASE_URL="https://${{ github.repository_owner }}.github.io$MODIFIED_VALUE"" >> $GITHUB_ENV
-        echo "TEST_SERVER_URL="http://localhost:5173/"" >> $GITHUB_ENV
+        echo "TEST_SERVER_URL="http://localhost:4173/"" >> $GITHUB_ENV
       shell: bash
 
     - name: Use Node.js ${{ matrix.node-version }}
