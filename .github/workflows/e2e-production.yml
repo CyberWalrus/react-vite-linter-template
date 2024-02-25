@@ -30,7 +30,7 @@ jobs:
       shell: bash
 
     - name: Define artifact name with date
-      run: echo "ARTIFACT_NAME=test-run_$(date +'%Y-%m-%d_%H-%M')" >> $GITHUB_ENV
+      run: echo "ARTIFACT_NAME=test-run_$(date +'%Y-%m-%d_%H-%M-%S')" >> $GITHUB_ENV
       shell: bash
 
     - name: Use Node.js ${{ matrix.node-version }}
