@@ -32,3 +32,4 @@ __generated__
 *.new.html
 dist-test-server
 __screenshots-e2e__
+.VSCodeCounter
