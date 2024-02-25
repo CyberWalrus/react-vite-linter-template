@@ -31,3 +31,4 @@ __generated__
 *.dif.png
 *.new.html
 dist-test-server
+test-result
