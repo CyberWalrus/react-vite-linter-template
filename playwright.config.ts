@@ -21,7 +21,6 @@ const config: PlaywrightTestConfig = {
         reuseExistingServer: !process.env.CI,
         stderr: 'pipe',
         stdout: 'ignore',
-        url: TEST_SERVER_URL,
     },
 };
 
