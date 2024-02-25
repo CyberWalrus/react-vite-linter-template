@@ -38,21 +38,25 @@ jobs:
       run: yarn install --frozen-lockfile
 
     - name: Run Tests Chromium
+      if: always()
       env:
         E2E_BROWSER_NAME: chromium
       run: yarn test:e2e:production
 
     - name: Run Tests Firefox
+      if: always()
       env:
         E2E_BROWSER_NAME: firefox
       run: yarn test:e2e:production
 
     - name: Run Tests Webkit
+      if: always()
       env:
         E2E_BROWSER_NAME: webkit
       run: yarn test:e2e:production
 
     - name: Upload screenshots
+      if: always()
       uses: actions/upload-artifact@v3
       with:
         name: failed-test-artifacts

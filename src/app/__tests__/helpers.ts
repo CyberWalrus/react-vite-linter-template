@@ -5,8 +5,10 @@ import pixelmatch from 'pixelmatch';
 import type { Page } from 'playwright';
 import { PNG } from 'pngjs';
 
+const screenshotsDir = resolve(__dirname, '../../../__screenshots__/');
+
 const saveFile = (fileName: string, data: string | NodeJS.ArrayBufferView) => {
-    const filePath = resolve(__dirname, fileName);
+    const filePath = resolve(screenshotsDir, fileName);
 
     const dir = dirname(filePath);
 
@@ -26,7 +28,7 @@ export const getMismatchedPixels = async (page: Page, fileName: string) => {
     let isSaveFile = false;
     let screenshotFile: Buffer | null = null;
     try {
-        screenshotFile = readFileSync(resolve(__dirname, `../__screenshots__/${fileName}.png`));
+        screenshotFile = readFileSync(resolve(screenshotsDir, `${fileName}.png`));
     } catch (error) {
         isSaveFile = true;
     }
@@ -49,9 +51,9 @@ export const getMismatchedPixels = async (page: Page, fileName: string) => {
     });
 
     if (mismatchedPixels !== 0) {
-        saveFile(`../__screenshots__/${fileName}.dif.png`, PNG.sync.write(diff));
-        saveFile(`../__screenshots__/${fileName}.new.png`, screenshotBuffer);
-        saveFile(`../__screenshots__/${fileName}.new.html`, content);
+        saveFile(`${fileName}.dif.png`, PNG.sync.write(diff));
+        saveFile(`${fileName}.new.png`, screenshotBuffer);
+        saveFile(`${fileName}.new.html`, content);
     }
 
     if (mismatchedPixels < 2000) {
