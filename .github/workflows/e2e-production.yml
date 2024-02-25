@@ -63,5 +63,5 @@ jobs:
       if: always()
       uses: actions/upload-artifact@v3
       with:
-        name: failed-test-artifacts
+        name: ${{ env.ARTIFACT_NAME }}
         path: ./__screenshots-e2e__
