@@ -19,7 +19,7 @@
         "lint:check": "yarn eslint:check && yarn stylelint:check && yarn ts:check",
         "lint:fix": "yarn eslint:fix && yarn stylelint:fix",
         "test": "TZ=Europe/Moscow vitest run --isolate=false",
-        "test:e2e": "yarn playwright test",
+        "test:e2e": "TZ=Europe/Moscow playwright test",
         "test:server": "VITEST=true vite",
         "test:update": "UPDATE_SCREENSHOTS=true TZ=Europe/Moscow vitest run --isolate=false"
     },
