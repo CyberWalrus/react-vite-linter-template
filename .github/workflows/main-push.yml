@@ -1,0 +1,49 @@
+name: Main Push
+
+on:
+  push:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.41.2-jammy
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Add env
+      uses: ./.github/actions/add-env
+
+    - name: Install Node.js and Dependencies
+      uses: ./.github/actions/install-node
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Run Lint and Test
+      uses: ./.github/actions/lint-and-test
+
+    - name: Build the project
+      uses: ./.github/actions/build
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1

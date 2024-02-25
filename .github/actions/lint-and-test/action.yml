@@ -1,16 +1,14 @@
 name: "Run Linters and Tests"
 description: "Installs Node.js and uses Yarn to install dependencies"
-inputs:
-  node-version:
-    description: "Node.js version to install"
-    required: true
 runs:
   using: "composite"
   steps:
     - name: Run Linters
+      shell: bash
       run: yarn lint
 
     - name: Run Tests
+      shell: bash
       run: yarn test
 
     - name: Upload src/app/__screenshots__ as artifact if tests fail

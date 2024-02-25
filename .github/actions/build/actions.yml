@@ -1,0 +1,17 @@
+name: "Build"
+description: "Build"
+runs:
+  using: "composite"
+  steps:
+    - name: Build the project
+      shell: bash
+      run: yarn build
+
+    - name: Build with Jekyll
+      uses: actions/jekyll-build-pages@v1
+      with:
+        source: ./dist
+        destination: ./_site
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v1
