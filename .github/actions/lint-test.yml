@@ -1,0 +1,23 @@
+name: "Run Linters and Tests"
+description: "Installs Node.js and uses Yarn to install dependencies"
+inputs:
+  node-version:
+    description: "Node.js version to install"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Run Linters
+      run: yarn lint
+
+    - name: Run Tests
+      run: yarn test
+
+    - name: Upload src/app/__screenshots__ as artifact if tests fail
+      if: failure()
+      uses: actions/upload-artifact@v3
+      with:
+        name: failed-test-artifacts
+        path: |
+          ./src/app/__screenshots__
+          ./__screenshots-e2e__

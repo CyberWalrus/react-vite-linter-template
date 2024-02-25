@@ -1,0 +1,17 @@
+name: "Init step"
+description: "Init env"
+inputs:
+  node-version:
+    description: "Node.js version to install"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Replace Characters in Repository Name
+      run: |
+        ORIGINAL_VALUE="${{ github.repository }}/"
+        MODIFIED_VALUE="${ORIGINAL_VALUE/${{ github.repository_owner }}/}"
+        echo "BASE_PATH=$MODIFIED_VALUE" >> $GITHUB_ENV
+        echo "BASE_URL="https://${{ github.repository_owner }}.github.io$MODIFIED_VALUE"" >> $GITHUB_ENV
+        echo "TEST_SERVER_URL="http://localhost:4173/"" >> $GITHUB_ENV
+      shell: bash

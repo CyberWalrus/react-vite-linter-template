@@ -32,13 +32,10 @@ jobs:
         echo "TEST_SERVER_URL="http://localhost:4173/"" >> $GITHUB_ENV
       shell: bash
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+    - name: Install Node.js and Dependencies
+      uses: ./.github/actions/install-node  # Путь до вашего локального action
       with:
         node-version: ${{ matrix.node-version }}
-
-    - name: Install dependencies
-      run: yarn install --frozen-lockfile
 
     - name: Run Linters
       run: yarn lint
