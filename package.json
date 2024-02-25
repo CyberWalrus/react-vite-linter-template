@@ -22,7 +22,7 @@
         "test:unit": "TZ=Europe/Moscow yarn vitest run --isolate=false",
         "test:build": "VITEST=true tsc && VITEST=true vite build --outDir ./dist-test-server",
         "test:e2e": "TZ=Europe/Moscow yarn playwright test",
-        "test:e2e:production": "TZ=Europe/Moscow yarn playwright test",
+        "test:e2e:production": "E2E_PRODUCTION=true TZ=Europe/Moscow yarn playwright test",
         "test:server": "VITEST=true vite preview --outDir ./dist-test-server --port 4173",
         "test:update": "UPDATE_SCREENSHOTS=true TZ=Europe/Moscow vitest run --isolate=false"
     },

@@ -1,8 +1,6 @@
 import { expect, test } from '@playwright/test';
 
 test.beforeEach('Open start URL', async ({ page }) => {
-    // eslint-disable-next-line no-console
-    console.log('page', page.url());
     await page.goto('');
     await page.waitForSelector('#app-start');
 });

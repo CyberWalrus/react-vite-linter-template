@@ -7,9 +7,6 @@ dotenv.config();
 
 const { TEST_SERVER_URL, E2E_PRODUCTION, PRODUCTION_SERVER_URL, E2E_BROWSER_NAME } = process.env;
 
-console.log('E2E_PRODUCTION', E2E_PRODUCTION);
-console.log('PRODUCTION_SERVER_URL', PRODUCTION_SERVER_URL);
-console.log('E2E_BROWSER_NAME', E2E_BROWSER_NAME);
 const browserName: 'chromium' | 'firefox' | 'webkit' =
     (E2E_BROWSER_NAME as unknown as 'chromium' | 'firefox' | 'webkit') ?? 'chromium';
 
