@@ -9,7 +9,6 @@ describe('getPublicURL', () => {
         expect(getPublicURL('test.svg')).toMatchInlineSnapshot('"/test.svg"');
     });
 
-
     it('change process.env.BASE_URL to /test/', () => {
         const baseUrl = process.env.BASE_URL;
         process.env.BASE_URL = '/test/';
