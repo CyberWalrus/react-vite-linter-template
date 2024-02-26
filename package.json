@@ -8,7 +8,7 @@
         "build": "tsc && vite build",
         "lint": "yarn eslint:check && yarn stylelint:check && yarn ts:check",
         "lint:fix": "yarn eslint:fix && yarn stylelint:fix",
-        "test": "yarn test:build && yarn test:unit && yarn test:e2e",
+        "test": "yarn test:build && yarn test:e2e && yarn test:unit",
         "dev": "vite",
         "build:visualizer": "yarn vite-bundle-visualizer",
         "preview": "vite preview",

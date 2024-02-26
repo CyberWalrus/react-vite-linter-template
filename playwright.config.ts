@@ -27,7 +27,7 @@ const webServer = E2E_PRODUCTION
 
 const config: PlaywrightTestConfig = {
     globalTimeout: 200000,
-    outputDir: `./__screenshots-e2e__/${browserName}`,
+    outputDir: `./__screenshots-current__/${browserName}`,
     reporter: 'list',
     testDir: './src/app/__e2e__/',
     timeout: 10000,
