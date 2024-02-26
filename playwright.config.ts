@@ -35,9 +35,11 @@ const config: PlaywrightTestConfig = {
         baseURL: url,
         browserName,
         headless: true,
+        ignoreHTTPSErrors: true,
         locale: 'ru-RU',
         screenshot: 'on',
         testIdAttribute: 'data-test-id',
+        viewport: { height: 720, width: 1280 },
     },
     ...webServer,
 };
