@@ -3,7 +3,7 @@ import { devtools } from 'zustand/middleware';
 import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
 
-import { createStore } from '../create-store';
+import { createStore } from '..';
 
 vi.mock('zustand/traditional', async () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
@@ -28,7 +28,9 @@ describe('createStore', () => {
 
     it('calls createWithEqualityFn with devtools in development', () => {
         const originalEnv = process.env.NODE_ENV;
+        const originalTest = process.env.VITEST;
         process.env.NODE_ENV = 'development';
+        process.env.VITEST = '';
 
         const stateCreator = vi.fn();
         createStore(stateCreator, 'testStore');
@@ -37,6 +39,7 @@ describe('createStore', () => {
         expect(createWithEqualityFn).toHaveBeenCalledWith(expect.any(Function), shallow);
 
         process.env.NODE_ENV = originalEnv;
+        process.env.VITEST = originalTest;
     });
 
     it('calls createWithEqualityFn without devtools in production', () => {

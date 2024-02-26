@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import { PageLayout } from '../ui/page-layout';
+import { PageLayout } from '..';
 
 describe('PageLayout', () => {
     it('default', () => {

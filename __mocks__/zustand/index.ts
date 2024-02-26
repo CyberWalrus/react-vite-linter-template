@@ -3,6 +3,8 @@
 import { act } from '@testing-library/react';
 import type * as zustand from 'zustand';
 
+console.log('test');
+
 const { create: actualCreate, createStore: actualCreateStore } = await vi.importActual<typeof zustand>('zustand');
 
 export const storeResetFns = new Set<() => void>();

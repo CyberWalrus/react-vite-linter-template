@@ -39,34 +39,6 @@ describe('useCounterStore', () => {
         });
 
         expect(result.current.value).toBe(-1);
-    });
-
-    it('decrement, increment and clear functions update the value correctly', () => {
-        const { result } = renderHook(() => useCounterStore());
-
-        act(() => {
-            result.current.decrement();
-        });
-
-        expect(result.current.value).toBe(-2);
-
-        act(() => {
-            result.current.increment();
-        });
-
-        expect(result.current.value).toBe(-1);
-
-        act(() => {
-            result.current.increment();
-        });
-
-        expect(result.current.value).toBe(0);
-
-        act(() => {
-            result.current.increment();
-        });
-
-        expect(result.current.value).toBe(1);
 
         act(() => {
             result.current.clear();

@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import { BaseIcon } from '../ui/base-icon';
+import { BaseIcon } from '..';
 
 describe('BaseIcon', () => {
     it('default', () => {

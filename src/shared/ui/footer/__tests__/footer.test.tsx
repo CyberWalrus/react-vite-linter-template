@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import { Footer } from '../ui/footer';
+import { Footer } from '..';
 
 describe('Footer', () => {
     it('default', () => {
