@@ -28,9 +28,7 @@ export const getMismatchedPixels = (currentFilePath: string) => {
         saveFile(difScreenshotFile, PNG.sync.write(diff));
     }
 
-    if (mismatchedPixels < 2000) {
-        return 0;
-    }
+    if (mismatchedPixels < 2000) return 0;
 
     return mismatchedPixels;
 };
