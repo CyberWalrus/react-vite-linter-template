@@ -4,10 +4,12 @@ runs:
   using: "composite"
   steps:
     - name: Run Linters
+      if: always()
       shell: bash
       run: yarn lint
 
     - name: Run Tests
+      if: always()
       shell: bash
       run: yarn test
 
@@ -19,3 +21,4 @@ runs:
         path: |
           ./src/app/__screenshots__
           ./__screenshots-e2e__
+          ./coverage
