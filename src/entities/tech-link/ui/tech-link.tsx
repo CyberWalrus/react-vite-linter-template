@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { Flex } from '@radix-ui/themes';
 
 import reactLogo from '$shared/assets/react.svg';
-import { getPublicURL } from '$shared/lib';
+import { getPublicURL } from '$shared/lib/helpers';
 import { BaseIcon } from '$shared/ui';
 
 import styles from './tech-link.module.scss';

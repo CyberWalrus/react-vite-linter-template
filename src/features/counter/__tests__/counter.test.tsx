@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 
 import { Counter } from '../ui/counter';
 
-describe.skip('Counter', () => {
+describe('Counter', () => {
     it('default', () => {
         const { baseElement } = render(<Counter />);
 

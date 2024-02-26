@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /// <reference types="vitest" />
+import { resolve } from 'path';
 import { mergeConfig } from 'vite';
 import { defineConfig } from 'vitest/config';
 
@@ -9,8 +10,19 @@ export default mergeConfig(
     viteConfig,
     defineConfig({
         test: {
+            alias: {
+                './src/shared/lib/create-store': resolve('./src/__mocks__/create-store.ts'),
+            },
             coverage: {
-                exclude: ['__tests__/**', '__e2e__/**', 'assets/**', '__mocks__/**', 'vite-env.d.ts'],
+                exclude: [
+                    '**/__tests__/**',
+                    '**/__e2e__/**',
+                    '**/assets/**',
+                    '**/__mocks__/**',
+                    '**/public/**',
+                    '**/vite-env.d.ts',
+                    '**/*.type.ts',
+                ],
                 include: ['src/**'],
                 reporter: ['text', 'lcov'],
                 thresholds: {

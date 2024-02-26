@@ -1,4 +1,4 @@
-import { createStore } from '$shared/lib';
+import { createStore } from '$shared/lib/create-store';
 
 import type { CounterState } from './store.type';
 
