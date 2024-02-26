@@ -32,7 +32,8 @@
         ".eslintrc.cjs",
         "*.config.js",
         "*.config.cjs",
-        "*.config.ts"
+        "*.config.ts",
+        "__mocks__"
     ],
     "exclude": [
         "node_modules"

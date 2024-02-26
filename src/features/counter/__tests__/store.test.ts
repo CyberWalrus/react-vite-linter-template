@@ -22,6 +22,10 @@ describe('useCounterStore', () => {
     it('clears the value to 0 after incrementing', () => {
         const { result } = renderHook(() => useCounterStore());
 
+        act(() => {
+            result.current.increment();
+        });
+
         expect(result.current.value).toBe(1);
 
         act(() => {

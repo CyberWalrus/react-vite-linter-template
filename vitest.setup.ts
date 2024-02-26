@@ -6,6 +6,7 @@ import { cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 vi.mock('zustand');
+vi.mock('zustand/traditional');
 
 window.HTMLElement.prototype.scrollIntoView = vi.fn();
 
