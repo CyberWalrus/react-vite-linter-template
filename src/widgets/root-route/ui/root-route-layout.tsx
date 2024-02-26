@@ -3,8 +3,8 @@ import { Suspense } from 'react';
 import { Flex, Link as LinkRadix, Text } from '@radix-ui/themes';
 import { Link, Outlet } from '@tanstack/react-router';
 
-import { PageLayout } from '$shared/ui';
 import { Footer } from '$shared/ui/footer';
+import { PageLayout } from '$shared/ui/layouts';
 
 import { TanStackRouterDevtools } from './tan-stack-router';
 

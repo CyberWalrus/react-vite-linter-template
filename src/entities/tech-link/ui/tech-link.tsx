@@ -3,7 +3,7 @@ import { Flex } from '@radix-ui/themes';
 
 import reactLogo from '$shared/assets/react.svg';
 import { getPublicURL } from '$shared/lib/helpers';
-import { BaseIcon } from '$shared/ui';
+import { BaseIcon } from '$shared/ui/icons';
 
 import styles from './tech-link.module.scss';
 
