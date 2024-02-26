@@ -1,14 +1,15 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import * as zustand from 'zustand';
+/* eslint-disable import/no-extraneous-dependencies */
+// __mocks__/zustand.ts
+import { act } from '@testing-library/react';
+import type * as zustand from 'zustand';
 
-const actualCreate = zustand.create;
-const actualCreateStore = zustand.createStore;
+const { create: actualCreate, createStore: actualCreateStore } = await vi.importActual<typeof zustand>('zustand');
 
 export const storeResetFns = new Set<() => void>();
 
 const createUncurried = <T>(stateCreator: zustand.StateCreator<T>) => {
     const store = actualCreate(stateCreator);
-    const initialState = store.getState();
+    const initialState = store.getInitialState();
     storeResetFns.add(() => {
         store.setState(initialState, true);
     });
@@ -16,12 +17,12 @@ const createUncurried = <T>(stateCreator: zustand.StateCreator<T>) => {
     return store;
 };
 
-export const create = ((stateCreator: zustand.StateCreator<any>) =>
+export const create = (<T>(stateCreator: zustand.StateCreator<T>) =>
     typeof stateCreator === 'function' ? createUncurried(stateCreator) : createUncurried) as typeof zustand.create;
 
 const createStoreUncurried = <T>(stateCreator: zustand.StateCreator<T>) => {
     const store = actualCreateStore(stateCreator);
-    const initialState = store.getState();
+    const initialState = store.getInitialState();
     storeResetFns.add(() => {
         store.setState(initialState, true);
     });
@@ -29,21 +30,15 @@ const createStoreUncurried = <T>(stateCreator: zustand.StateCreator<T>) => {
     return store;
 };
 
-export const createStore = ((stateCreator: zustand.StateCreator<any>) =>
-    typeof stateCreator === 'function'
-        ? createStoreUncurried(stateCreator)
-        : createStoreUncurried) as typeof zustand.createStore;
-
-export const createWithEqualityFn = ((stateCreator: zustand.StateCreator<any>) =>
+export const createStore = (<T>(stateCreator: zustand.StateCreator<T>) =>
     typeof stateCreator === 'function'
         ? createStoreUncurried(stateCreator)
         : createStoreUncurried) as typeof zustand.createStore;
 
 afterEach(() => {
-    vi.useFakeTimers();
-    try {
-        storeResetFns.forEach((resetFn) => resetFn());
-    } finally {
-        vi.useRealTimers();
-    }
+    act(() => {
+        storeResetFns.forEach((resetFn) => {
+            resetFn();
+        });
+    });
 });
