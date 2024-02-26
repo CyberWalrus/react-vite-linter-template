@@ -19,6 +19,7 @@ runs:
       with:
         name: failed-test-artifacts
         path: |
-          ./src/app/__screenshots__
           ./__screenshots-current__
+          ./__screenshots-dif__
+          ./__screenshots-reference__
           ./coverage
