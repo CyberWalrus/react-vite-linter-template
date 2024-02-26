@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { clsx } from 'clsx';
 
-import type { BaseIconProps } from './base-icon.types';
+import type { BaseIconProps } from './base-icon.type';
 
 import styles from './base-icon.module.scss';
 

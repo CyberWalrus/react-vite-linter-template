@@ -1,1 +1,1 @@
-export * from './page-layout';
+export * from './ui/page-layout';

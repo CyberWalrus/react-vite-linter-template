@@ -1,1 +1,1 @@
-export * from './base-icon';
+export * from './ui/base-icon';

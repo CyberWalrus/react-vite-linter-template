@@ -33,3 +33,4 @@ __generated__
 dist-test-server
 __screenshots-e2e__
 .VSCodeCounter
+coverage

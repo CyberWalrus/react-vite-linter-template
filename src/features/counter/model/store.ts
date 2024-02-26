@@ -1,13 +1,8 @@
 import { createStore } from '$shared/lib';
 
-type CounterState = {
-    clear: () => void;
-    decrement: () => void;
-    increment: () => void;
-    value: number;
-};
+import type { CounterState } from './store.type';
 
-export const [counterStore, useCounterStore] = createStore<CounterState>(
+export const useCounterStore = createStore<CounterState>(
     (set) => ({
         clear: () => set({ value: 0 }),
         decrement: () => set((state) => ({ value: state.value - 1 })),

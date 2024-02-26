@@ -9,6 +9,17 @@ export default mergeConfig(
     viteConfig,
     defineConfig({
         test: {
+            coverage: {
+                exclude: ['__tests__/**', '__e2e__/**', 'assets/**', '__mocks__/**', 'vite-env.d.ts'],
+                include: ['src/**'],
+                reporter: ['text', 'lcov'],
+                thresholds: {
+                    branches: 25,
+                    functions: 25,
+                    lines: 25,
+                    statements: 25,
+                },
+            },
             environment: 'jsdom',
             exclude: [
                 '**/node_modules/**',

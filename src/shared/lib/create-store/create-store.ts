@@ -1,12 +1,13 @@
-import { create, type StateCreator } from 'zustand';
+import type { StateCreator } from 'zustand';
 import { devtools } from 'zustand/middleware';
-
-import { createEqualityStore } from './create-equality-store';
+import { shallow } from 'zustand/shallow';
+import { createWithEqualityFn } from 'zustand/traditional';
 
 export const createStore = <GState>(fn: StateCreator<GState>, name: string) => {
-    const store = process.env.NODE_ENV === 'development' ? create(devtools(fn, { name })) : create(fn);
+    const store =
+        process.env.NODE_ENV === 'development'
+            ? createWithEqualityFn(devtools(fn, { name }), shallow)
+            : createWithEqualityFn(fn, shallow);
 
-    const equalityStore = createEqualityStore(store);
-
-    return [store, equalityStore];
+    return store;
 };

@@ -1,10 +1,12 @@
 build/
 node_modules/
 configs/
-lib/
 storybook-static/
-__mocks__/
 .idea/
 .vscode/
-lib/
 dist/
+dist-test-server/
+coverage/
+__screenshots__/
+__generated__/
+.VSCodeCounter/
