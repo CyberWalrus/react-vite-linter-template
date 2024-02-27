@@ -6,6 +6,8 @@ import { defineConfig } from 'vitest/config';
 
 import viteConfig from './vite.config';
 
+const isUnit = process.env.TEST_VITEST_TYPE === 'unit';
+
 export default mergeConfig(
     viteConfig,
     defineConfig({
@@ -42,8 +44,10 @@ export default mergeConfig(
                 '**/.{idea,git,cache,output,temp}/**',
                 '**/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,tsup,build,eslint,prettier}.config.*',
                 '**/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,tsup,build,eslint,prettier}.config.*',
+                ...(isUnit ? ['**/screenshot.test.ts'] : []),
             ],
             globals: true,
+            include: isUnit ? ['**/*.{test,spec}.?(c|m)[jt]s?(x)'] : ['src/app/__tests__/screenshot.test.ts'],
             setupFiles: './vitest.setup.ts',
         },
     }),
