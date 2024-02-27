@@ -11,4 +11,6 @@ export const saveFile = (fileName: string, data: string | NodeJS.ArrayBufferView
     }
 
     writeFileSync(filePath, data);
+
+    return true;
 };

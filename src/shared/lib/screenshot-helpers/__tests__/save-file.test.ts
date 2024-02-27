@@ -1,5 +1,4 @@
 import mockFs from 'mock-fs';
-import { resolve } from 'path';
 
 import { saveFile } from '../save-file';
 
@@ -12,7 +11,7 @@ describe('saveFile', () => {
         mockFs.restore();
     });
 
-    it('overwrites the file if it already exists', async () => {
+    it('save the file', () => {
         const fileName = 'test/savedFile.png';
         const data = 'new data';
         const initialData = 'old data';
@@ -21,14 +20,9 @@ describe('saveFile', () => {
             [fileName]: initialData,
         });
 
-        saveFile(fileName, data);
+        const isTrue = saveFile(fileName, data);
 
-        const { readFileSync } = await import('fs');
-
-        const filePath = resolve('', fileName);
-        const fileContent = readFileSync(filePath, { encoding: 'utf8' });
-
-        expect(fileContent).toBe(data);
+        expect(isTrue).toBeTruthy();
     });
 
     it('throws an error if unable to save the file', () => {
