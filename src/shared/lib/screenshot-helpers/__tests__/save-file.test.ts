@@ -20,7 +20,7 @@ describe('saveFile', () => {
             [fileName]: initialData,
         });
 
-        const isTrue = saveFile(fileName, data);
+        const isTrue = saveFile(fileName, data, __dirname);
 
         expect(isTrue).toBeTruthy();
     });
