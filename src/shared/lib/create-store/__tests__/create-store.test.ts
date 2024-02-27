@@ -27,31 +27,23 @@ describe('createStore', () => {
     });
 
     it('calls createWithEqualityFn with devtools in development', () => {
-        const originalEnv = process.env.NODE_ENV;
-        const originalTest = process.env.VITEST;
-        process.env.NODE_ENV = 'development';
-        process.env.VITEST = '';
+        vi.stubEnv('NODE_ENV', 'development');
+        vi.stubEnv('VITEST', '');
 
         const stateCreator = vi.fn();
         createStore(stateCreator, 'testStore');
 
         expect(devtools).toHaveBeenCalled();
         expect(createWithEqualityFn).toHaveBeenCalledWith(expect.any(Function), shallow);
-
-        process.env.NODE_ENV = originalEnv;
-        process.env.VITEST = originalTest;
     });
 
     it('calls createWithEqualityFn without devtools in production', () => {
-        const originalEnv = process.env.NODE_ENV;
-        process.env.NODE_ENV = 'production';
+        vi.stubEnv('NODE_ENV', 'production');
 
         const stateCreator = vi.fn();
         createStore(stateCreator, 'testStore');
 
         expect(devtools).not.toHaveBeenCalled();
         expect(createWithEqualityFn).toHaveBeenCalledWith(stateCreator, shallow);
-
-        process.env.NODE_ENV = originalEnv;
     });
 });
