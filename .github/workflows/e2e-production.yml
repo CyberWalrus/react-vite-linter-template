@@ -28,10 +28,6 @@ jobs:
         echo "PRODUCTION_SERVER_URL="https://${{ github.repository_owner }}.github.io$MODIFIED_VALUE"" >> $GITHUB_ENV
       shell: bash
 
-    - name: Define artifact name with date
-      run: echo "ARTIFACT_NAME=test-run_$(date +'%Y-%m-%d_%H-%M-%S')" >> $GITHUB_ENV
-      shell: bash
-
     - name: Install Node.js and Dependencies
       uses: ./.github/actions/install-node  # Путь до вашего локального action
       with:
@@ -60,5 +56,5 @@ jobs:
       if: always()
       uses: actions/upload-artifact@v3
       with:
-        name: ${{ env.ARTIFACT_NAME }}
+        name: e2e-test-run
         path: ./__screenshots-current__
