@@ -5,25 +5,20 @@ export const getFiles = (value: string) => {
     const pngFiles: string[] = [];
 
     const readDirRecursive = (directory: string) => {
-        try {
-            const fullDirectoryPath = directory;
+        const fullDirectoryPath = directory;
 
-            const filesAndDirs = readdirSync(fullDirectoryPath);
+        const filesAndDirs = readdirSync(fullDirectoryPath);
 
-            for (const name of filesAndDirs) {
-                const fullPath = join(fullDirectoryPath, name);
+        for (const name of filesAndDirs) {
+            const fullPath = join(fullDirectoryPath, name);
 
-                const stat = statSync(fullPath);
+            const stat = statSync(fullPath);
 
-                if (stat.isFile() && extname(name) === '.png') {
-                    pngFiles.push(fullPath);
-                } else if (stat.isDirectory()) {
-                    readDirRecursive(join(directory, name));
-                }
+            if (stat.isFile() && extname(name) === '.png') {
+                pngFiles.push(fullPath);
+            } else if (stat.isDirectory()) {
+                readDirRecursive(join(directory, name));
             }
-        } catch (error) {
-            // eslint-disable-next-line no-console
-            console.warn(error);
         }
     };
 

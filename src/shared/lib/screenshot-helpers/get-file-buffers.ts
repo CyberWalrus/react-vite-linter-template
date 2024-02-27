@@ -4,7 +4,7 @@ import { readFileSync } from 'fs';
 import { CURRENT_FOLDER, REFERENCE_FOLDER } from './constants';
 import { saveFile } from './save-file';
 
-export const getFileBuffers = (currentFilePath: string) => {
+export const getFileBuffers = (currentFilePath: string): [Buffer | null, Buffer | null] => {
     const referenceFilePath = currentFilePath.replace(CURRENT_FOLDER, REFERENCE_FOLDER);
 
     let currentScreenshotFile: Buffer | null = null;
