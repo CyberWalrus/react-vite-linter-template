@@ -35,6 +35,14 @@ export const createStore = (<T>(stateCreator: zustand.StateCreator<T>) =>
         ? createStoreUncurried(stateCreator)
         : createStoreUncurried) as typeof zustand.createStore;
 
+beforeEach(() => {
+    act(() =>
+        storeResetFns.forEach((resetFn) => {
+            resetFn();
+        }),
+    );
+});
+
 afterEach(() => {
     act(() => {
         storeResetFns.forEach((resetFn) => {

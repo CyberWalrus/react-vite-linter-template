@@ -1,6 +1,6 @@
 import { CURRENT_FOLDER, getFiles, getMismatchedPixels } from '$shared/lib/screenshot-helpers';
 
-describe('Screenshot Tests', () => {
+describe('Screenshot Tests', { concurrent: true }, () => {
     const screenshotFiles = getFiles(CURRENT_FOLDER);
 
     screenshotFiles.forEach((filePath) =>

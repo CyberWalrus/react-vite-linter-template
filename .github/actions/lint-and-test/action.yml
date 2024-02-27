@@ -8,6 +8,16 @@ runs:
       shell: bash
       run: yarn lint
 
+    - name: Run unit Tests
+      if: always()
+      shell: bash
+      run: yarn test:unit
+
+    - name: Run unit Tests
+      if: always()
+      shell: bash
+      run: yarn test:unit:isolate
+
     - name: Build Tests Server
       if: always()
       shell: bash
@@ -17,11 +27,6 @@ runs:
       if: always()
       shell: bash
       run: yarn test:e2e
-
-    - name: Run unit Tests
-      if: always()
-      shell: bash
-      run: yarn test:unit
 
     - name: Run screenshot Server
       if: always()

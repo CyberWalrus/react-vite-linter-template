@@ -13,8 +13,15 @@ const createImpl = <T>(createState: StateCreator<T>) => {
     return store;
 };
 
-// Reset all stores after each test run
 beforeEach(() => {
+    act(() =>
+        storeResetFns.forEach((resetFn) => {
+            resetFn();
+        }),
+    );
+});
+
+afterEach(() => {
     act(() =>
         storeResetFns.forEach((resetFn) => {
             resetFn();

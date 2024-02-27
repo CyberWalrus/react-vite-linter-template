@@ -6,7 +6,57 @@ import { defineConfig } from 'vitest/config';
 
 import viteConfig from './vite.config';
 
-const isUnit = process.env.TEST_VITEST_TYPE === 'unit';
+type VitestType = 'unit' | 'unit-isolate' | 'screenshot';
+
+const type: VitestType = (process.env.TEST_VITEST_TYPE as VitestType) ?? 'unit';
+
+const getExcludeTest = () => {
+    if (type === 'screenshot') {
+        return [];
+    }
+
+    if (type === 'unit-isolate') {
+        return [];
+    }
+
+    return ['**/screenshot.test.ts', '**/create-store.test.ts'];
+};
+
+const getIncludeTest = () => {
+    if (type === 'screenshot') {
+        return ['src/app/__tests__/screenshot.test.ts'];
+    }
+
+    if (type === 'unit-isolate') {
+        return ['src/shared/lib/create-store/__tests__/**'];
+    }
+
+    return ['**/*.{test,spec}.?(c|m)[jt]s?(x)'];
+};
+
+const getExcludeCoverage = () => {
+    if (type === 'screenshot') {
+        return [];
+    }
+
+    if (type === 'unit-isolate') {
+        return [];
+    }
+
+    return ['src/shared/lib/create-store/**'];
+};
+
+const getIncludeCoverage = () => {
+    if (type === 'screenshot') {
+        return [];
+    }
+
+    if (type === 'unit-isolate') {
+        return ['src/shared/lib/create-store/**'];
+    }
+
+    return ['src/**'];
+};
 
 export default mergeConfig(
     viteConfig,
@@ -24,8 +74,9 @@ export default mergeConfig(
                     '**/public/**',
                     '**/vite-env.d.ts',
                     '**/*.type.ts',
+                    ...getExcludeCoverage(),
                 ],
-                include: ['src/**'],
+                include: getIncludeCoverage(),
                 reporter: ['text', 'lcov'],
                 thresholds: {
                     branches: 95,
@@ -44,10 +95,10 @@ export default mergeConfig(
                 '**/.{idea,git,cache,output,temp}/**',
                 '**/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,tsup,build,eslint,prettier}.config.*',
                 '**/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,tsup,build,eslint,prettier}.config.*',
-                ...(isUnit ? ['**/screenshot.test.ts'] : []),
+                ...getExcludeTest(),
             ],
             globals: true,
-            include: isUnit ? ['**/*.{test,spec}.?(c|m)[jt]s?(x)'] : ['src/app/__tests__/screenshot.test.ts'],
+            include: getIncludeTest(),
             setupFiles: './vitest.setup.ts',
         },
     }),
