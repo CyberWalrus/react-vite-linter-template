@@ -8,10 +8,25 @@ runs:
       shell: bash
       run: yarn lint
 
-    - name: Run Tests
+    - name: Build Tests Server
       if: always()
       shell: bash
-      run: yarn test
+      run: yarn test:build
+
+    - name: Run e2e Tests
+      if: always()
+      shell: bash
+      run: yarn test:e2e
+
+    - name: Run unit Tests
+      if: always()
+      shell: bash
+      run: yarn test:unit
+
+    - name: Run screenshot Server
+      if: always()
+      shell: bash
+      run: yarn test:screenshot
 
     - name: Upload src/app/__screenshots__ as artifact if tests fail
       if: failure()
