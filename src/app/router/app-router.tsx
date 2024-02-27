@@ -9,7 +9,7 @@ const basepath = String(process.env.BASE_PATH);
 
 const routeTree = rootRoute.addChildren([homeRoute, aboutRoute]);
 
-export const router = createRouter({ defaultPreload: 'intent', routeTree });
+const router = createRouter({ defaultPreload: 'intent', routeTree });
 
 export const AppRouter: FC = () => (
     <RouterProvider

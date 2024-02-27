@@ -6,7 +6,9 @@ import { Link, Outlet } from '@tanstack/react-router';
 import { Footer } from '$shared/ui/footer';
 import { PageLayout } from '$shared/ui/layouts';
 
-import { TanStackRouterDevtools } from './tan-stack-router';
+import { getDevtools } from './get-devtools';
+
+const Devtools = getDevtools();
 
 export const RootRouteLayout: FC = () => (
     <PageLayout
@@ -36,7 +38,7 @@ export const RootRouteLayout: FC = () => (
     >
         <Outlet />
         <Suspense>
-            <TanStackRouterDevtools />
+            <Devtools />
         </Suspense>
     </PageLayout>
 );
