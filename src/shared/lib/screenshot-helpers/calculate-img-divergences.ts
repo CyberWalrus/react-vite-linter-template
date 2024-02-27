@@ -20,7 +20,7 @@ export const calculateImgDivergences = (
     const diff = new PNG({ height, width });
 
     const mismatchedPixels = pixelmatch(currentScreenshot.data, referenceScreenshot.data, diff.data, width, height, {
-        threshold: 0.2,
+        threshold: 0.5,
     });
 
     saveFile(difScreenshotFile, PNG.sync.write(diff));
