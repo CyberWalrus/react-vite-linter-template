@@ -2,8 +2,8 @@ import type { FC } from 'react';
 import { Flex, Text } from '@radix-ui/themes';
 import { createLazyRoute } from '@tanstack/react-router';
 
+import { Counter } from '$widgets/counter';
 import { TechLink } from '$shared/ui/tech-link';
-import { Counter } from '$features/counter';
 
 export const HomePage: FC = () => (
     <>

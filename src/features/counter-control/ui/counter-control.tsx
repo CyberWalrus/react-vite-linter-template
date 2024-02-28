@@ -1,8 +1,8 @@
 import { Button, Grid } from '@radix-ui/themes';
 
-import { useCounterStore } from '../model/store';
+import { useCounterStore } from '$entities/counter';
 
-export const Controls = () => {
+export const CounterControl = () => {
     const [handleIncrement, handleDecrement, handleClear] = useCounterStore(({ clear, increment, decrement }) => [
         increment,
         decrement,
