@@ -1,6 +1,10 @@
 # react-vite-linter-template
 
-Template for react app
+## Доступные языки документации
+
+[【English】](../README_RU.md)
+
+Шаблон для React-приложения
 
 ## Нужно реализовать
 
