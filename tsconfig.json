@@ -19,7 +19,6 @@
             ]
         },
         "rootDirs": [
-            ".",
             "__generated__"
         ],
     },
