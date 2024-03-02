@@ -1,18 +1,22 @@
 :root {
     font-weight: 400;
     font-size: 16px;
-    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
     line-height: 24px;
     font-synthesis: none;
     text-rendering: optimizelegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-size-adjust: 100%;
+    text-size-adjust: 100%; font-optical-sizing: auto;
+}
 
+html {
+    font-family: InterVariable, sans-serif;
 }
 
 body {
     margin: 0;
+
+    font-family: InterVariable, sans-serif;
 
     --color-page-background: #1a1a1a;
 }
