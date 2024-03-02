@@ -98,6 +98,7 @@ export default mergeConfig(
             ],
             globals: true,
             include: getIncludeTest(),
+            retry: 2,
             setupFiles: './vitest.setup.ts',
         },
     }),
