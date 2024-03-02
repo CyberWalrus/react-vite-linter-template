@@ -2,7 +2,7 @@
 
 ## Доступные языки документации
 
-[【English】](../README_RU.md)
+[【English】](../README.md)
 
 Шаблон для React-приложения
 
