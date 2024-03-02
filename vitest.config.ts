@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-/// <reference types="vitest" />
 import { resolve } from 'path';
 import { mergeConfig } from 'vite';
 import { defineConfig } from 'vitest/config';
