@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable import/no-extraneous-dependencies */
 import type { PlaywrightTestConfig } from '@playwright/test';
 import dotenv from 'dotenv';
 

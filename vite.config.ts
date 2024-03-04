@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import react from '@vitejs/plugin-react-swc';
 import dotenv from 'dotenv';
 import { resolve } from 'path';

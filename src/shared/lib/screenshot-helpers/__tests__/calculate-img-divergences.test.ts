@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/unbound-method */
 import { PNG } from 'pngjs';
 
 import { calculateImgDivergences } from '../calculate-img-divergences';

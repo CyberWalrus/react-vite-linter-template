@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 // __mocks__/zustand.ts
 import { act } from '@testing-library/react';
 import type * as zustand from 'zustand';

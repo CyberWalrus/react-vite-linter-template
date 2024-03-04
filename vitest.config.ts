@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { resolve } from 'path';
 import { mergeConfig } from 'vite';
 import { defineConfig } from 'vitest/config';

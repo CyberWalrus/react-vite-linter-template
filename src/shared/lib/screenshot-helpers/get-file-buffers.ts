@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { readFileSync } from 'fs';
 
 import { CURRENT_FOLDER, REFERENCE_FOLDER } from './constants';
