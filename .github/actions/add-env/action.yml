@@ -9,5 +9,5 @@ runs:
         MODIFIED_VALUE="${ORIGINAL_VALUE/${{ github.repository_owner }}/}"
         echo "VITE_BASE_PATH=$MODIFIED_VALUE" >> $GITHUB_ENV
         echo "VITE_BASE_URL="https://${{ github.repository_owner }}.github.io$MODIFIED_VALUE"" >> $GITHUB_ENV
-        echo "TEST_SERVER_URL="http://localhost:4173/"" >> $GITHUB_ENV
+        echo "E2E_SERVER_URL="http://localhost:4173/"" >> $GITHUB_ENV
       shell: bash
