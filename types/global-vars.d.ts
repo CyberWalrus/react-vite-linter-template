@@ -1,2 +1,2 @@
 // eslint-disable-next-line no-underscore-dangle
-declare const __CLIENT__: boolean;
+declare let __CLIENT__: boolean;

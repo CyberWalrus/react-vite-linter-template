@@ -3,6 +3,8 @@ import { devtools } from 'zustand/middleware';
 import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
 
+import { envClient } from '$shared/api/env-client';
+
 import { createStore } from '..';
 
 vi.mock('zustand/traditional', async () => {
@@ -27,23 +29,30 @@ describe('createStore', () => {
     });
 
     it('calls createWithEqualityFn with devtools in development', () => {
-        vi.stubEnv('NODE_ENV', 'development');
-        vi.stubEnv('VITE_TEST_SERVER_BUILD', '');
+        const oldNode = envClient.NODE_ENV;
+        const oldTest = envClient.VITE_TEST_SERVER_BUILD;
+        envClient.NODE_ENV = 'development';
+        envClient.VITE_TEST_SERVER_BUILD = false;
 
         const stateCreator = vi.fn();
         createStore(stateCreator, 'testStore');
 
         expect(devtools).toHaveBeenCalled();
         expect(createWithEqualityFn).toHaveBeenCalledWith(expect.any(Function), shallow);
+        envClient.NODE_ENV = oldNode;
+        envClient.VITE_TEST_SERVER_BUILD = oldTest;
     });
 
     it('calls createWithEqualityFn without devtools in production', () => {
         vi.stubEnv('NODE_ENV', 'production');
+        const oldNode = envClient.NODE_ENV;
+        envClient.NODE_ENV = 'production';
 
         const stateCreator = vi.fn();
         createStore(stateCreator, 'testStore');
 
         expect(devtools).not.toHaveBeenCalled();
         expect(createWithEqualityFn).toHaveBeenCalledWith(stateCreator, shallow);
+        envClient.NODE_ENV = oldNode;
     });
 });

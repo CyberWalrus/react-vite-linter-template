@@ -1,8 +1,10 @@
 import type { FC } from 'react';
 import { lazy } from 'react';
 
+import { envClient } from '$shared/api/env-client';
+
 export const getDevtools: () => FC = () => {
-    if (process.env.NODE_ENV === 'production') {
+    if (envClient.NODE_ENV === 'production') {
         return () => null;
     }
 

@@ -20,10 +20,11 @@ export default defineConfig({
         },
     },
     define: {
-        __CLIENT__: envBuild.NODE_ENV,
-        'process.env.NODE_ENV': envBuild.NODE_ENV,
-        'process.env.VITE_BASE_PATH': basePath,
-        'process.env.VITE_BASE_URL': baseUrl,
+        __CLIENT__: envBuild.NODE_ENV !== 'test',
+        NODE_ENV: JSON.stringify(envBuild.NODE_ENV),
+        VITE_BASE_PATH: JSON.stringify(basePath),
+        VITE_BASE_URL: JSON.stringify(baseUrl),
+        VITE_TEST_SERVER_BUILD: JSON.stringify(envBuild.VITE_TEST_SERVER_BUILD),
     },
     experimental: {
         renderBuiltUrl(filename: string) {
