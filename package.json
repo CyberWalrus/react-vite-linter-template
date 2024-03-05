@@ -22,10 +22,10 @@
         "test:unit": "TEST_VITEST_TYPE=unit TZ=Europe/Moscow yarn vitest run --coverage --isolate=false",
         "test:unit:isolate": "TEST_VITEST_TYPE=unit-isolate TZ=Europe/Moscow yarn vitest run --coverage --isolate=true",
         "test:screenshot": "TEST_VITEST_TYPE=screenshot TZ=Europe/Moscow yarn vitest run --isolate=false",
-        "test:build": "VITEST=true tsc && VITEST=true vite build --outDir ./dist-test-server",
+        "test:build": "VITE_TEST_SERVER_BUILD=true tsc && VITE_TEST_SERVER_BUILD=true vite build --outDir ./dist-test-server",
         "test:e2e": "TZ=Europe/Moscow yarn playwright test",
         "test:e2e:production": "E2E_PRODUCTION=true TZ=Europe/Moscow yarn playwright test",
-        "test:server": "VITEST=true vite preview --outDir ./dist-test-server --port 4173",
+        "test:server": "VITE_TEST_SERVER_BUILD=true vite preview --outDir ./dist-test-server --port 4173",
         "test:update": "UPDATE_SCREENSHOTS=true TZ=Europe/Moscow vitest run"
     },
     "dependencies": {

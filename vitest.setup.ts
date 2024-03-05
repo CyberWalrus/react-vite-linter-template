@@ -9,7 +9,7 @@ window.HTMLElement.prototype.scrollIntoView = vi.fn();
 
 process.env.VITE_BASE_URL = '/';
 process.env.VITE_BASE_PATH = '/';
-process.env.VITEST = 'true';
+process.env.VITE_TEST_SERVER_BUILD = 'true';
 
 afterEach(() => {
     cleanup();

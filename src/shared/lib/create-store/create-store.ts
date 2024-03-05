@@ -4,7 +4,7 @@ import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
 
 export const createStore = <GState>(fn: StateCreator<GState>, name: string) => {
-    if (process.env.NODE_ENV !== 'development' || process.env.VITEST === 'true') {
+    if (process.env.NODE_ENV !== 'development' || process.env.VITE_TEST_SERVER_BUILD === 'true') {
         return createWithEqualityFn(fn, shallow);
     }
 

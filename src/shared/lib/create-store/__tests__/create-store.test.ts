@@ -28,7 +28,7 @@ describe('createStore', () => {
 
     it('calls createWithEqualityFn with devtools in development', () => {
         vi.stubEnv('NODE_ENV', 'development');
-        vi.stubEnv('VITEST', '');
+        vi.stubEnv('VITE_TEST_SERVER_BUILD', '');
 
         const stateCreator = vi.fn();
         createStore(stateCreator, 'testStore');
