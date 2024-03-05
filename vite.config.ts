@@ -9,8 +9,8 @@ import { envBuild } from './src/shared/api/env-build';
 
 dotenv.config();
 
-const basePath = envBuild.VITE_TEST_SERVER_BUILD ? envBuild.VITE_BASE_PATH : '/';
-const baseUrl = envBuild.VITE_TEST_SERVER_BUILD ? envBuild.VITE_BASE_URL : '/';
+const basePath = envBuild.VITE_TEST_SERVER_BUILD ? '/' : envBuild.VITE_BASE_PATH;
+const baseUrl = envBuild.VITE_TEST_SERVER_BUILD ? '/' : envBuild.VITE_BASE_URL;
 
 export default defineConfig({
     css: {
