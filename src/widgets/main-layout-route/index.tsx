@@ -7,5 +7,5 @@ import { MainLayoutRoute } from './ui/main-layout-route';
 export const mainLayoutRoute = createRoute({
     component: MainLayoutRoute,
     getParentRoute: () => rootRoute,
-    id: 'layout',
+    id: 'mainLayout',
 });
