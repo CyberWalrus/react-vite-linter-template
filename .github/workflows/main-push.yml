@@ -22,7 +22,7 @@ jobs:
 
     env:
       E2E_BROWSER_NAME: chromium
-      E2E_BROWSER_VIEWPORT: desktop720,
+      E2E_BROWSER_VIEWPORT: desktop720
       E2E_SERVER_URL: http://localhost:4173/
 
       VITE_BASE_PATH: /
