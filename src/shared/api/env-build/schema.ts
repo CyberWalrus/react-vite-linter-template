@@ -13,15 +13,19 @@ const BrowserViewportSchema = z.union([
     z.literal('desktop1440'),
 ]);
 
+const TestTypeSchema = z.union([z.literal('unit'), z.literal('unit-isolate'), z.literal('screenshot')]);
+
 export type BrowserName = z.infer<typeof BrowserNameSchema>;
 export type BrowserViewport = z.infer<typeof BrowserViewportSchema>;
 
 export const EnvBuildSchema = z.object({
     E2E_BROWSER_NAME: BrowserNameSchema,
     E2E_BROWSER_VIEWPORT: BrowserViewportSchema,
+    E2E_PRODUCTION: StringToBooleanSchema,
     E2E_SERVER_URL: z.string().url(),
     NODE_ENV: z.string(),
     VITE_BASE_PATH: z.string(),
     VITE_BASE_URL: z.string(),
     VITE_TEST_SERVER_BUILD: StringToBooleanSchema,
+    VITEST_TEST_TYPE: TestTypeSchema,
 });

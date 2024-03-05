@@ -2,11 +2,10 @@ import { resolve } from 'path';
 import { mergeConfig } from 'vite';
 import { defineConfig } from 'vitest/config';
 
+import { envBuild } from './src/shared/api/env-build';
 import viteConfig from './vite.config';
 
-type VitestType = 'unit' | 'unit-isolate' | 'screenshot';
-
-const type: VitestType = (process.env.TEST_VITEST_TYPE as VitestType) ?? 'unit';
+const type = envBuild.VITEST_TEST_TYPE;
 
 const getExcludeTest = () => {
     if (type === 'screenshot') {
