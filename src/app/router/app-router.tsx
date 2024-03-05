@@ -3,10 +3,13 @@ import { createRouter, RouterProvider } from '@tanstack/react-router';
 
 import { aboutRoute } from '$pages/about';
 import { homeRoute } from '$pages/home';
-import { rootRoute } from '$widgets/root-route';
+import { infoRoute } from '$pages/info';
+import { mainLayoutRoute } from '$widgets/main-layout-route';
 import { envClient } from '$shared/api/env-client';
+import { rootRoute } from '$shared/ui/root-route';
 
-const routeTree = rootRoute.addChildren([homeRoute, aboutRoute]);
+const mainTree = mainLayoutRoute.addChildren([homeRoute, aboutRoute]);
+const routeTree = rootRoute.addChildren([infoRoute, mainTree]);
 
 const router = createRouter({ defaultPreload: 'intent', routeTree });
 

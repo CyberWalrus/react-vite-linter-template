@@ -1,16 +1,11 @@
 import type { FC } from 'react';
-import { Suspense } from 'react';
 import { Flex, Link as LinkRadix, Text } from '@radix-ui/themes';
 import { Link, Outlet } from '@tanstack/react-router';
 
 import { Footer } from '$shared/ui/footer';
 import { PageLayout } from '$shared/ui/layouts';
 
-import { getDevtools } from './get-devtools';
-
-const Devtools = getDevtools();
-
-export const RootRouteLayout: FC = () => (
+export const MainLayoutRoute: FC = () => (
     <PageLayout
         footer={<Footer />}
         header={
@@ -25,6 +20,9 @@ export const RootRouteLayout: FC = () => (
                 <LinkRadix asChild>
                     <Link to='/about'>About</Link>
                 </LinkRadix>
+                <LinkRadix asChild>
+                    <Link to='/info'>Info</Link>
+                </LinkRadix>
             </Flex>
         }
         title={
@@ -37,8 +35,5 @@ export const RootRouteLayout: FC = () => (
         }
     >
         <Outlet />
-        <Suspense>
-            <Devtools />
-        </Suspense>
     </PageLayout>
 );

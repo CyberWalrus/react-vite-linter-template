@@ -1,8 +1,8 @@
 import { createRoute } from '@tanstack/react-router';
 
-import { rootRoute } from '$widgets/root-route';
+import { mainLayoutRoute } from '$widgets/main-layout-route';
 
 export const aboutRoute = createRoute({
-    getParentRoute: () => rootRoute,
+    getParentRoute: () => mainLayoutRoute,
     path: '/about',
 }).lazy(() => import('./ui/about-page').then((d) => d.aboutLazyRoute));
