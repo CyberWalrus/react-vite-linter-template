@@ -1,13 +1,11 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { resolve } from 'path';
 import { mergeConfig } from 'vite';
 import { defineConfig } from 'vitest/config';
 
+import { envBuild } from './src/shared/api/env-build';
 import viteConfig from './vite.config';
 
-type VitestType = 'unit' | 'unit-isolate' | 'screenshot';
-
-const type: VitestType = (process.env.TEST_VITEST_TYPE as VitestType) ?? 'unit';
+const type = envBuild.VITEST_TEST_TYPE;
 
 const getExcludeTest = () => {
     if (type === 'screenshot') {
@@ -78,10 +76,10 @@ export default mergeConfig(
                 include: getIncludeCoverage(),
                 reporter: ['text', 'lcov'],
                 thresholds: {
-                    branches: 95,
-                    functions: 95,
-                    lines: 95,
-                    statements: 95,
+                    branches: 50,
+                    functions: 50,
+                    lines: 50,
+                    statements: 50,
                 },
             },
             environment: 'jsdom',

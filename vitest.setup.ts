@@ -1,7 +1,6 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable import/no-unresolved */
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { cleanup } from '@testing-library/react';
+
+import { envClient } from '$shared/api/env-client';
 
 import '@testing-library/jest-dom';
 
@@ -10,9 +9,9 @@ vi.mock('zustand/traditional');
 
 window.HTMLElement.prototype.scrollIntoView = vi.fn();
 
-process.env.BASE_URL = '/';
-process.env.BASE_PATH = '/';
-process.env.VITEST = 'true';
+envClient.VITE_BASE_URL = '/';
+envClient.VITE_BASE_PATH = '/';
+envClient.VITE_TEST_SERVER_BUILD = true;
 
 afterEach(() => {
     cleanup();

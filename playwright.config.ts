@@ -1,20 +1,11 @@
-/* eslint-disable no-console */
-/* eslint-disable import/no-extraneous-dependencies */
 import type { PlaywrightTestConfig } from '@playwright/test';
 import dotenv from 'dotenv';
 
+import { envBuild } from './src/shared/api/env-build';
+
 dotenv.config();
 
-const { TEST_SERVER_URL, E2E_PRODUCTION, PRODUCTION_SERVER_URL, E2E_BROWSER_NAME } = process.env;
-
-const browserName: 'chromium' | 'firefox' | 'webkit' =
-    (E2E_BROWSER_NAME as unknown as 'chromium' | 'firefox' | 'webkit') ?? 'chromium';
-
-const isProduction = E2E_PRODUCTION === 'true';
-
-const url = isProduction ? PRODUCTION_SERVER_URL : TEST_SERVER_URL;
-
-const webServer = isProduction
+const webServer = envBuild.E2E_PRODUCTION
     ? {}
     : ({
           webServer: {
@@ -27,13 +18,13 @@ const webServer = isProduction
 
 const config: PlaywrightTestConfig = {
     globalTimeout: 200000,
-    outputDir: `./__screenshots-current__/${browserName}`,
+    outputDir: `./__screenshots-current__/${envBuild.E2E_BROWSER_NAME}`,
     reporter: 'list',
     testDir: './src/app/__e2e__/',
     timeout: 10000,
     use: {
-        baseURL: url,
-        browserName,
+        baseURL: envBuild.E2E_SERVER_URL,
+        browserName: envBuild.E2E_BROWSER_NAME,
         headless: true,
         ignoreHTTPSErrors: true,
         locale: 'ru-RU',

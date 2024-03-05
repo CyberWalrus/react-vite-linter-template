@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import react from '@vitejs/plugin-react-swc';
 import dotenv from 'dotenv';
 import { resolve } from 'path';
@@ -6,10 +5,12 @@ import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
+import { envBuild } from './src/shared/api/env-build';
+
 dotenv.config();
 
-const BASE_PATH = process.env.VITEST !== 'true' ? process.env.BASE_PATH ?? '/' : '/';
-const BASE_URL = process.env.VITEST !== 'true' ? process.env.BASE_URL ?? '/' : '/';
+const basePath = envBuild.VITE_TEST_SERVER_BUILD ? envBuild.VITE_BASE_PATH : '/';
+const baseUrl = envBuild.VITE_TEST_SERVER_BUILD ? envBuild.VITE_BASE_URL : '/';
 
 export default defineConfig({
     css: {
@@ -19,18 +20,21 @@ export default defineConfig({
         },
     },
     define: {
-        'process.env.BASE_PATH': JSON.stringify(BASE_PATH),
-        'process.env.BASE_URL': JSON.stringify(BASE_URL),
+        __CLIENT__: envBuild.NODE_ENV !== 'test',
+        NODE_ENV: JSON.stringify(envBuild.NODE_ENV),
+        VITE_BASE_PATH: JSON.stringify(basePath),
+        VITE_BASE_URL: JSON.stringify(baseUrl),
+        VITE_TEST_SERVER_BUILD: JSON.stringify(envBuild.VITE_TEST_SERVER_BUILD),
     },
     experimental: {
         renderBuiltUrl(filename: string) {
-            return `${BASE_URL}${filename}`;
+            return `${baseUrl}${filename}`;
         },
     },
     plugins: [
         react(),
         VitePWA({
-            base: BASE_URL,
+            base: baseUrl,
             includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
             manifest: {
                 description: 'React Vite Linter Template',

@@ -20,6 +20,18 @@ jobs:
       matrix:
         node-version: [20.x]
 
+    env:
+      E2E_BROWSER_NAME: chromium
+      E2E_BROWSER_VIEWPORT: desktop720
+      E2E_PRODUCTION: false
+      E2E_SERVER_URL: http://localhost:4173/
+
+      VITE_BASE_PATH: /
+      VITE_BASE_URL: /
+      VITE_TEST_SERVER_BUILD: false
+
+      VITEST_TEST_TYPE: unit
+
     steps:
     - uses: actions/checkout@v3
 
