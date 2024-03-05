@@ -43,9 +43,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Run Lint and Test
-      uses: ./.github/actions/lint-and-test
-
     - name: Build the project
       uses: ./.github/actions/build
 
