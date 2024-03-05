@@ -5,7 +5,7 @@ import { aboutRoute } from '$pages/about';
 import { homeRoute } from '$pages/home';
 import { rootRoute } from '$widgets/root-route';
 
-const basepath = String(process.env.BASE_PATH);
+const basepath = String(process.env.VITE_BASE_PATH);
 
 const routeTree = rootRoute.addChildren([homeRoute, aboutRoute]);
 

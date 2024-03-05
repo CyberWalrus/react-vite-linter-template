@@ -7,8 +7,8 @@ import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 dotenv.config();
 
-const BASE_PATH = process.env.VITEST !== 'true' ? process.env.BASE_PATH ?? '/' : '/';
-const BASE_URL = process.env.VITEST !== 'true' ? process.env.BASE_URL ?? '/' : '/';
+const VITE_BASE_PATH = process.env.VITEST !== 'true' ? process.env.VITE_BASE_PATH ?? '/' : '/';
+const VITE_BASE_URL = process.env.VITEST !== 'true' ? process.env.VITE_BASE_URL ?? '/' : '/';
 
 export default defineConfig({
     css: {
@@ -18,18 +18,18 @@ export default defineConfig({
         },
     },
     define: {
-        'process.env.BASE_PATH': JSON.stringify(BASE_PATH),
-        'process.env.BASE_URL': JSON.stringify(BASE_URL),
+        'process.env.VITE_BASE_PATH': JSON.stringify(VITE_BASE_PATH),
+        'process.env.VITE_BASE_URL': JSON.stringify(VITE_BASE_URL),
     },
     experimental: {
         renderBuiltUrl(filename: string) {
-            return `${BASE_URL}${filename}`;
+            return `${VITE_BASE_URL}${filename}`;
         },
     },
     plugins: [
         react(),
         VitePWA({
-            base: BASE_URL,
+            base: VITE_BASE_URL,
             includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
             manifest: {
                 description: 'React Vite Linter Template',

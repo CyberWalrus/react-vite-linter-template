@@ -7,8 +7,8 @@ vi.mock('zustand/traditional');
 
 window.HTMLElement.prototype.scrollIntoView = vi.fn();
 
-process.env.BASE_URL = '/';
-process.env.BASE_PATH = '/';
+process.env.VITE_BASE_URL = '/';
+process.env.VITE_BASE_PATH = '/';
 process.env.VITEST = 'true';
 
 afterEach(() => {
