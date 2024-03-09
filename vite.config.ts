@@ -36,6 +36,10 @@ export default defineConfig({
         react(),
         VitePWA({
             base: baseUrl,
+            /* devOptions: {
+                enabled: true,
+                type: 'module',
+            }, */
             includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
             manifest: {
                 description: 'React Vite Linter Template',
@@ -77,7 +81,10 @@ export default defineConfig({
                 threshold: 0,
             }),
         viteStaticCopy({
-            targets: [{ dest: './', rename: '404.html', src: './dist/index.html' }],
+            targets: [
+                { dest: './', rename: '404.html', src: './dist/index.html' },
+                { dest: './', rename: 'mockServiceWorker.js', src: './node_modules/msw/lib/mockServiceWorker.js' },
+            ],
         }),
     ],
     resolve: {

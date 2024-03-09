@@ -1,6 +1,9 @@
+/* eslint-disable no-console */
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Theme } from '@radix-ui/themes';
+
+import { envClient } from '$shared/api/env-client';
 
 import { AppRouter } from './router/app-router';
 
@@ -22,8 +25,27 @@ export const Main = () => (
     </Theme>
 );
 
-createRoot(document.getElementById('root') as HTMLElement).render(
-    <StrictMode>
-        <Main />
-    </StrictMode>,
-);
+let initWorker: () => Promise<void>;
+
+if (envClient.NODE_ENV !== 'production') {
+    initWorker = async () => {
+        try {
+            const { worker } = await import('./mocks');
+            await worker.start();
+        } catch (error) {
+            console.error(error);
+        }
+    };
+}
+
+const initApp = async () => {
+    await initWorker?.();
+
+    createRoot(document.getElementById('root') as HTMLElement).render(
+        <StrictMode>
+            <Main />
+        </StrictMode>,
+    );
+};
+
+initApp().catch(console.error);
