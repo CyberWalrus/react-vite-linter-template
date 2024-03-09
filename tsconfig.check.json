@@ -1,0 +1,9 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "rootDirs": [
+            ".",
+            "__generated__"
+        ],
+    }
+}

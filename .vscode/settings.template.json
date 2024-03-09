@@ -6,5 +6,9 @@
 		"*.tsx": "$(capture).type.ts, $(capture).module.scss",
 		"*.png": "$(capture).dif.png, $(capture).new.png, $(capture).dif.html",
 		".env": "*.env, .env.*, .envrc, env.d.ts"
-	}
+	},
+	"typescript.tsserver.maxTsServerMemory": 12000,
+	"typescript.tsserver.enableTracing": true,
+	"typescript.tsserver.experimental.enableProjectDiagnostics": true,
+	"typescript.tsdk": "./node_modules/typescript/lib"
 }
