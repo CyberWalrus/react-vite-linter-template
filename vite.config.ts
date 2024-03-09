@@ -2,6 +2,7 @@ import react from '@vitejs/plugin-react-swc';
 import dotenv from 'dotenv';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
+import viteCompression from 'vite-plugin-compression';
 import { VitePWA } from 'vite-plugin-pwa';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
@@ -62,6 +63,19 @@ export default defineConfig({
             },
             registerType: 'autoUpdate',
         }),
+        envBuild.NODE_ENV === 'production' &&
+            viteCompression({
+                algorithm: 'brotliCompress',
+                ext: '.br',
+                filter: (fileName) => /\.(js|css|html|svg)$/.test(fileName),
+                threshold: 0,
+            }),
+        envBuild.NODE_ENV === 'production' &&
+            viteCompression({
+                algorithm: 'gzip',
+                filter: (fileName) => /\.(js|css|html|svg)$/.test(fileName),
+                threshold: 0,
+            }),
         viteStaticCopy({
             targets: [{ dest: './', rename: '404.html', src: './dist/index.html' }],
         }),
