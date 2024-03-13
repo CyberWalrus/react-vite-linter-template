@@ -1,0 +1,16 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    width: 100%;
+}
+
+.block {
+    display: flex;
+    justify-self: center;
+    width: 320px;
+    height: 400px;
+
+    background-color: #d9d9d9;
+    border-radius: 12px;
+}

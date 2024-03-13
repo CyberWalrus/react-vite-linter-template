@@ -5,6 +5,8 @@ import { createLazyRoute } from '@tanstack/react-router';
 import { Counter } from '$widgets/counter';
 import { TechLink } from '$shared/ui/tech-link';
 
+import styles from './home-page.module.scss';
+
 export const HomePage: FC = () => (
     <>
         <TechLink />
@@ -32,6 +34,18 @@ export const HomePage: FC = () => (
                 Click on the Vite and React logos to learn more
             </Text>
         </Flex>
+        <div className={styles.container}>
+            <div className={styles.block} />
+            <div className={styles.block} />
+            <div className={styles.block} />
+            <div className={styles.block} />
+            <div className={styles.block} />
+            <div className={styles.block} />
+            <div className={styles.block} />
+            <div className={styles.block} />
+            <div className={styles.block} />
+            <div className={styles.block} />
+        </div>
     </>
 );
 
