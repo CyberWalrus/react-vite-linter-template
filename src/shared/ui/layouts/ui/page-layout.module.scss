@@ -1,13 +1,33 @@
 .app {
     position: relative;
 
-    display: flex;
+    display: grid;
     flex-direction: column;
-    align-items: center;
+    grid-template: "header header header" min-content "none1 main sidebar" 1fr "footer footer footer" min-content / 1fr minmax(320px, max-content) 1fr;
+    gap: 16px 4px;
     min-width: 100vw;
     min-height: 100vh;
+    @supports (min-height: 100svh) {
+        min-width: 100svw;
+        min-height: 100svh;
+    }
 }
 
 .main {
+    grid-area: main;
     min-height: 100%;
+}
+
+.footer {
+    display: grid;
+    grid-area: footer;
+    justify-self: center;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.header {
+    grid-area: header;
 }

@@ -5,9 +5,12 @@ import { Link, Outlet } from '@tanstack/react-router';
 import { Footer } from '$shared/ui/footer';
 import { PageLayout } from '$shared/ui/layouts';
 
+import { Sidebar } from './sidebar';
+
 export const MainLayoutRoute: FC = () => (
     <PageLayout
         footer={<Footer />}
+        sidebar={<Sidebar />}
         header={
             <Flex
                 gap='3'

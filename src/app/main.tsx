@@ -28,6 +28,7 @@ export const Main = () => (
 let initWorker: () => Promise<void>;
 
 if (envClient.NODE_ENV !== 'production') {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
     initWorker = async () => {
         try {
             const { worker } = await import('./mocks');
@@ -38,8 +39,9 @@ if (envClient.NODE_ENV !== 'production') {
     };
 }
 
+// eslint-disable-next-line @typescript-eslint/require-await
 const initApp = async () => {
-    await initWorker?.();
+    // await initWorker?.();
 
     createRoot(document.getElementById('root') as HTMLElement).render(
         <StrictMode>
