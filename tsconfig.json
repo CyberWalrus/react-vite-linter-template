@@ -2,12 +2,8 @@
     "extends": "@cyber-walrus/typescript-config/tsconfig.json",
     "compilerOptions": {
         "typeRoots": [
-            "./node_modules/@types/",
-            "./types",
-            "./node_modules"
-        ],
-        "types": [
-            "vitest/globals"
+            "./node_modules/@types",
+            "./types"
         ],
         "baseUrl": "./",
         "paths": {
