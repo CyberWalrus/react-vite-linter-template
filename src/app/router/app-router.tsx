@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/consistent-type-definitions */
 import type { FC } from 'react';
 import { createRouter, RouterProvider } from '@tanstack/react-router';
 
@@ -12,6 +13,12 @@ const mainTree = mainLayoutRoute.addChildren([homeRoute, aboutRoute]);
 const routeTree = rootRoute.addChildren([infoRoute, mainTree]);
 
 const router = createRouter({ defaultPreload: 'intent', routeTree });
+
+declare module '@tanstack/router' {
+    interface Register {
+        router: typeof router;
+    }
+}
 
 export const AppRouter: FC = () => (
     <RouterProvider
