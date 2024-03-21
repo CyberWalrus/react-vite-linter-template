@@ -8,6 +8,7 @@ import { envClient } from '$shared/api/env-client';
 import { AppRouter } from './router/app-router';
 
 import '@radix-ui/themes/styles.css';
+import './styles/fonts.scss';
 import './styles/main.scss';
 
 export const Main = () => (
