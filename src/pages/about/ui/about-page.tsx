@@ -16,6 +16,6 @@ export const AboutPage: FC = () => (
     </>
 );
 
-export const aboutLazyRoute = createLazyRoute('/about')({
+export const aboutLazyRoute = createLazyRoute('/mainLayout/about')({
     component: AboutPage,
 });
