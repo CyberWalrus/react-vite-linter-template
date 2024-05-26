@@ -55,6 +55,7 @@
         "@vitejs/plugin-react-swc": "3.6.0",
         "@vitest/coverage-v8": "1.4.0",
         "concurrently": "8.2.2",
+        "css-class-hunter": "0.1.1",
         "dotenv": "16.4.5",
         "jsdom": "24.0.0",
         "mock-fs": "5.2.0",

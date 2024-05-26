@@ -4056,6 +4056,11 @@ crypto-random-string@^2.0.0:
   resolved "https://registry.yarnpkg.com/crypto-random-string/-/crypto-random-string-2.0.0.tgz#ef2a7a966ec11083388369baa02ebead229b30d5"
   integrity sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==
 
+css-class-hunter@0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/css-class-hunter/-/css-class-hunter-0.1.1.tgz#e4c071c71a04d78758be17ba6879467af56beb67"
+  integrity sha512-L95lmlroAN1oadRKcmdMRKvnrnIhwBNAgwuBwR60PQx3YF+PlO8GNdrM4TYB0ek20s5xh+D+fWQCFbvgZUZFPw==
+
 css-functions-list@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/css-functions-list/-/css-functions-list-3.2.1.tgz#2eb205d8ce9f9ce74c5c1d7490b66b77c45ce3ea"

@@ -1,0 +1,8 @@
+{
+    "folder_path": "./__generated__/src",
+    "folder_app_path": "./src",
+    "output_file": "test.txt",
+    "output_app_file": "test2.txt",
+    "missing_entries_file": "test3.txt",
+    "tsconfig_file": "tsconfig.json"
+}
