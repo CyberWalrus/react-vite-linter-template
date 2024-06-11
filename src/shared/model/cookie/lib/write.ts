@@ -1,6 +1,8 @@
 import type { CookieAttributes } from 'js-cookie';
 import cookie from 'js-cookie';
 
+import { logError } from '$shared/lib/logger';
+
 import { CookiesValuesSchema } from '../model/schemas';
 import type { CookiesKeys, GetCookiesType, StringOrLiteral } from '../model/types';
 
@@ -28,7 +30,6 @@ export const writeCookie = <
 
         cookie.set(key, JSON.stringify(validValue), options);
     } catch (e) {
-        // eslint-disable-next-line no-console
-        console.error(`Error validate for cookie "${String(key)}"`);
+        logError(`Error validate for cookie "${String(key)}"`);
     }
 };
