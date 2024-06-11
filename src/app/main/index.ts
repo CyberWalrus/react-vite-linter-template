@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { logError } from '$shared/lib/logger';
 
 import { initApp } from './lib/init-app';

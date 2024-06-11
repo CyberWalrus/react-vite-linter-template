@@ -1,7 +1,7 @@
 import { readCookie } from '$shared/model/cookie';
 import { readLocalStorage } from '$shared/model/local-storage';
 
-import type { Theme, ThemeValues } from '../model/store.types';
+import type { Theme, ThemeValues } from '../model/types';
 
 export const getIsAppTheme = (): boolean => {
     const lsAppTheme = readLocalStorage({ key: 'is-app-theme' });

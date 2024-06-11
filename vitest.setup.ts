@@ -6,6 +6,12 @@ import '@testing-library/jest-dom';
 
 vi.mock('zustand');
 vi.mock('zustand/traditional');
+vi.mock('js-cookie');
+vi.mock('$shared/lib/logger', () => ({
+    logError: vi.fn(),
+    logInfo: vi.fn(),
+    logWarn: vi.fn(),
+}));
 
 window.HTMLElement.prototype.scrollIntoView = vi.fn();
 

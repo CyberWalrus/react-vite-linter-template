@@ -1,4 +1,3 @@
-// __mocks__/zustand.ts
 import { act } from '@testing-library/react';
 import type * as zustand from 'zustand';
 

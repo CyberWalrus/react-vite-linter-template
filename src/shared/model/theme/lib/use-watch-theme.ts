@@ -1,7 +1,7 @@
 import { useIsomorphicLayoutEffect } from '$shared/lib/hooks';
 
 import { HTML_ATTRIBUTE } from '../model/constants';
-import { useThemeState } from '../model/store';
+import { useThemeState } from '../model/theme.store';
 import { getInitialState } from './get-initial-state';
 
 export const useWatchTheme = () => {

@@ -1,7 +1,7 @@
 import { createStore } from '$shared/lib/create-store';
 
 import { getInitialTheme, getIsAppTheme } from '../lib/get-initial-state';
-import type { ThemeState } from './store.types';
+import type { ThemeState } from './types';
 
 export const useThemeState = createStore<ThemeState>(
     (set) => ({

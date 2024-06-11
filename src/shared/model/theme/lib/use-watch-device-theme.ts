@@ -3,8 +3,8 @@ import { writeCookie } from '$shared/model/cookie';
 import { writeLocalStorage } from '$shared/model/local-storage';
 
 import { COOKIE_EXPIRES } from '../model/constants';
-import { useThemeState } from '../model/store';
-import type { Theme } from '../model/store.types';
+import { useThemeState } from '../model/theme.store';
+import type { Theme } from '../model/types';
 
 export const useWatchDeviceTheme = () => {
     const { isAppTheme, setTheme } = useThemeState();

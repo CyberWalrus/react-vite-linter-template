@@ -1,5 +1,4 @@
-// <root>/__mocks__/zustand/traditional.ts
-import { act } from 'react-dom/test-utils';
+import { act } from '@testing-library/react';
 import type { StateCreator } from 'zustand';
 import { createWithEqualityFn as actualCreate } from 'zustand/traditional';
 
