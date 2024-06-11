@@ -1,5 +1,4 @@
 import type { FC } from 'react';
-import { Flex } from '@radix-ui/themes';
 
 import reactLogo from '$shared/assets/react.svg';
 import { getPublicURL } from '$shared/lib/helpers';
@@ -8,10 +7,7 @@ import { BaseIcon } from '$shared/ui/icons';
 import styles from './tech-link.module.scss';
 
 export const TechLink: FC = () => (
-    <Flex
-        gap='8'
-        mb='4'
-    >
+    <div>
         <BaseIcon
             alt='Vite logo'
             classNameIcon={styles.img}
@@ -28,5 +24,5 @@ export const TechLink: FC = () => (
             src={reactLogo}
             target='_blank'
         />
-    </Flex>
+    </div>
 );

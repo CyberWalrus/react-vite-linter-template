@@ -1,5 +1,3 @@
-import { Button, Grid } from '@radix-ui/themes';
-
 import { useCounterStore } from '$entities/counter';
 
 export const CounterControl = () => {
@@ -10,28 +8,28 @@ export const CounterControl = () => {
     ]);
 
     return (
-        <Grid
-            columns='3'
-            gap='4'
-        >
-            <Button
+        <div>
+            <button
                 data-test-id='counter-decrement'
                 onClick={handleDecrement}
+                type='button'
             >
                 -
-            </Button>
-            <Button
+            </button>
+            <button
                 data-test-id='counter-clear'
                 onClick={handleClear}
+                type='button'
             >
                 clear
-            </Button>
-            <Button
+            </button>
+            <button
                 data-test-id='counter-increment'
                 onClick={handleIncrement}
+                type='button'
             >
                 +
-            </Button>
-        </Grid>
+            </button>
+        </div>
     );
 };

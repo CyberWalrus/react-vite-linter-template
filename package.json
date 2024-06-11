@@ -29,7 +29,6 @@
         "test:update": "UPDATE_SCREENSHOTS=true TZ=Europe/Moscow vitest run"
     },
     "dependencies": {
-        "@radix-ui/themes": "2.0.3",
         "@tanstack/react-query": "5.44.0",
         "@tanstack/react-router": "1.35.6",
         "@tanstack/router-devtools": "1.36.0",

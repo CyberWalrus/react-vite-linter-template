@@ -1,30 +1,15 @@
 /* eslint-disable no-console */
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Theme } from '@radix-ui/themes';
 
 import { envClient } from '$shared/api/env-client';
 
 import { AppRouter } from './router/app-router';
 
-import '@radix-ui/themes/styles.css';
 import './styles/fonts.scss';
 import './styles/main.scss';
 
-export const Main = () => (
-    <Theme
-        hasBackground
-        accentColor='mint'
-        appearance='dark'
-        grayColor='gray'
-        id='app-start'
-        panelBackground='solid'
-        radius='large'
-        scaling='100%'
-    >
-        <AppRouter />
-    </Theme>
-);
+export const Main = () => <AppRouter />;
 
 let initWorker: () => Promise<void>;
 
