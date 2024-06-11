@@ -1,0 +1,25 @@
+:root {
+    font-family: Inter, sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-size-adjust: 100%;
+    font-optical-sizing: auto;
+
+    --header_height: 60px;
+    --app_header_height: 0px;
+    --app_footer_height: 0px;
+}
+
+
+body {
+    margin: 0;
+
+    background: var(--ll_body_background-color, var(--background_main));
+}
+
+:root[data-ls-theme-transition='true']:root[data-ls-layout='desktop'] *,
+:root[data-ls-theme-transition='true']:root[data-ls-layout='mobile'] * {
+    transition: none;
+}
