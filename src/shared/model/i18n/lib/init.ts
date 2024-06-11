@@ -5,9 +5,7 @@ import ky from 'ky';
 export const defaultNS = 'default';
 
 export const initI18n = async () => {
-    const json: { result: Record<string, string> } = await ky
-        .post('/rest/getResources', { json: { lang: 'ru' } })
-        .json();
+    const json: { result: Record<string, string> } = await ky.get('/rest/resources').json();
 
     await i18next.use(initReactI18next).init({
         // if you're using a language detector, do not define the lng option
