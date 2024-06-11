@@ -70,5 +70,8 @@
         "vite-plugin-pwa": "0.20.0",
         "vite-plugin-static-copy": "1.0.5",
         "vitest": "1.6.0"
+    },
+    "msw": {
+        "workerDirectory": "public"
     }
 }

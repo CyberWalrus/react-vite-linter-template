@@ -10,3 +10,4 @@ coverage/
 __screenshots__/
 __generated__/
 .VSCodeCounter/
+public/mockServiceWorker.js
