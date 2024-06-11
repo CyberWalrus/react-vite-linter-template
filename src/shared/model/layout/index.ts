@@ -1,2 +1,2 @@
+export * from './lib/use-layout';
 export * from './lib/use-watch-layout';
-export * from './model/store';
