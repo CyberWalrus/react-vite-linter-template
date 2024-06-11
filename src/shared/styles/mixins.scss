@@ -1,0 +1,10 @@
+@mixin desktop {
+    :root[data-layout='desktop'] & {
+        @content;
+    }
+}
+@mixin mobile {
+    :root[data-layout="mobile"] & {
+        @content;
+    }
+}
