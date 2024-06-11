@@ -1,14 +1,62 @@
 {
-	"explorer.fileNesting.enabled": true,
-	"explorer.fileNesting.patterns": {
-		"package.json": ".npmrc, babel.config.js, docker-compose-ci.yml, docker-compose.yml, enzyme.config.js, package-lock.json, yarn.lock, .stylelintrc, .stylelintignore,.eslintrc, .eslintignore, .prettierrc, .babelrc, .browserslistrc, .editorconfig, .eslintrc.js, .gitignore, .prettierignore, .svgrrc.js, .yarnrc, cli.js, jest-setup-after-env.ts,jest.config.js, stylelint.config.js, tsconfig.json, typed-scss-modules.config.js, ui-kit.config.json, vite.config.ts, stylelint.config.cjs, .eslintrc.cjs, LICENSE, vitest.config.ts, vitest.setup.ts, playwright.config.ts",
-		"*.ts": "$(capture).type.ts, $(capture).module.scss",
-		"*.tsx": "$(capture).type.ts, $(capture).module.scss",
-		"*.png": "$(capture).dif.png, $(capture).new.png, $(capture).dif.html",
-		".env": "*.env, .env.*, .envrc, env.d.ts"
-	},
-	"typescript.tsserver.maxTsServerMemory": 12000,
-	"typescript.tsserver.enableTracing": true,
-	"typescript.tsserver.experimental.enableProjectDiagnostics": true,
-	"typescript.tsdk": "./node_modules/typescript/lib"
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+        "package.json": ".npmrc, babel.config.js, docker-compose-ci.yml, docker-compose.yml, enzyme.config.js, package-lock.json, yarn.lock, .stylelintrc, .stylelintignore,.eslintrc, .eslintignore, .prettierrc, .babelrc, .browserslistrc, .editorconfig, .eslintrc.js, .gitignore, .prettierignore, .svgrrc.js, .yarnrc, cli.js, jest-setup-after-env.ts,jest.config.js, stylelint.config.js, tsconfig.json, typed-scss-modules.config.js, ui-kit.config.json, vite.config.ts, stylelint.config.cjs, .eslintrc.cjs, LICENSE, vitest.config.ts, vitest.setup.ts, playwright.config.ts",
+        "*.ts": "$(capture).type.ts, $(capture).module.scss",
+        "*.tsx": "$(capture).type.ts, $(capture).module.scss",
+        "*.png": "$(capture).dif.png, $(capture).new.png, $(capture).dif.html",
+        ".env": "*.env, .env.*, .envrc, env.d.ts"
+    },
+    "typescript.tsserver.maxTsServerMemory": 8000,
+    "typescript.tsserver.enableTracing": true,
+    "typescript.tsserver.experimental.enableProjectDiagnostics": true,
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "cssvar.enableHover": true,
+    "cssvar.enableColors": true,
+    "cssvar.extensions": [
+        "scss",
+        "postcss",
+        "css"
+    ],
+    "cssvar.disableSort": true,
+    "cssvar.excludeThemedVariables": true,
+    "cssvar.enableGotoDef": true,
+    "cssvar.files": [
+        "**/vars.scss",
+        "**/vars.css",
+        "./node_modules/@ls/ui-kit/lib/vars.css"
+    ],
+    "cssvar.ignore": [
+        "**/node_modules/(?!@ls)**"
+    ],
+    "eslint.format.enable": true,
+    "editor.formatOnSave": true,
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[typescript]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true,
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "stylelint.useLocal": true,
+    "stylelint.autoFixOnSave": true,
+    "files.associations": {
+        "*.css": "scss",
+        "*.pcss": "scss"
+    },
+    "[scss]": {
+        "editor.suggest.insertMode": "replace",
+        "cSpell.fixSpellingWithRenameProvider": false,
+        "editor.formatOnSave": false
+    },
+    "task.allowAutomaticTasks": "on",
+    "autoHide.autoHideSideBar": false,
+    "autoHide.autoHideAuxiliaryBar": false
 }

@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "phoenisx.cssvar",
+        "dbaeumer.vscode-eslint",
+        "hex-ci.stylelint-plus",
+        "stringham.copy-with-imports",
+        "sirmspencer.vscode-autohide"
+    ]
+}
