@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { stringToBooleanSchema } from '$shared/model/schemas';
+import { stringToBooleanSchema } from '../../model/schemas';
 
 const browserNameSchema = z.union([z.literal('chromium'), z.literal('firefox'), z.literal('webkit')]);
 
