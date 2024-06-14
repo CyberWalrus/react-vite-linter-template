@@ -1,12 +1,9 @@
 import { initReactI18next } from 'react-i18next';
 import i18next from 'i18next';
-import ky from 'ky';
 
 export const defaultNS = 'default';
 
-export const initI18n = async () => {
-    const json: { result: Record<string, string> } = await ky.get('/rest/resources').json();
-
+export const initI18n = async ({ json }: { json: Record<string, string> }) => {
     await i18next.use(initReactI18next).init({
         // if you're using a language detector, do not define the lng option
         debug: true,
@@ -14,7 +11,7 @@ export const initI18n = async () => {
         lng: 'ru',
         resources: {
             ru: {
-                default: json.result,
+                default: json,
             },
         },
     });

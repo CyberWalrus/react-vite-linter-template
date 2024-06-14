@@ -8,11 +8,11 @@ import { readLocalStorage } from '$shared/core/local-storage';
 
 import { getInitialState, getInitialTheme, getIsAppTheme } from '../lib/get-initial-state';
 
-vi.mock('$shared/model/cookie', () => ({
+vi.mock('$shared/core/cookie', () => ({
     readCookie: vi.fn(),
 }));
 
-vi.mock('$shared/model/local-storage', () => ({
+vi.mock('$shared/core/local-storage', () => ({
     readLocalStorage: vi.fn(),
 }));
 

@@ -8,6 +8,7 @@ import { envClient } from '$shared/core/env-client';
 import { createReact } from '../ui/create-react';
 import { initI18n } from '$shared/core/i18n';
 import { logError } from '$shared/core/logger';
+import { fetchGetResources } from '$shared/api/resources/index';
 
 const prepareWorker = async () => {
     if (envClient.NODE_ENV !== 'production') {
@@ -32,7 +33,8 @@ const prepareWorker = async () => {
 export const initApp = async () => {
     await prepareWorker();
     try {
-        await initI18n();
+        const { result } = await fetchGetResources();
+        await initI18n({ json: result });
     } catch (error: unknown) {
         logError(error);
     }
