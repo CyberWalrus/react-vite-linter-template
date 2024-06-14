@@ -1,4 +1,4 @@
-import { logError } from '$shared/lib/logger';
+import { logError } from '$shared/core/logger';
 
 import { LocalStorageValuesSchema } from '../model/schemas';
 import type { GetLocalStorageType, LocalStorageKeys, StringOrLiteral } from '../model/types';

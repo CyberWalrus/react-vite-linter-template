@@ -7,6 +7,7 @@ import { envClient } from '$shared/api/env-client';
 
 import { createReact } from '../ui/create-react';
 import { initI18n } from '$shared/model/i18n';
+import { logError } from '$shared/core/logger';
 
 const prepareWorker = async () => {
     if (envClient.NODE_ENV !== 'production') {
@@ -30,7 +31,11 @@ const prepareWorker = async () => {
 // eslint-disable-next-line @typescript-eslint/require-await
 export const initApp = async () => {
     await prepareWorker();
-    await initI18n();
+    try {
+        await initI18n();
+    } catch (error: unknown) {
+        logError(error);
+    }
 
     createReact();
 };

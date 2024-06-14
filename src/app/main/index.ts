@@ -1,4 +1,4 @@
-import { logError } from '$shared/lib/logger';
+import { logError } from '$shared/core/logger';
 
 import { initApp } from './lib/init-app';
 

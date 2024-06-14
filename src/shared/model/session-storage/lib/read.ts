@@ -1,4 +1,4 @@
-import { logError } from '$shared/lib/logger';
+import { logError } from '$shared/core/logger';
 
 import { SessionStorageValuesSchema } from '../model/schemas';
 import type { GetSessionStorageType, SessionStorageKeys, StringOrLiteral } from '../model/types';

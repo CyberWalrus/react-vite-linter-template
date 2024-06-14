@@ -1,6 +1,6 @@
 import cookie from 'js-cookie';
 
-import { logError } from '$shared/lib/logger';
+import { logError } from '$shared/core/logger';
 
 import { CookiesValuesSchema } from '../model/schemas';
 import type { CookiesKeys, GetCookiesType, StringOrLiteral } from '../model/types';

@@ -3,7 +3,7 @@
 import cookie from 'js-cookie';
 import { describe, expect, it } from 'vitest';
 
-import { logError } from '$shared/lib/logger';
+import { logError } from '$shared/core/logger';
 
 import { readCookie } from '../lib/read';
 
