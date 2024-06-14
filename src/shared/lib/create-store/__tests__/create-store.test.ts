@@ -3,7 +3,7 @@ import { devtools } from 'zustand/middleware';
 import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
 
-import { envClient } from '$shared/api/env-client';
+import { envClient } from '$shared/core/env-client';
 
 import { createStore } from '..';
 

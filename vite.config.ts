@@ -6,7 +6,7 @@ import viteCompression from 'vite-plugin-compression';
 import { VitePWA } from 'vite-plugin-pwa';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
-import { envBuild } from './src/shared/api/env-build';
+import { envBuild } from './src/shared/core/env-build';
 
 dotenv.config();
 

@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 
-import { writeCookie } from '$shared/model/cookie';
-import { writeLocalStorage } from '$shared/model/local-storage';
+import { writeCookie } from '$shared/core/cookie';
+import { writeLocalStorage } from '$shared/core/local-storage';
 
 import { COOKIE_EXPIRES } from '../model/constants';
 import { useThemeState } from '../model/theme.store';

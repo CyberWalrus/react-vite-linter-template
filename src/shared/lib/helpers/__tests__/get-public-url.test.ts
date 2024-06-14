@@ -1,4 +1,4 @@
-import { envClient } from '$shared/api/env-client';
+import { envClient } from '$shared/core/env-client';
 
 import { getPublicURL } from '..';
 

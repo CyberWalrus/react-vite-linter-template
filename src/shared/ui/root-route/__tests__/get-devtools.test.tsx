@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { Suspense } from 'react';
 import { act, render, waitFor } from '@testing-library/react';
 
-import { envClient } from '$shared/api/env-client';
+import { envClient } from '$shared/core/env-client';
 
 import { getDevtools } from '../ui/get-devtools';
 

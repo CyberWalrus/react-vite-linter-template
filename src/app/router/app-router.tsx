@@ -6,7 +6,7 @@ import { aboutRoute } from '$pages/about';
 import { homeRoute } from '$pages/home';
 import { infoRoute } from '$pages/info';
 import { mainLayoutRoute } from '$widgets/main-layout-route';
-import { envClient } from '$shared/api/env-client';
+import { envClient } from '$shared/core/env-client';
 import { rootRoute } from '$shared/ui/root-route';
 
 const mainTree = mainLayoutRoute.addChildren([homeRoute, aboutRoute]);

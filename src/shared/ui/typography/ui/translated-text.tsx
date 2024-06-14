@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 
-import { useI18n } from '$shared/model/i18n';
+import { useI18n } from '$shared/core/i18n';
 
 import type { TranslatedTextProps } from './translated-text.types';
 

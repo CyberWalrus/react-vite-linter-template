@@ -1,6 +1,6 @@
 import { cleanup } from '@testing-library/react';
 
-import { envClient } from '$shared/api/env-client';
+import { envClient } from '$shared/core/env-client';
 
 import '@testing-library/jest-dom';
 

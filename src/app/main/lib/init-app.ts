@@ -3,10 +3,10 @@ import '../styles/reset.scss';
 import '../styles/fonts.scss';
 import '../styles/main.scss';
 
-import { envClient } from '$shared/api/env-client';
+import { envClient } from '$shared/core/env-client';
 
 import { createReact } from '../ui/create-react';
-import { initI18n } from '$shared/model/i18n';
+import { initI18n } from '$shared/core/i18n';
 import { logError } from '$shared/core/logger';
 
 const prepareWorker = async () => {

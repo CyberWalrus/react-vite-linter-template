@@ -3,8 +3,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { readCookie } from '$shared/model/cookie';
-import { readLocalStorage } from '$shared/model/local-storage';
+import { readCookie } from '$shared/core/cookie';
+import { readLocalStorage } from '$shared/core/local-storage';
 
 import { getInitialState, getInitialTheme, getIsAppTheme } from '../lib/get-initial-state';
 

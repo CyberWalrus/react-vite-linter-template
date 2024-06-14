@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { lazy } from 'react';
 
-import { envClient } from '$shared/api/env-client';
+import { envClient } from '$shared/core/env-client';
 
 export const getDevtools: () => FC = () => {
     if (envClient.NODE_ENV === 'production') {

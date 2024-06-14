@@ -1,5 +1,5 @@
-import { readCookie } from '$shared/model/cookie';
-import { readLocalStorage } from '$shared/model/local-storage';
+import { readCookie } from '$shared/core/cookie';
+import { readLocalStorage } from '$shared/core/local-storage';
 
 import type { Theme, ThemeValues } from '../model/types';
 
