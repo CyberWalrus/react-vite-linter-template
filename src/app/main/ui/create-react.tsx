@@ -1,12 +1,7 @@
-import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import { Main } from './main';
+import { App } from './app';
 
-export const createReact = () => {
-    createRoot(document.getElementById('root') as HTMLElement).render(
-        <StrictMode>
-            <Main />
-        </StrictMode>,
-    );
+export const createReact = (appId: string) => {
+    createRoot(document.getElementById('root') as HTMLElement).render(<App appId={appId} />);
 };

@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import { Main } from '..';
+import { Main } from '../ui/main';
 
 vi.mock('react-dom/client', () => ({
     createRoot: vi.fn(() => ({

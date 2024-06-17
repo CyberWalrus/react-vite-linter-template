@@ -1,7 +1,10 @@
+/* eslint-disable simple-import-sort/imports */
+import './styles/reset.scss';
+import './styles/fonts.scss';
+import './styles/main.scss';
+
 import { logError } from '$shared/core/logger';
 
 import { initApp } from './lib/init-app';
-
-export * from './ui/main';
 
 initApp().catch(logError);

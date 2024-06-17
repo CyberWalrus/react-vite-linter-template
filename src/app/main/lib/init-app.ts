@@ -1,14 +1,11 @@
-/* eslint-disable simple-import-sort/imports */
-import '../styles/reset.scss';
-import '../styles/fonts.scss';
-import '../styles/main.scss';
+import { nanoid } from 'nanoid/non-secure';
 
+import { fetchGetResources } from '$shared/api/resources/index';
 import { envClient } from '$shared/core/env-client';
-
-import { createReact } from '../ui/create-react';
 import { initI18n } from '$shared/core/i18n';
 import { logError } from '$shared/core/logger';
-import { fetchGetResources } from '$shared/api/resources/index';
+
+import { createReact } from '../ui/create-react';
 
 const prepareWorker = async () => {
     if (envClient.NODE_ENV !== 'production') {
@@ -29,7 +26,6 @@ const prepareWorker = async () => {
     }
 };
 
-// eslint-disable-next-line @typescript-eslint/require-await
 export const initApp = async () => {
     await prepareWorker();
     try {
@@ -38,6 +34,7 @@ export const initApp = async () => {
     } catch (error: unknown) {
         logError(error);
     }
+    const appId = nanoid();
 
-    createReact();
+    createReact(appId);
 };
