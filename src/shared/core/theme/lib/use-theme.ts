@@ -8,7 +8,7 @@ import { useThemeState } from '../model/theme.store';
 import type { Theme } from '../model/types';
 
 export const useTheme = () => {
-    const { theme, isAppTheme, setIsAppTheme, setTheme } = useThemeState();
+    const { theme, isAppTheme, setIsAppTheme, setTheme } = useThemeState(({ ...app }) => ({ ...app }));
 
     const isDark = theme === 'dark';
     const isLight = theme === 'light';

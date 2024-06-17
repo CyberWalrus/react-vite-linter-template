@@ -5,7 +5,7 @@ import { createWithEqualityFn } from 'zustand/traditional';
 
 import { envClient } from '$shared/core/env-client';
 
-import { createStore } from '..';
+import { createStore } from '../create-store';
 
 vi.mock('zustand/traditional', async () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
