@@ -1,9 +1,6 @@
-import { nanoid } from 'nanoid/non-secure';
-
 import { fetchGetResources } from '$shared/api/resources/index';
 import { envClient } from '$shared/core/env-client';
 import { initI18n } from '$shared/core/i18n';
-import { logError } from '$shared/core/logger';
 import { clearAppStores } from '$shared/lib/create-scoped-store';
 
 import { createReact } from '../ui/create-react';
@@ -29,14 +26,9 @@ const prepareWorker = async () => {
 
 export const initApp = async (appId: string, elementId: string) => {
     await prepareWorker();
-    try {
-        const { result } = await fetchGetResources();
-        await initI18n({ json: result });
-    } catch (error: unknown) {
-        logError(error);
-    }
+    const i18n = await initI18n(fetchGetResources);
 
-    const unmount = createReact(appId, elementId);
+    const unmount = createReact({ appId, elementId, i18n });
 
     return () => {
         unmount?.();

@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { Link } from '@tanstack/react-router';
 
-import { VARIABLES_RX_LINK } from './constants';
+import { VARIABLES_RX_LINK } from '../model/constants';
 
 export const parseStringWithLinks = (value: string, index = 0): ReactNode[] | string => {
     if (!VARIABLES_RX_LINK.test(value)) return value;

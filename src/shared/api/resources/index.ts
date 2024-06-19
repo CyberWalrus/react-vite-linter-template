@@ -1,3 +1,7 @@
 import ky from 'ky';
 
-export const fetchGetResources = (): Promise<{ result: Record<string, string> }> => ky.get('/rest/resources').json();
+export const fetchGetResources = async (): Promise<Record<string, string>> => {
+    const value = await ky.get('/rest/resources').json<{ result: Record<string, string> }>();
+
+    return value.result;
+};
