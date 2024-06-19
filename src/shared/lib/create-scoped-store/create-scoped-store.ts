@@ -17,9 +17,15 @@ export const createScopedStore = <GState>(
 ] => {
     const stateMap = new Map<string, Store<GState>>();
 
+    const clear = (appId: string) => {
+        if (stateMap.has(appId)) {
+            stateMap.delete(appId);
+        }
+    };
+
     const get = (appId: string): GState => {
         if (!stateMap.has(appId)) {
-            stateMap.set(appId, createStore(fn, name));
+            stateMap.set(appId, createStore(fn, name, appId, clear));
         }
 
         return stateMap.get(appId)?.getState() as GState;
@@ -32,7 +38,7 @@ export const createScopedStore = <GState>(
     ): U => {
         const { appId } = useAppContext();
         if (!stateMap.has(appId)) {
-            stateMap.set(appId, createStore(fn, name));
+            stateMap.set(appId, createStore(fn, name, appId, clear));
         }
 
         return stateMap.get(appId)?.(selector, equalityFn) as U;
