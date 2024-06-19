@@ -5,31 +5,8 @@ import { createWithEqualityFn } from 'zustand/traditional';
 
 import { envClient } from '$shared/core/env-client';
 
-import type { Store } from './types';
-
-const storesMap = new Map<string, Array<(appId: string) => void>>();
-
-const addToMap = (appId: string, clear: (value: string) => void) => {
-    if (storesMap.has(appId)) {
-        storesMap.get(appId)?.push(clear);
-
-        return;
-    }
-
-    storesMap.set(appId, [clear]);
-};
-
-export const clearStores = (appId: string) => {
-    if (!storesMap.has(appId)) {
-        return;
-    }
-
-    storesMap.get(appId)?.forEach((clear) => {
-        clear(appId);
-    });
-
-    storesMap.delete(appId);
-};
+import type { Store } from '../model/types';
+import { addClear } from './add-clear';
 
 export const createStore = <GState>(
     fn: StateCreator<GState>,
@@ -37,7 +14,7 @@ export const createStore = <GState>(
     appId: string,
     clear: (value: string) => void,
 ): Store<GState> => {
-    addToMap(appId, clear);
+    addClear(appId, clear);
 
     if (envClient.NODE_ENV !== 'development' || envClient.VITE_TEST_SERVER_BUILD) {
         return createWithEqualityFn(fn, shallow);

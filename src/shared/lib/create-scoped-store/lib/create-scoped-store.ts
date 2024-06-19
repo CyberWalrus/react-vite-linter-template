@@ -2,8 +2,8 @@ import type { StateCreator } from 'zustand';
 
 import { useAppContext } from '$shared/core/app-context';
 
+import type { Store } from '../model/types';
 import { createStore } from './create-store';
-import type { Store } from './types';
 
 export const createScopedStore = <GState>(
     fn: StateCreator<GState>,

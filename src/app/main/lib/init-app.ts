@@ -4,7 +4,7 @@ import { fetchGetResources } from '$shared/api/resources/index';
 import { envClient } from '$shared/core/env-client';
 import { initI18n } from '$shared/core/i18n';
 import { logError } from '$shared/core/logger';
-import { clearStores } from '$shared/lib/create-scoped-store';
+import { clearAppStores } from '$shared/lib/create-scoped-store';
 
 import { createReact } from '../ui/create-react';
 
@@ -40,6 +40,6 @@ export const initApp = async (appId: string, elementId: string) => {
 
     return () => {
         unmount?.();
-        clearStores(appId);
+        clearAppStores(appId);
     };
 };

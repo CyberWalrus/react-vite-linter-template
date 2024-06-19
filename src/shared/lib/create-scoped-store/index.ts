@@ -1,2 +1,2 @@
-export * from './create-scoped-store';
-export { clearStores } from './create-store';
+export * from './lib/clear-app-stores';
+export * from './lib/create-scoped-store';

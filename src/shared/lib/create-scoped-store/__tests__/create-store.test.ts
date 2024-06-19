@@ -5,7 +5,7 @@ import { createWithEqualityFn } from 'zustand/traditional';
 
 import { envClient } from '$shared/core/env-client';
 
-import { createStore } from '../create-store';
+import { createStore } from '../lib/create-store';
 
 vi.mock('zustand/traditional', async () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
@@ -35,7 +35,7 @@ describe('createStore', () => {
         envClient.VITE_TEST_SERVER_BUILD = false;
 
         const stateCreator = vi.fn();
-        createStore(stateCreator, 'testStore');
+        createStore(stateCreator, 'testStore', '1', () => {});
 
         expect(devtools).toHaveBeenCalled();
         expect(createWithEqualityFn).toHaveBeenCalledWith(expect.any(Function), shallow);
@@ -49,7 +49,7 @@ describe('createStore', () => {
         envClient.NODE_ENV = 'production';
 
         const stateCreator = vi.fn();
-        createStore(stateCreator, 'testStore');
+        createStore(stateCreator, 'testStore', '1', () => {});
 
         expect(devtools).not.toHaveBeenCalled();
         expect(createWithEqualityFn).toHaveBeenCalledWith(stateCreator, shallow);
