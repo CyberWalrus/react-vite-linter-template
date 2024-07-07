@@ -8,7 +8,7 @@ export const getMismatchedPixels = (currentFilePath: string) => {
 
     const mismatchedPixels = calculateImgDivergences(currentFilePath, currentScreenshotFile, referenceScreenshotFile);
 
-    if (mismatchedPixels < 2000) return 0;
+    if (mismatchedPixels < 50) return 0;
 
     return mismatchedPixels;
 };
