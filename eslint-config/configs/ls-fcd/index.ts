@@ -4,13 +4,13 @@
 import boundariesPlugin from 'eslint-plugin-boundaries';
 import reactRefreshPlugin from 'eslint-plugin-react-refresh';
 
-import { rules } from '../rules';
+import { lsPlugin } from '../../rules';
 
 /* eslint-disable no-template-curly-in-string */
 export const lsFCD = (baseFolder: string = 'src') => [
     {
         files: ['**/*.{ts,tsx,mjs,cjs,js}'],
-        plugins: { '@ls': rules, boundaries: boundariesPlugin, 'react-refresh': reactRefreshPlugin },
+        plugins: { '@ls': lsPlugin, boundaries: boundariesPlugin, 'react-refresh': reactRefreshPlugin },
         rules: {
             'boundaries/element-types': [
                 2,

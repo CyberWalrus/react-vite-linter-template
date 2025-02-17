@@ -1,12 +1,12 @@
 import type { Linter } from 'eslint';
 
-import { rules } from '../rules';
+import { lsPlugin } from '../../rules';
 
 export const ligastavokRu = [
     {
         files: ['**/*.{ts,tsx,mjs,cjs,js}'],
         plugins: {
-            '@ls': rules,
+            '@ls': lsPlugin,
         },
         rules: {
             '@ls/no-browser-storage': 'error',

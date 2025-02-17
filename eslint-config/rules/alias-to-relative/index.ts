@@ -28,8 +28,8 @@ export const aliasToRelative: Rule.RuleModule = {
 
                 for (const [alias, aliasPath] of Object.entries(aliases)) {
                     if (importSource.startsWith(alias)) {
-                        const currentFilePath = context.getFilename();
-                        const relativePath = resolveRelativePath(alias, aliasPath, currentFilePath, importSource);
+                        const { filename } = context;
+                        const relativePath = resolveRelativePath(alias, aliasPath, filename, importSource);
 
                         if (importSource !== relativePath) {
                             context.report({

@@ -22,13 +22,13 @@ import sortKeysFixPlugin from 'eslint-plugin-sort-keys-fix';
 import typescriptSortKeysPlugin from 'eslint-plugin-typescript-sort-keys';
 import tseslint from 'typescript-eslint';
 
-import { rules } from '../rules';
+import { lsPlugin } from '../../rules';
 
 export const base = [
     {
         files: ['**/*.{ts,tsx,mjs,cjs,js}'],
         plugins: {
-            '@ls': rules,
+            '@ls': lsPlugin,
             '@stylistic/ts': stylisticTs,
             // @ts-ignore
             '@typescript-eslint': tseslint.plugin,
@@ -553,7 +553,7 @@ export const base = [
             'import/no-duplicates': ['error'],
             'import/no-dynamic-require': ['error'],
             'import/no-extraneous-dependencies': [
-                'off',
+                'error',
                 {
                     devDependencies: [
                         '**/*.stories.*',
@@ -564,6 +564,12 @@ export const base = [
                         'vitest.setup.ts',
                         'stylelint.config.cjs',
                         'postcss.config.cjs',
+                        '**/*.test.*',
+                        '**/*.e2e.*',
+                        '**/vite/**/*.*',
+                        '**/tools/**/*.*',
+                        '**/scripts/**/*.*',
+                        'vitest.config.ts',
                     ],
                     peerDependencies: true,
                 },

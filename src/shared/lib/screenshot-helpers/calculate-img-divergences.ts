@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import pixelmatch from 'pixelmatch';
 import { PNG } from 'pngjs';
 

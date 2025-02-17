@@ -7,6 +7,7 @@ export const noBrowserStorage: Rule.RuleModule = {
             Identifier(node: Node) {
                 if (node.type === 'Identifier') {
                     const identifier = node;
+
                     if (/^(session|local)Storage$/.test(identifier.name)) {
                         context.report({
                             data: { name: identifier.name },
@@ -20,7 +21,7 @@ export const noBrowserStorage: Rule.RuleModule = {
     },
     meta: {
         docs: {
-            description: 'Запрещает использование sessionStorage или localStorage',
+            description: 'Disables the use of sessionStorage and localStorage',
             recommended: false,
         },
         messages: {
