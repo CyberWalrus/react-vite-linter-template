@@ -8,7 +8,7 @@ import { envClient } from '$core/env-client';
 import { createStore } from '../lib/create-store';
 
 vi.mock('zustand/traditional', async () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment
     const actual = await vi.importActual<any>('zustand/traditional');
 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return

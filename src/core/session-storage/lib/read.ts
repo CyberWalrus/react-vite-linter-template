@@ -25,7 +25,7 @@ export const readSessionStorage = <
     if (!Object.prototype.hasOwnProperty.call(SessionStorageValuesSchema.shape, key)) {
         try {
             return JSON.parse(result) as GValue;
-        } catch (error: unknown) {
+        } catch {
             return result as GValue;
         }
     }
@@ -36,7 +36,7 @@ export const readSessionStorage = <
 
     try {
         value = JSON.parse(result);
-    } catch (e) {
+    } catch {
         value = result;
     }
 

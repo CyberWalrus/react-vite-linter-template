@@ -15,7 +15,7 @@ type Options = {
 
 const rule: Rule.RuleModule = {
     create(context) {
-        const options: Options = context.options[0] || {};
+        const options = (context.options[0] as Options) || ({} as Options);
         const aliases: Record<string, string> = options.aliases || {};
 
         return {

@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-ignore
-import filenamesPlugin from 'eslint-plugin-filenames';
+import stylisticTs from '@stylistic/eslint-plugin-ts';
 // @ts-ignore
 import importPlugin from 'eslint-plugin-import';
 // @ts-ignore
@@ -21,18 +22,11 @@ import typescriptSortKeysPlugin from 'eslint-plugin-typescript-sort-keys';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
-// // @ts-ignore
-// import ssrFriendlyPlugin from 'eslint-plugin-ssr-friendly';
-// // @ts-ignore
-// import boundariesPlugin from 'eslint-plugin-boundaries';
-// // @ts-ignore
-// import resolverAliasPlugin from 'eslint-import-resolver-alias';
-// import resolverTypescriptPlugin from 'eslint-import-resolver-typescript';
+import lsPlugin from '../rules';
 
 export const baseConfig = [
     {
-        // config with just ignores is the replacement for `.eslintignore`
-        ignores: ['public', '__generated__'],
+        ignores: ['public', '__generated__', 'coverage'],
     },
     {
         files: ['**/*.ts', '**/*.tsx', '**/*.mjs'],
@@ -55,13 +49,14 @@ export const baseConfig = [
                     objectLiteralDuplicateProperties: false,
                 },
                 projectService: true,
-                tsconfigRootDir: import.meta.dirname,
+                tsconfigRootDir: process.cwd(),
             },
             sourceType: 'module',
         },
         plugins: {
+            '@ls': lsPlugin,
+            '@stylistic/ts': stylisticTs,
             '@typescript-eslint': tseslint.plugin,
-            filenames: filenamesPlugin,
             import: importPlugin,
             'jsx-a11y': jsxA11yPlugin,
             node: nodePlugin,
@@ -75,6 +70,17 @@ export const baseConfig = [
         },
 
         rules: {
+            '@ls/filename-match-regexp': ['warn'],
+            '@stylistic/ts/lines-between-class-members': [
+                'error',
+                'always',
+                {
+                    exceptAfterOverload: true,
+                    exceptAfterSingleLine: false,
+                },
+            ],
+            '@stylistic/ts/object-curly-spacing': ['error', 'always'],
+            '@stylistic/ts/space-before-blocks': ['error'],
             '@typescript-eslint/array-type': [
                 'warn',
                 {
@@ -84,7 +90,6 @@ export const baseConfig = [
             ],
             '@typescript-eslint/await-thenable': ['error'],
             '@typescript-eslint/ban-ts-comment': ['error'],
-            // '@typescript-eslint/ban-types': ['error'],
             '@typescript-eslint/brace-style': [
                 'off',
                 '1tbs',
@@ -194,14 +199,6 @@ export const baseConfig = [
                     },
                 },
             ],
-            // '@typescript-eslint/lines-between-class-members': [
-            //     'error',
-            //     'always',
-            //     {
-            //         exceptAfterOverload: true,
-            //         exceptAfterSingleLine: false,
-            //     },
-            // ],
             '@typescript-eslint/member-delimiter-style': ['off'],
             '@typescript-eslint/naming-convention': [
                 'off',
@@ -264,13 +261,14 @@ export const baseConfig = [
             '@typescript-eslint/no-object-literal-type-assertion': ['off'],
             '@typescript-eslint/no-redeclare': ['error'],
             '@typescript-eslint/no-redundant-type-constituents': ['error'],
+            '@typescript-eslint/no-restricted-types': ['error'],
             '@typescript-eslint/no-shadow': ['error'],
             '@typescript-eslint/no-this-alias': ['error'],
             '@typescript-eslint/no-throw-literal': ['off'],
             '@typescript-eslint/no-unnecessary-type-assertion': ['error'],
             '@typescript-eslint/no-unnecessary-type-constraint': ['error'],
             '@typescript-eslint/no-unsafe-argument': ['error'],
-            // '@typescript-eslint/no-unsafe-assignment': ['error'],
+            '@typescript-eslint/no-unsafe-assignment': ['error'],
             '@typescript-eslint/no-unsafe-call': ['error'],
             '@typescript-eslint/no-unsafe-declaration-merging': ['error'],
             '@typescript-eslint/no-unsafe-enum-comparison': ['error'],
@@ -285,6 +283,7 @@ export const baseConfig = [
                     enforceForJSX: false,
                 },
             ],
+
             '@typescript-eslint/no-unused-vars': [
                 'warn',
                 {
@@ -294,6 +293,7 @@ export const baseConfig = [
                     varsIgnorePattern: '^React$|^_$',
                 },
             ],
+
             '@typescript-eslint/no-use-before-define': [
                 'error',
                 {
@@ -303,9 +303,7 @@ export const baseConfig = [
                 },
             ],
             '@typescript-eslint/no-useless-constructor': ['error'],
-
             '@typescript-eslint/no-var-requires': ['warn'],
-            // '@typescript-eslint/object-curly-spacing': ['error', 'always'],
             '@typescript-eslint/prefer-as-const': ['error'],
             '@typescript-eslint/quotes': [
                 'off',
@@ -316,11 +314,10 @@ export const baseConfig = [
             ],
             '@typescript-eslint/require-await': ['error'],
             '@typescript-eslint/restrict-plus-operands': ['error'],
+
             '@typescript-eslint/restrict-template-expressions': ['error'],
             '@typescript-eslint/return-await': ['error', 'in-try-catch'],
-
             '@typescript-eslint/semi': ['off', 'always'],
-            // '@typescript-eslint/space-before-blocks': ['error'],
             '@typescript-eslint/space-before-function-paren': [
                 'off',
                 {
@@ -477,8 +474,8 @@ export const baseConfig = [
                     allowPattern: '',
                 },
             ],
-            'eol-last': ['off', 'always'],
 
+            'eol-last': ['off', 'always'],
             eqeqeq: [
                 'error',
                 'always',
@@ -486,7 +483,6 @@ export const baseConfig = [
                     null: 'ignore',
                 },
             ],
-            // 'filenames/match-regex': ['warn', '^[a-z0-9-.]+$', true, true],
             'for-direction': ['error'],
             'func-call-spacing': ['off', 'never'],
             'func-name-matching': [
@@ -2068,3 +2064,5 @@ export const baseConfig = [
         },
     },
 ];
+
+export default baseConfig;

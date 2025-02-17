@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-base-to-string */
 export const VARIABLES_RX_VARS = /{([A-Z_-]+)}/g;
 export const DEFAULT_LANGUAGE = 'ru';
 export const SUPPORTED_LANG = ['ru', 'en'];
