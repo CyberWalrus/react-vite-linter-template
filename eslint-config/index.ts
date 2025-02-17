@@ -1,18 +1,15 @@
 import { base } from './lib/configs/base';
 import { ignores } from './lib/configs/ignore';
+import { ligastavokRu } from './lib/configs/ligastavok-ru';
 import { lsFCD } from './lib/configs/ls-fcd';
-import aliasToRelative from './lib/rules/alias-to-relative';
+import { rules } from './lib/rules';
 
 export default {
     configs: {
         base,
         ignores,
+        ligastavokRu,
         lsFCD,
     },
-    meta: {
-        name: '@ls',
-    },
-    rules: {
-        'alias-to-relative': aliasToRelative,
-    },
+    ...rules,
 };

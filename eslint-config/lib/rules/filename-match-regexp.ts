@@ -1,5 +1,5 @@
 import type { Rule } from 'eslint';
-import * as path from 'path';
+import { basename, dirname, extname } from 'path';
 
 function parseFilename(filename: string): {
     base: string;
@@ -7,17 +7,17 @@ function parseFilename(filename: string): {
     ext: string;
     name: string;
 } {
-    const ext = path.extname(filename);
+    const ext = extname(filename);
 
     return {
-        base: path.basename(filename),
-        dir: path.dirname(filename),
+        base: basename(filename),
+        dir: dirname(filename),
         ext,
-        name: path.basename(filename, ext),
+        name: basename(filename, ext),
     };
 }
 
-const rule: Rule.RuleModule = {
+export const filenameMatchRegexp: Rule.RuleModule = {
     create(context) {
         const options = (context.options[0] || {}) as { pattern?: string };
         const pattern = new RegExp(options.pattern || '^[a-z0-9-.]+$');
@@ -65,5 +65,3 @@ const rule: Rule.RuleModule = {
         type: 'suggestion',
     },
 };
-
-export default rule;

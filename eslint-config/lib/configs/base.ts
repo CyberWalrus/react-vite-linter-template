@@ -3,6 +3,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-ignore
 import stylisticTs from '@stylistic/eslint-plugin-ts';
+import type { Linter } from 'eslint';
 // @ts-ignore
 import importPlugin from 'eslint-plugin-import';
 // @ts-ignore
@@ -21,14 +22,15 @@ import sortKeysFixPlugin from 'eslint-plugin-sort-keys-fix';
 import typescriptSortKeysPlugin from 'eslint-plugin-typescript-sort-keys';
 import tseslint from 'typescript-eslint';
 
-import lsPlugin from '../rules';
+import { rules } from '../rules';
 
 export const base = [
     {
         files: ['**/*.{ts,tsx,mjs,cjs,js}'],
         plugins: {
-            '@ls': lsPlugin,
+            '@ls': rules,
             '@stylistic/ts': stylisticTs,
+            // @ts-ignore
             '@typescript-eslint': tseslint.plugin,
             import: importPlugin,
             'jsx-a11y': jsxA11yPlugin,
@@ -41,7 +43,6 @@ export const base = [
             'sort-keys-fix': sortKeysFixPlugin,
             'typescript-sort-keys': typescriptSortKeysPlugin,
         },
-
         rules: {
             '@ls/filename-match-regexp': ['warn'],
             '@stylistic/ts/lines-between-class-members': [
@@ -2074,10 +2075,13 @@ export const base = [
             'import/prefer-default-export': 'off',
 
             'no-case-declarations': 'off',
+            'no-continue': 'off',
+
+            'no-underscore-dangle': 'off',
             'no-unsafe-optional-chaining': 'off',
             'no-unused-expressions': 'off',
-
             'react/jsx-no-constructed-context-values': 'off',
+
             'react/jsx-no-useless-fragment': 'off',
             'react/no-array-index-key': 'off',
             'sort-keys-fix/sort-keys-fix': 'off',
@@ -2094,4 +2098,4 @@ export const base = [
             'prefer-promise-reject-errors': 'off',
         },
     },
-];
+] satisfies Linter.Config[];

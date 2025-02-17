@@ -1,3 +1,4 @@
+/* eslint-disable @ls/no-browser-storage */
 import type { LocalStorageKeys, StringOrLiteral } from '../model/types';
 
 export const removeLocalStorage = <

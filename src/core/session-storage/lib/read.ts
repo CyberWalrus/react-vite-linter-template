@@ -1,3 +1,4 @@
+/* eslint-disable @ls/no-browser-storage */
 import { logError } from '$core/logger';
 
 import { SessionStorageValuesSchema } from '../model/schemas';

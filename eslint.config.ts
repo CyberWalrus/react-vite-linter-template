@@ -34,6 +34,7 @@ export const baseConfig = [
         },
     },
     ...eslintConfig.configs.base,
+    ...eslintConfig.configs.ligastavokRu,
     ...eslintConfig.configs.lsFCD('src'),
 ];
 

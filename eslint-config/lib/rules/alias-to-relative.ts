@@ -13,7 +13,7 @@ type Options = {
     aliases?: Record<string, string>;
 };
 
-const rule: Rule.RuleModule = {
+export const aliasToRelative: Rule.RuleModule = {
     create(context) {
         const options = (context.options[0] as Options) || ({} as Options);
         const aliases: Record<string, string> = options.aliases || {};
@@ -71,5 +71,3 @@ const rule: Rule.RuleModule = {
         type: 'suggestion',
     },
 };
-
-export default rule;
