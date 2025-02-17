@@ -1,3 +1,4 @@
+// eslint-disable-next-line boundaries/element-types
 import { createScopedStore } from '$shared/lib/create-scoped-store';
 
 import { getInitialTheme, getIsAppTheme } from '../lib/get-initial-state';

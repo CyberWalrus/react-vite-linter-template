@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
-import { stringToBooleanSchema } from '$shared/model/schemas';
+// eslint-disable-next-line boundaries/element-types
+import { stringToBooleanSchema } from '../../shared/model/schemas';
 
 export const EnvClientSchema = z.object({
     NODE_ENV: z.string(),

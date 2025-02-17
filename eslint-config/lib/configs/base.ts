@@ -19,40 +19,13 @@ import sonarjsPlugin from 'eslint-plugin-sonarjs';
 import sortKeysFixPlugin from 'eslint-plugin-sort-keys-fix';
 // @ts-ignore
 import typescriptSortKeysPlugin from 'eslint-plugin-typescript-sort-keys';
-import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 import lsPlugin from '../rules';
 
-export const baseConfig = [
+export const base = [
     {
-        ignores: ['public', '__generated__', 'coverage'],
-    },
-    {
-        files: ['**/*.ts', '**/*.tsx', '**/*.mjs'],
-
-        languageOptions: {
-            ecmaVersion: 2022,
-            globals: {
-                ...globals.browser,
-                ...globals.node,
-                __VERSION__: 'readonly',
-                mount: true,
-                myCustomGlobal: 'readonly',
-                shallow: true,
-            },
-            parser: tseslint.parser,
-            parserOptions: {
-                ecmaFeatures: {
-                    generators: false,
-                    jsx: true,
-                    objectLiteralDuplicateProperties: false,
-                },
-                projectService: true,
-                tsconfigRootDir: process.cwd(),
-            },
-            sourceType: 'module',
-        },
+        files: ['**/*.{ts,tsx,mjs,cjs,js}'],
         plugins: {
             '@ls': lsPlugin,
             '@stylistic/ts': stylisticTs,
@@ -2063,6 +2036,62 @@ export const baseConfig = [
             },
         },
     },
-];
+    {
+        files: ['*.js', '*.jsx', '*.cjs', '*.mjs'],
+        rules: {
+            '@typescript-eslint/array-type': 'off',
+            '@typescript-eslint/await-thenable': 'off',
+            '@typescript-eslint/ban-ts-comment': 'off',
+            '@typescript-eslint/ban-types': 'off',
+            '@typescript-eslint/consistent-type-definitions': 'off',
+            '@typescript-eslint/consistent-type-imports': 'off',
+            '@typescript-eslint/default-param-last': 'off',
+            '@typescript-eslint/no-explicit-any': 'off',
+            '@typescript-eslint/no-floating-promises': 'off',
+            '@typescript-eslint/no-misused-promises': 'off',
+            '@typescript-eslint/no-non-null-assertion': 'off',
+            '@typescript-eslint/no-shadow': 'off',
+            '@typescript-eslint/no-throw-literal': 'off',
+            '@typescript-eslint/no-unsafe-argument': 'off',
+            '@typescript-eslint/no-unsafe-assignment': 'off',
+            '@typescript-eslint/no-unsafe-call': 'off',
+            '@typescript-eslint/no-unsafe-member-access': 'off',
+            '@typescript-eslint/no-unsafe-return': 'off',
+            '@typescript-eslint/no-var-requires': 'off',
+            '@typescript-eslint/prefer-as-const': 'off',
+            '@typescript-eslint/require-await': 'off',
+            '@typescript-eslint/restrict-plus-operands': 'off',
+            '@typescript-eslint/restrict-template-expressions': 'off',
+            '@typescript-eslint/return-await': 'off',
+            '@typescript-eslint/unbound-method': 'off',
 
-export default baseConfig;
+            'default-param-last': 'off',
+            'guard-for-in': 'off',
+
+            'import/no-import-module-exports': 'off',
+            'import/no-named-as-default': 'off',
+            'import/no-named-as-default-member': 'off',
+            'import/prefer-default-export': 'off',
+
+            'no-case-declarations': 'off',
+            'no-unsafe-optional-chaining': 'off',
+            'no-unused-expressions': 'off',
+
+            'react/jsx-no-constructed-context-values': 'off',
+            'react/jsx-no-useless-fragment': 'off',
+            'react/no-array-index-key': 'off',
+            'sort-keys-fix/sort-keys-fix': 'off',
+        },
+    },
+    {
+        files: ['**/*.tsx?', '**/*.jsx?', '!src/**', 'src/**/__tests__/**', 'src/**/__e2e__/**', 'src/**/__mocks__/**'],
+        rules: {
+            '@typescript-eslint/unbound-method': 'off',
+            'import/no-extraneous-dependencies': 'off',
+            'no-await-in-loop': 'off',
+            'no-console': 'off',
+            'no-restricted-imports': 'off',
+            'prefer-promise-reject-errors': 'off',
+        },
+    },
+];

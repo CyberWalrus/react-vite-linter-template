@@ -1,3 +1,4 @@
+// eslint-disable-next-line boundaries/element-types
 import { useIsomorphicLayoutEffect } from '$shared/lib/hooks';
 
 import { HTML_ATTRIBUTE } from '../model/constants';

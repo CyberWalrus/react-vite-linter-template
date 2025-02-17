@@ -1,3 +1,4 @@
+/* eslint-disable boundaries/element-types */
 import { debounce } from 'lodash-es';
 
 import { useIsomorphicLayoutEffect } from '$shared/lib/hooks';

@@ -4,11 +4,13 @@
 import boundariesPlugin from 'eslint-plugin-boundaries';
 import reactRefreshPlugin from 'eslint-plugin-react-refresh';
 
+import lsPlugin from '../rules';
+
 /* eslint-disable no-template-curly-in-string */
-export default [
+export const lsFCD = (baseFolder: string = 'src') => [
     {
         files: ['**/*.{ts,tsx,mjs,cjs,js}'],
-        plugins: { boundaries: boundariesPlugin, 'react-refresh': reactRefreshPlugin },
+        plugins: { '@ls': lsPlugin, boundaries: boundariesPlugin, 'react-refresh': reactRefreshPlugin },
         rules: {
             'boundaries/element-types': [
                 2,
@@ -16,6 +18,11 @@ export default [
                     default: 'allow',
                     message: '${file.type} is not allowed to import (${dependency.type})',
                     rules: [
+                        {
+                            disallow: ['app', 'pages', 'widgets', 'features', 'entities', 'shared'],
+                            from: ['core'],
+                            message: 'Core module must not import upper layers (${dependency.type})',
+                        },
                         {
                             disallow: ['app', 'pages', 'widgets', 'features', 'entities'],
                             from: ['shared'],
@@ -27,14 +34,7 @@ export default [
                             message: 'Entity must not import upper layers (${dependency.type})',
                         },
                         {
-                            disallow: [
-                                [
-                                    'entities',
-                                    {
-                                        entity: '!${entity}',
-                                    },
-                                ],
-                            ],
+                            disallow: ['entities'],
                             from: ['entities'],
                             message: 'Entity must not import other entity',
                         },
@@ -44,14 +44,7 @@ export default [
                             message: 'Feature must not import upper layers (${dependency.type})',
                         },
                         {
-                            disallow: [
-                                [
-                                    'features',
-                                    {
-                                        feature: '!${feature}',
-                                    },
-                                ],
-                            ],
+                            disallow: ['features'],
                             from: ['features'],
                             message: 'Feature must not import other feature',
                         },
@@ -61,14 +54,7 @@ export default [
                             message: 'Feature must not import upper layers (${dependency.type})',
                         },
                         {
-                            disallow: [
-                                [
-                                    'widgets',
-                                    {
-                                        widget: '!${widget}',
-                                    },
-                                ],
-                            ],
+                            disallow: ['widgets'],
                             from: ['widgets'],
                             message: 'Widget must not import other widget',
                         },
@@ -78,14 +64,7 @@ export default [
                             message: 'Page must not import upper layers (${dependency.type})',
                         },
                         {
-                            disallow: [
-                                [
-                                    'pages',
-                                    {
-                                        page: '!${page}',
-                                    },
-                                ],
-                            ],
+                            disallow: ['pages'],
                             from: ['pages'],
                             message: 'Page must not import other page',
                         },
@@ -114,7 +93,7 @@ export default [
                                 [
                                     'shared',
                                     {
-                                        segment: 'core',
+                                        segment: 'service',
                                     },
                                 ],
                             ],
@@ -142,7 +121,7 @@ export default [
                             ],
                         },
                         {
-                            allow: '(*/*|*)/index.(ts|tsx)',
+                            allow: '((*/*|*)/index.(ts|tsx)|types/*.ts)',
                             target: [
                                 [
                                     'shared',
@@ -158,7 +137,7 @@ export default [
                                 [
                                     'shared',
                                     {
-                                        segment: 'ui', // ("ui"|"constants")
+                                        segment: 'ui',
                                     },
                                 ],
                             ],
@@ -168,8 +147,12 @@ export default [
                             target: ['app'],
                         },
                         {
-                            allow: '(*/|)index.(ts|tsx)',
-                            target: ['pages', 'widgets', 'features', 'entities'],
+                            allow: 'index.(ts|tsx)',
+                            target: ['widgets', 'features', 'entities', 'pages'],
+                        },
+                        {
+                            allow: 'index.(ts|tsx|js)',
+                            target: ['core'],
                         },
                     ],
                 },
@@ -183,23 +166,23 @@ export default [
                     type: 'app',
                 },
                 {
-                    capture: ['page'],
+                    mode: 'folder',
                     pattern: 'pages/*',
                     type: 'pages',
                 },
                 {
-                    capture: ['widget'],
-                    pattern: 'widgets/*',
+                    mode: 'folder',
+                    pattern: 'widgets/*/*',
                     type: 'widgets',
                 },
                 {
-                    capture: ['feature'],
-                    pattern: 'features/*',
+                    mode: 'folder',
+                    pattern: 'features/*/*',
                     type: 'features',
                 },
                 {
-                    capture: ['entity'],
-                    pattern: 'entities/*',
+                    mode: 'folder',
+                    pattern: 'entities/*/*',
                     type: 'entities',
                 },
                 {
@@ -207,8 +190,101 @@ export default [
                     pattern: 'shared/*',
                     type: 'shared',
                 },
+                {
+                    mode: 'folder',
+                    pattern: 'core/*',
+                    type: 'core',
+                },
             ],
-            'boundaries/include': ['src/**/*'],
+            'boundaries/include': [`${baseFolder}/**/*`],
+        },
+    },
+    {
+        files: [`${baseFolder}/app/**/*.{ts,tsx,mjs,cjs,js}`],
+        rules: {
+            '@ls/alias-to-relative': [
+                2,
+                {
+                    aliases: {
+                        $app: `./${baseFolder}/app`,
+                    },
+                },
+            ],
+        },
+    },
+    {
+        files: [`${baseFolder}/pages/**/*.{ts,tsx,mjs,cjs,js}`],
+        rules: {
+            '@ls/alias-to-relative': [
+                2,
+                {
+                    aliases: {
+                        $pages: `./${baseFolder}/pages`,
+                    },
+                },
+            ],
+        },
+    },
+    {
+        files: [`${baseFolder}/widgets/**/*.{ts,tsx,mjs,cjs,js}`],
+        rules: {
+            '@ls/alias-to-relative': [
+                2,
+                {
+                    aliases: {
+                        $widgets: `./${baseFolder}/widgets`,
+                    },
+                },
+            ],
+        },
+    },
+    {
+        files: [`${baseFolder}/features/**/*.{ts,tsx,mjs,cjs,js}`],
+        rules: {
+            '@ls/alias-to-relative': [
+                2,
+                {
+                    aliases: {
+                        $features: `./${baseFolder}/features`,
+                    },
+                },
+            ],
+        },
+    },
+    {
+        files: [`${baseFolder}/entities/**/*.{ts,tsx,mjs,cjs,js}`],
+        rules: {
+            'no-restricted-imports': [
+                2,
+                {
+                    paths: [
+                        {
+                            message:
+                                'Внутри папки src/common/entities импорт через алиас "$entities" запрещён. Используйте относительные пути.',
+                            name: '$entities',
+                        },
+                    ],
+                    patterns: ['$entities/*'],
+                },
+            ],
+        },
+    },
+    {
+        files: [`${baseFolder}/core/**/*.{ts,tsx,mjs,cjs,js}`],
+        rules: {
+            'no-restricted-imports': [
+                2,
+                {
+                    paths: [
+                        {
+                            message:
+                                'Внутри папки src/common/core импорт через алиас "$core" запрещён. Используйте относительные пути.',
+                            name: '$core',
+                        },
+                    ],
+                    patterns: ['$core/*/*'],
+                },
+            ],
         },
     },
 ];

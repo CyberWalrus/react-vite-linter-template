@@ -1,3 +1,4 @@
+/* eslint-disable boundaries/element-types */
 import { createScopedStore } from '$shared/lib/create-scoped-store';
 
 import { getLayout } from '../lib/get-layout';

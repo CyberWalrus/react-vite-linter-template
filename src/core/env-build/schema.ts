@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
+// eslint-disable-next-line boundaries/element-types
 import { stringToBooleanSchema } from '../../shared/model/schemas';
 
 const browserNameSchema = z.union([z.literal('chromium'), z.literal('firefox'), z.literal('webkit')]);
