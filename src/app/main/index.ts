@@ -3,7 +3,7 @@ import './styles/reset.scss';
 import './styles/fonts.scss';
 import './styles/main.scss';
 
-import { logError } from '$shared/core/logger';
+import { logError } from '$core/logger';
 
 import { initApp } from './lib/init-app';
 

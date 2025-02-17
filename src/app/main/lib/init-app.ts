@@ -1,8 +1,8 @@
 import { nanoid } from 'nanoid';
 
 import { fetchGetResources } from '$shared/api/resources/index';
-import { initI18n } from '$shared/core/i18n';
 import { clearAppStores } from '$shared/lib/create-scoped-store';
+import { initI18n } from '$core/i18n';
 
 import { createReact } from '../ui/create-react';
 import { prepareWorker } from './prepare-worker';

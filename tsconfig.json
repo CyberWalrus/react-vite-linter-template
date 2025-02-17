@@ -14,6 +14,7 @@
     },
     "include": [
         "src",
+        "eslint-config",
         "types",
         "storybook",
         "scripts",
@@ -21,10 +22,12 @@
         ".eslintrc.cjs",
         "*.config.js",
         "*.config.cjs",
+        "*.config.mjs",
         "*.config.ts",
         "__mocks__"
     ],
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "public"
     ]
 }

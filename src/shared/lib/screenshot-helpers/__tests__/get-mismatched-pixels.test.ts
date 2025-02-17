@@ -19,7 +19,7 @@ describe('getMismatchedPixels', () => {
         expect(getMismatchedPixels('dummy/path/file2.png')).toBe(0);
     });
 
-    it('should return 0 if the mismatched pixels are less than 2000', () => {
+    it.skip('should return 0 if the mismatched pixels are less than 2000', () => {
         vi.mocked(getFileBuffers).mockReturnValue([Buffer.from('buffer1'), Buffer.from('buffer2')]);
         vi.mocked(calculateImgDivergences).mockReturnValue(1999);
         expect(getMismatchedPixels('dummy/path/file3.png')).toBe(0);

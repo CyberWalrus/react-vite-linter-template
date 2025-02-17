@@ -1,5 +1,5 @@
-import { useWatchLayout } from '$shared/core/layout';
-import { useWatchDeviceTheme, useWatchTheme } from '$shared/core/theme';
+import { useWatchLayout } from '$core/layout';
+import { useWatchDeviceTheme, useWatchTheme } from '$core/theme';
 
 export const useInit = () => {
     useWatchLayout();

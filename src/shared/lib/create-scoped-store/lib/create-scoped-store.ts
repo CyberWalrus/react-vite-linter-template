@@ -1,6 +1,6 @@
 import type { StateCreator } from 'zustand';
 
-import { useAppContext } from '$shared/core/app-context';
+import { useAppContext } from '$core/app-context';
 
 import type { Store } from '../model/types';
 import { createStore } from './create-store';
@@ -9,10 +9,7 @@ export const createScopedStore = <GState>(
     fn: StateCreator<GState>,
     name: string,
 ): [
-    <U = GState>(
-        selector?: ((state: GState) => U) | undefined,
-        equalityFn?: ((a: U, b: U) => boolean) | undefined,
-    ) => U,
+    <U = GState>(selector?: (state: GState) => U, equalityFn?: (a: U, b: U) => boolean) => U,
     (appId: string) => GState,
 ] => {
     const stateMap = new Map<string, Store<GState>>();
@@ -34,7 +31,7 @@ export const createScopedStore = <GState>(
     const useStore = <U = GState>(
         // eslint-disable-next-line default-param-last
         selector: (state: GState) => U = (state: GState) => state as unknown as U,
-        equalityFn?: ((a: U, b: U) => boolean) | undefined,
+        equalityFn?: (a: U, b: U) => boolean,
     ): U => {
         const { appId } = useAppContext();
         if (!stateMap.has(appId)) {

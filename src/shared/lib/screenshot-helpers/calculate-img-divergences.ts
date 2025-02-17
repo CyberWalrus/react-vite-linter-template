@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import pixelmatch from 'pixelmatch';
 import { PNG } from 'pngjs';
 
@@ -23,7 +22,7 @@ export const calculateImgDivergences = (
         threshold: 0.5,
     });
 
-    saveFile(difScreenshotFile, PNG.sync.write(diff));
+    saveFile(difScreenshotFile, new Uint8Array(PNG.sync.write(diff)));
 
     return mismatchedPixels;
 };

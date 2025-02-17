@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { createLazyRoute } from '@tanstack/react-router';
 
-import { Counter } from '$widgets/counter';
+import { Counter } from '$widgets/system/counter';
 import { TechLink } from '$shared/ui/tech-link';
 import { TT } from '$shared/ui/typography';
 

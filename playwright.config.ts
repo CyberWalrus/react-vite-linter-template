@@ -1,7 +1,7 @@
 import type { PlaywrightTestConfig } from '@playwright/test';
 import dotenv from 'dotenv';
 
-import { envBuild } from './src/shared/core/env-build';
+import { envBuild } from './src/core/env-build';
 
 dotenv.config();
 

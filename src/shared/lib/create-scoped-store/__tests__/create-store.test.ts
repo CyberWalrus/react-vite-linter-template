@@ -3,12 +3,12 @@ import { devtools } from 'zustand/middleware';
 import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
 
-import { envClient } from '$shared/core/env-client';
+import { envClient } from '$core/env-client';
 
 import { createStore } from '../lib/create-store';
 
 vi.mock('zustand/traditional', async () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const actual = await vi.importActual<any>('zustand/traditional');
 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return

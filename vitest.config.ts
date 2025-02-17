@@ -2,7 +2,7 @@ import { resolve } from 'path';
 import { mergeConfig } from 'vite';
 import { defineConfig } from 'vitest/config';
 
-import { envBuild } from './src/shared/core/env-build';
+import { envBuild } from './src/core/env-build';
 import viteConfig from './vite.config';
 
 const type = envBuild.VITEST_TEST_TYPE;
@@ -25,7 +25,7 @@ const getIncludeTest = () => {
     }
 
     if (type === 'unit-isolate') {
-        return ['src/shared/lib/create-store/__tests__/**'];
+        return ['src/shared/lib/create-scoped-store/__tests__/**'];
     }
 
     return ['**/*.{test,spec}.?(c|m)[jt]s?(x)'];
@@ -40,7 +40,7 @@ const getExcludeCoverage = () => {
         return [];
     }
 
-    return ['src/shared/lib/create-store/**'];
+    return ['src/shared/lib/create-scoped-store/**'];
 };
 
 const getIncludeCoverage = () => {
@@ -49,7 +49,7 @@ const getIncludeCoverage = () => {
     }
 
     if (type === 'unit-isolate') {
-        return ['src/shared/lib/create-store/**'];
+        return ['src/shared/lib/create-scoped-store/**'];
     }
 
     return ['src/**'];
@@ -60,7 +60,7 @@ export default mergeConfig(
     defineConfig({
         test: {
             alias: {
-                './src/shared/lib/create-store': resolve('./src/__mocks__/create-store.ts'),
+                './src/shared/lib/create-scoped-store': resolve('./src/__mocks__/create-store.ts'),
             },
             coverage: {
                 exclude: [

@@ -11,14 +11,14 @@ export const getFileBuffers = (currentFilePath: string): [Buffer | null, Buffer 
 
     try {
         currentScreenshotFile = readFileSync(currentFilePath);
-    } catch (error) {
+    } catch {
         return [null, null];
     }
 
     try {
         referenceScreenshotFile = readFileSync(referenceFilePath);
-    } catch (error) {
-        saveFile(referenceFilePath, currentScreenshotFile);
+    } catch {
+        saveFile(referenceFilePath, new Uint8Array(currentScreenshotFile));
 
         return [null, null];
     }

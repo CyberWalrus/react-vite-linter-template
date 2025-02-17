@@ -1,4 +1,4 @@
-import { envClient } from '$shared/core/env-client';
+import { envClient } from '$core/env-client';
 
 export const prepareWorker = async () => {
     if (envClient.NODE_ENV !== 'production') {

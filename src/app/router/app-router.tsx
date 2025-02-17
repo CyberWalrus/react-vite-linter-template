@@ -5,9 +5,9 @@ import { createRouter, RouterProvider } from '@tanstack/react-router';
 import { aboutRoute } from '$pages/about';
 import { homeRoute } from '$pages/home';
 import { infoRoute } from '$pages/info';
-import { mainLayoutRoute } from '$widgets/main-layout-route';
-import { envClient } from '$shared/core/env-client';
+import { mainLayoutRoute } from '$widgets/system/main-layout-route';
 import { rootRoute } from '$shared/ui/root-route';
+import { envClient } from '$core/env-client';
 
 const mainTree = mainLayoutRoute.addChildren([homeRoute, aboutRoute]);
 const routeTree = rootRoute.addChildren([infoRoute, mainTree]);

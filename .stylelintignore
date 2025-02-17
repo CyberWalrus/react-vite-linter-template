@@ -9,4 +9,5 @@ build/
 *.tsx
 *.js
 *.cjs
+*.mjs
 LICENSE

@@ -1,15 +1,5 @@
 import type { Context } from 'react';
-import {
-    Children,
-    createContext,
-    createElement,
-    isValidElement,
-    ReactNode,
-    startTransition,
-    useContext,
-    useEffect,
-    useState,
-} from 'react';
+import { createContext, useContext } from 'react';
 
 export function useStrictContext<GContext>(context: Context<GContext | null>) {
     const value = useContext(context);

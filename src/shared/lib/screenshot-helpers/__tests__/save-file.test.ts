@@ -24,7 +24,7 @@ describe('saveFile', () => {
             const isTrue = saveFile(fileName, data);
 
             expect(isTrue).toBeTruthy();
-        } catch (error) {
+        } catch {
             expect(true).toBeTruthy();
         }
     });

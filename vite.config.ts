@@ -6,7 +6,7 @@ import viteCompression from 'vite-plugin-compression';
 import { VitePWA } from 'vite-plugin-pwa';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
-import { envBuild } from './src/shared/core/env-build';
+import { envBuild } from './src/core/env-build';
 
 dotenv.config();
 
@@ -93,6 +93,7 @@ export default defineConfig({
             $__tests__: resolve(__dirname, './src/__tests__'),
             $app: resolve(__dirname, './src/app'),
             $assets: resolve(__dirname, './src/assets'),
+            $core: resolve(__dirname, './src/core'),
             $entities: resolve(__dirname, './src/entities'),
             $features: resolve(__dirname, './src/features'),
             $pages: resolve(__dirname, './src/pages'),

@@ -1,13 +1,13 @@
 import { cleanup } from '@testing-library/react';
 
-import { envClient } from '$shared/core/env-client';
+import { envClient } from '$core/env-client';
 
 import '@testing-library/jest-dom';
 
 vi.mock('zustand');
 vi.mock('zustand/traditional');
 vi.mock('js-cookie');
-vi.mock('$shared/core/logger', () => ({
+vi.mock('$core/logger', () => ({
     logError: vi.fn(),
     logInfo: vi.fn(),
     logWarn: vi.fn(),
