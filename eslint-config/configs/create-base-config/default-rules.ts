@@ -774,16 +774,6 @@ export const defaultRules: Partial<Linter.RulesRecord> = {
     'no-whitespace-before-property': ['off'],
     'no-with': ['error'],
     'no-wrap-func': ['off'],
-    'node/file-extension-in-import': [
-        'warn',
-        'always',
-        {
-            '.js': 'never',
-            '.jsx': 'never',
-            '.ts': 'never',
-            '.tsx': 'never',
-        },
-    ],
     'nonblock-statement-body-position': [
         'off',
         'beside',

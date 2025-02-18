@@ -12,6 +12,16 @@ export const otherRules: Partial<Linter.RulesRecord> = {
     ],
     '@stylistic/ts/object-curly-spacing': ['error', 'always'],
     '@stylistic/ts/space-before-blocks': ['error'],
+    'node/file-extension-in-import': [
+        'warn',
+        'always',
+        {
+            '.js': 'never',
+            '.jsx': 'never',
+            '.ts': 'never',
+            '.tsx': 'never',
+        },
+    ],
     'sort-keys-fix/sort-keys-fix': [
         'warn',
         'asc',
