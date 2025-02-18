@@ -1,6 +1,6 @@
 import type { Linter } from 'eslint';
 
-export const noUnusedModules = (ignoreExports?: string[]) =>
+export const createCliConfig = (ignoreExports?: string[]) =>
     [
         {
             files: ['**/*.{ts,tsx}'],

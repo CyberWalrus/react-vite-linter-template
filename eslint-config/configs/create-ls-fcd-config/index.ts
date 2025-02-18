@@ -5,7 +5,7 @@ import reactRefreshPlugin from 'eslint-plugin-react-refresh';
 import { lsPlugin } from '../../rules';
 
 /* eslint-disable no-template-curly-in-string */
-export const lsFCD = (baseFolder: string = 'src') => [
+export const createLsFcdConfig = (baseFolder: string = 'src') => [
     {
         files: ['**/*.{ts,tsx,mjs,cjs,js,jsx}'],
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment

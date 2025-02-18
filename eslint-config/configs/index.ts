@@ -1,15 +1,15 @@
-import { base } from './base';
+import { createBaseConfig } from './create-base-config';
+import { createCliConfig } from './create-cli-config';
+import { createLsFcdConfig } from './create-ls-fcd-config';
+import { defaultIgnores } from './default-ignores';
 import { fcd } from './fcd';
-import { ignores } from './ignore';
 import { ligastavokRu } from './ligastavok-ru';
-import { lsFCD } from './ls-fcd';
-import { noUnusedModules } from './no-unused-modules';
 
 export const configs = {
-    base,
+    createBaseConfig,
+    createCliConfig,
+    createLsFcdConfig,
+    defaultIgnores,
     fcd,
-    ignores,
     ligastavokRu,
-    lsFCD,
-    noUnusedModules,
 };
