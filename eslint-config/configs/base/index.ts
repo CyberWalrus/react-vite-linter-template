@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable sonarjs/no-duplicate-string */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
+
 // @ts-ignore
 import stylisticTs from '@stylistic/eslint-plugin-ts';
 import type { Linter } from 'eslint';
@@ -26,7 +26,7 @@ import { lsPlugin } from '../../rules';
 
 export const base = [
     {
-        files: ['**/*.{ts,tsx,mjs,cjs,js}'],
+        files: ['**/*.{ts,tsx,mjs,cjs,js,jsx}'],
         plugins: {
             '@ls': lsPlugin,
             '@stylistic/ts': stylisticTs,
@@ -63,7 +63,7 @@ export const base = [
                 },
             ],
             '@typescript-eslint/await-thenable': ['error'],
-            '@typescript-eslint/ban-ts-comment': ['error'],
+            '@typescript-eslint/ban-ts-comment': 'off',
             '@typescript-eslint/brace-style': [
                 'off',
                 '1tbs',
@@ -96,6 +96,7 @@ export const base = [
                 'error',
                 {
                     fixStyle: 'separate-type-imports',
+                    prefer: 'type-imports',
                 },
             ],
             '@typescript-eslint/default-param-last': ['error'],
@@ -278,6 +279,7 @@ export const base = [
             ],
             '@typescript-eslint/no-useless-constructor': ['error'],
             '@typescript-eslint/no-var-requires': ['warn'],
+
             '@typescript-eslint/prefer-as-const': ['error'],
             '@typescript-eslint/quotes': [
                 'off',
@@ -288,10 +290,11 @@ export const base = [
             ],
             '@typescript-eslint/require-await': ['error'],
             '@typescript-eslint/restrict-plus-operands': ['error'],
-
             '@typescript-eslint/restrict-template-expressions': ['error'],
+
             '@typescript-eslint/return-await': ['error', 'in-try-catch'],
             '@typescript-eslint/semi': ['off', 'always'],
+            '@typescript-eslint/sort-type-constituents': 'warn',
             '@typescript-eslint/space-before-function-paren': [
                 'off',
                 {
@@ -493,6 +496,7 @@ export const base = [
             'id-length': ['off'],
             'id-match': ['off'],
             'implicit-arrow-linebreak': ['off', 'beside'],
+            'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
             'import/default': ['off'],
             'import/dynamic-import-chunkname': [
                 'off',
@@ -548,7 +552,7 @@ export const base = [
                     maxDepth: '∞',
                 },
             ],
-            'import/no-default-export': ['off'],
+            'import/no-default-export': ['error'],
             'import/no-deprecated': ['off'],
             'import/no-duplicates': ['error'],
             'import/no-dynamic-require': ['error'],
@@ -1871,13 +1875,17 @@ export const base = [
             'semi-style': ['off', 'last'],
             'simple-import-sort/exports': ['warn'],
             'simple-import-sort/imports': [
-                'warn',
+                2,
                 {
                     groups: [
                         ['^react', '^@?\\w'],
-                        ['^\\$app+', '^\\$pages+', '^\\$widgets+', '^\\$entities+', '^\\$shared+', '^\\$+'],
+                        ['^@ls'],
+                        ['^\\$(?!\\.(c|le|sa|sc|pc)ss$)'],
                         ['^\\.\\.(?!/?$)', '^\\.\\./?$', '^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
-                        ['^\\$styles.+\\.(c|le|sa|sc|pc)ss$', '^.+\\.(c|le|sa|sc|pc)ss$'],
+                        [
+                            '^\\$(uikit|components|utils|config|common|routes|configs|config|types).*\\.(c|le|sa|sc|pc)ss$',
+                            '^.+\\.(c|le|sa|sc|pc)ss$',
+                        ],
                     ],
                 },
             ],
@@ -2044,7 +2052,13 @@ export const base = [
         },
     },
     {
-        files: ['*.js', '*.jsx', '*.cjs', '*.mjs'],
+        files: ['*.ts', 'constants.tsx', '**/constants/**', '**/hooks/**'],
+        rules: {
+            'import/prefer-default-export': 0,
+        },
+    },
+    {
+        files: ['**/*.{mjs,cjs,js,jsx}'],
         rules: {
             '@typescript-eslint/array-type': 'off',
             '@typescript-eslint/await-thenable': 'off',
@@ -2102,6 +2116,12 @@ export const base = [
             'no-console': 'off',
             'no-restricted-imports': 'off',
             'prefer-promise-reject-errors': 'off',
+        },
+    },
+    {
+        files: ['**/*config.{ts,tsx,mjs,cjs,js,jsx}'],
+        rules: {
+            'import/no-default-export': 'off',
         },
     },
 ] satisfies Linter.Config[];

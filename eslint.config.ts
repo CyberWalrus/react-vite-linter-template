@@ -6,7 +6,7 @@ import eslintConfig from './eslint-config';
 export const baseConfig = [
     ...eslintConfig.configs.ignores,
     {
-        files: ['**/*.{ts,tsx,mjs,cjs,js}'],
+        files: ['**/*.{ts,tsx,mjs,cjs,js,jsx}'],
         languageOptions: {
             ecmaVersion: 2022,
             globals: {

@@ -1,4 +1,4 @@
-export type TranslatedTextProps = {
+export type TranslatedTextProps = JSX.IntrinsicElements['p'] & {
     children: string;
     resources?: string;
-} & JSX.IntrinsicElements['p'];
+};

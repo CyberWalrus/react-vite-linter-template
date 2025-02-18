@@ -1,13 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-ignore
 import boundariesPlugin from 'eslint-plugin-boundaries';
 import reactRefreshPlugin from 'eslint-plugin-react-refresh';
 
 /* eslint-disable no-template-curly-in-string */
-export default [
+export const fcd = [
     {
-        files: ['**/*.{ts,tsx,mjs,cjs,js}'],
+        files: ['**/*.{ts,tsx,mjs,cjs,js,jsx}'],
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         plugins: { boundaries: boundariesPlugin, 'react-refresh': reactRefreshPlugin },
         rules: {
             'boundaries/element-types': [

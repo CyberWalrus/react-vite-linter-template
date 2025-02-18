@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-ignore
 import boundariesPlugin from 'eslint-plugin-boundaries';
 import reactRefreshPlugin from 'eslint-plugin-react-refresh';
@@ -9,7 +7,8 @@ import { lsPlugin } from '../../rules';
 /* eslint-disable no-template-curly-in-string */
 export const lsFCD = (baseFolder: string = 'src') => [
     {
-        files: ['**/*.{ts,tsx,mjs,cjs,js}'],
+        files: ['**/*.{ts,tsx,mjs,cjs,js,jsx}'],
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         plugins: { '@ls': lsPlugin, boundaries: boundariesPlugin, 'react-refresh': reactRefreshPlugin },
         rules: {
             'boundaries/element-types': [
@@ -200,7 +199,7 @@ export const lsFCD = (baseFolder: string = 'src') => [
         },
     },
     {
-        files: [`${baseFolder}/app/**/*.{ts,tsx,mjs,cjs,js}`],
+        files: [`${baseFolder}/app/**/*.{ts,tsx,mjs,cjs,js,jsx}`],
         rules: {
             '@ls/alias-to-relative': [
                 2,
@@ -213,7 +212,7 @@ export const lsFCD = (baseFolder: string = 'src') => [
         },
     },
     {
-        files: [`${baseFolder}/pages/**/*.{ts,tsx,mjs,cjs,js}`],
+        files: [`${baseFolder}/pages/**/*.{ts,tsx,mjs,cjs,js,jsx}`],
         rules: {
             '@ls/alias-to-relative': [
                 2,
@@ -226,7 +225,7 @@ export const lsFCD = (baseFolder: string = 'src') => [
         },
     },
     {
-        files: [`${baseFolder}/widgets/**/*.{ts,tsx,mjs,cjs,js}`],
+        files: [`${baseFolder}/widgets/**/*.{ts,tsx,mjs,cjs,js,jsx}`],
         rules: {
             '@ls/alias-to-relative': [
                 2,
@@ -239,7 +238,7 @@ export const lsFCD = (baseFolder: string = 'src') => [
         },
     },
     {
-        files: [`${baseFolder}/features/**/*.{ts,tsx,mjs,cjs,js}`],
+        files: [`${baseFolder}/features/**/*.{ts,tsx,mjs,cjs,js,jsx}`],
         rules: {
             '@ls/alias-to-relative': [
                 2,
@@ -252,7 +251,7 @@ export const lsFCD = (baseFolder: string = 'src') => [
         },
     },
     {
-        files: [`${baseFolder}/entities/**/*.{ts,tsx,mjs,cjs,js}`],
+        files: [`${baseFolder}/entities/**/*.{ts,tsx,mjs,cjs,js,jsx}`],
         rules: {
             'no-restricted-imports': [
                 2,
@@ -270,7 +269,7 @@ export const lsFCD = (baseFolder: string = 'src') => [
         },
     },
     {
-        files: [`${baseFolder}/core/**/*.{ts,tsx,mjs,cjs,js}`],
+        files: [`${baseFolder}/core/**/*.{ts,tsx,mjs,cjs,js,jsx}`],
         rules: {
             'no-restricted-imports': [
                 2,

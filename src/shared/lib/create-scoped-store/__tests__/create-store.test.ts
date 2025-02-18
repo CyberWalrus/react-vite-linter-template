@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { vi } from 'vitest';
 import { devtools } from 'zustand/middleware';
 import { shallow } from 'zustand/shallow';
@@ -8,10 +10,8 @@ import { envClient } from '$core/env-client';
 import { createStore } from '../lib/create-store';
 
 vi.mock('zustand/traditional', async () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment
     const actual = await vi.importActual<any>('zustand/traditional');
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return {
         ...actual,
         createWithEqualityFn: vi.fn().mockReturnValue(() => {}),
@@ -20,7 +20,6 @@ vi.mock('zustand/traditional', async () => {
 
 vi.mock('zustand/shallow', () => ({ shallow: vi.fn() }));
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-return
 vi.mock('zustand/middleware', () => ({ devtools: vi.fn((fn) => fn) }));
 
 describe('createStore', () => {

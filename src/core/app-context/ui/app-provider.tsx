@@ -1,4 +1,5 @@
-import { type FC, type ReactNode, useMemo } from 'react';
+import type { FC, ReactNode } from 'react';
+import { useMemo } from 'react';
 
 import { AppContext } from '../lib/app-context';
 

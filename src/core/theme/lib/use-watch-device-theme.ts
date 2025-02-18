@@ -1,7 +1,7 @@
-// eslint-disable-next-line boundaries/element-types
-import { useIsomorphicLayoutEffect } from '$shared/lib/hooks';
 import { writeCookie } from '$core/cookie';
 import { writeLocalStorage } from '$core/local-storage';
+// eslint-disable-next-line boundaries/element-types
+import { useIsomorphicLayoutEffect } from '$shared/lib/hooks';
 
 import { COOKIE_EXPIRES } from '../model/constants';
 import { useThemeState } from '../model/theme.store';
